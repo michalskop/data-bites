@@ -1,0 +1,795 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Volební anomálie 2026 – Mapa detekovaných nesrovnalostí</title>
+<link rel="stylesheet" href="lib/leaflet.css">
+<style>
+:root {
+  --bg: #0f172a;
+  --surface: #1e293b;
+  --surface-alt: #334155;
+  --card: #1e293b;
+  --border: #334155;
+  --text: #f8fafc;
+  --muted: #94a3b8;
+  --accent: #38bdf8;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+  --success: #10b981;
+  --primary: #6366f1;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f8fafc;
+    --surface: #ffffff;
+    --surface-alt: #f1f5f9;
+    --card: #ffffff;
+    --border: #e2e8f0;
+    --text: #0f172a;
+    --muted: #64748b;
+    --accent: #0284c7;
+    --danger: #dc2626;
+    --warning: #d97706;
+    --success: #059669;
+    --primary: #4f46e5;
+  }
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; }
+header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 14px 20px; }
+.header-wrap { max-width: 1600px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; }
+h1 { font-size: 19px; font-weight: 700; color: var(--text); display: flex; align-items: center; gap: 8px; }
+.brand { display: inline-flex; align-items: center; gap: 9px; flex-shrink: 0; color: var(--text); text-decoration: none; font-size: 20px; font-weight: 750; }
+.brand img { display: block; width: 36px; height: 36px; }
+.brand:hover { color: var(--accent); }
+.brand:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; border-radius: 4px; }
+.tag { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 999px; background: rgba(56,189,248,0.15); color: var(--accent); border: 1px solid rgba(56,189,248,0.3); }
+.disclaimer { font-size: 12px; color: var(--muted); max-width: 900px; }
+.nav-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.tab-btn { background: var(--surface-alt); border: 1px solid var(--border); color: var(--text); padding: 7px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 6px; }
+.tab-btn:hover { background: var(--border); }
+.tab-btn.active { background: var(--primary); border-color: var(--primary); color: #fff; box-shadow: 0 2px 8px rgba(99,102,241,0.3); }
+.tab-btn.teaser-btn { border-color: rgba(239,68,68,0.4); }
+.tab-btn.teaser-btn.active { background: var(--danger); border-color: var(--danger); color: #fff; }
+
+main { max-width: 1600px; margin: 0 auto; padding: 16px 20px; display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(380px, 0.95fr); gap: 16px; height: calc(100vh - 150px); min-height: 650px; }
+@media (max-width: 1100px) {
+  main { grid-template-columns: 1fr; height: auto; }
+}
+
+.map-container { position: relative; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; }
+#map { flex: 1; width: 100%; min-height: 520px; background: #e2e8f0; }
+
+.map-controls { position: absolute; top: 10px; left: 60px; z-index: 1000; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 6px 12px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; font-size: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.18); }
+.map-controls label { color: var(--muted); font-weight: 600; }
+.map-controls select { background: var(--surface-alt); color: var(--text); border: 1px solid var(--border); padding: 4px 8px; border-radius: 6px; font-size: 12px; cursor: pointer; }
+
+.legend-card { position: absolute; bottom: 25px; right: 15px; z-index: 1000; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; font-size: 11px; box-shadow: 0 4px 14px rgba(0,0,0,0.22); min-width: 210px; }
+.legend-title { font-weight: 700; margin-bottom: 6px; color: var(--text); }
+.color-bar { height: 10px; border-radius: 3px; margin: 4px 0; border: 1px solid rgba(0,0,0,0.15); }
+.legend-ticks { display: flex; justify-content: space-between; color: var(--muted); font-size: 10px; font-weight: 600; }
+.size-legend { margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--border); }
+.size-legend-title { font-size: 10px; color: var(--muted); font-weight: 600; margin-bottom: 4px; text-transform: uppercase; }
+.size-row { display: flex; align-items: center; gap: 10px; justify-content: space-around; }
+.size-item { display: flex; flex-direction: column; align-items: center; gap: 3px; font-size: 10px; color: var(--muted); }
+.size-circle { border-radius: 50%; background: rgba(99,102,241,0.5); border: 1px solid #6366f1; display: inline-block; }
+
+.detail-panel { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px; overflow-y: auto; display: flex; flex-direction: column; gap: 14px; }
+.card { background: var(--surface-alt); border: 1px solid var(--border); border-radius: 8px; padding: 14px; }
+.card-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 8px; }
+.teaser-box { background: rgba(239,68,68,0.1); border-left: 4px solid var(--danger); padding: 12px 14px; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.5; color: var(--text); }
+.teaser-box b { color: var(--danger); }
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px; }
+.stat-box { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 8px 10px; }
+.stat-label { font-size: 11px; color: var(--muted); margin-bottom: 2px; }
+.stat-val { font-size: 17px; font-weight: 700; color: var(--text); }
+.stat-val.alert { color: var(--danger); }
+.stat-val.success { color: var(--success); }
+
+table { width: 100%; border-collapse: collapse; font-size: 12px; text-align: left; }
+th, td { padding: 5px 8px; border-bottom: 1px solid var(--border); }
+th { color: var(--muted); font-weight: 600; font-size: 11px; }
+tr.focus-row td { background: rgba(239,68,68,0.12); font-weight: 700; }
+tr:hover td { background: rgba(255,255,255,0.04); }
+
+.protocol-checklist { list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 12px; }
+.protocol-checklist li { display: flex; align-items: flex-start; gap: 8px; }
+.protocol-checklist li::before { content: "📋"; font-size: 13px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-wrap">
+    <div>
+      <h1>
+        <span>Forensní volební screening 2026</span>
+        <span class="tag">Měřítko & Bublinová mapa</span>
+      </h1>
+      <p class="disclaimer">
+        Data z lokálního snapshotu z 11. 10. 2026. Velikost bublin se automaticky přizpůsobuje přiblížení mapy. <b>Barevnost i velikost mluví samy za sebe bez umělých rámečků.</b>
+      </p>
+    </div>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <a href="../" style="text-decoration:none; color:var(--muted); font-size:12px; font-weight:600; padding:6px 10px; border-radius:6px; background:var(--surface-alt); border:1px solid var(--border); display:inline-flex; align-items:center; gap:5px; transition: all 0.2s;">
+        ← DataBites
+      </a>
+      <a class="brand" href="https://datatimes.cz/" aria-label="DataTimes.cz – úvodní stránka">
+        <img src="images/datatimes-logo.png" alt="" width="36" height="36">
+        <span>DataTimes.cz</span>
+      </a>
+    </div>
+  </div>
+  <div class="nav-tabs" id="tabs">
+    <button class="tab-btn teaser-btn active" data-view="senate_51">🎯 1. Žďár nad Sázavou (Milešín & okolí)</button>
+    <button class="tab-btn" data-view="kladno">🏛️ 2. Kladno (Okrsek 29: KLADEŇÁCI)</button>
+    <button class="tab-btn" data-view="brno">⚖️ 3. Brno-střed (Okrsek 23018: Nula pro vítěze)</button>
+    <button class="tab-btn" data-view="praha_2">🏙️ 4. Praha 2 (Okrsek 2038: Nula pro ANO)</button>
+    <button class="tab-btn" data-view="praha_3">🏙️ 5. Praha 3 (Okrsek 3036: Propad SPOLU)</button>
+  </div>
+</header>
+
+<main>
+  <div class="map-container">
+    <div class="map-controls">
+      <label id="ctrl-label">Ukazatel:</label>
+      <select id="metric-select"></select>
+      <span style="border-left: 1px solid var(--border); padding-left: 8px; margin-left: 4px; display: flex; gap: 4px;">
+        <button id="btn-mode-bubble" class="tab-btn active" style="padding:4px 8px;font-size:11px;">🫧 Bubliny</button>
+        <button id="btn-mode-poly" class="tab-btn" style="padding:4px 8px;font-size:11px;">🗺️ Polygony</button>
+      </span>
+      <button id="btn-fit" class="tab-btn" style="padding:4px 8px;font-size:11px;">🔍 Vycentrovat</button>
+    </div>
+    <div id="map"></div>
+    <div class="legend-card" id="legend"></div>
+  </div>
+
+  <div class="detail-panel" id="detail-panel">
+    <!-- Dynamic Content Loaded by JS -->
+  </div>
+</main>
+
+<script src="lib/leaflet.js"></script>
+<script src="data.js"></script>
+<script>
+let map, geoLayer;
+let currentView = 'senate_51';
+let displayMode = 'bubble';
+const DATA = window.ANOMALY_DATA;
+
+function initMap() {
+  map = L.map('map', { zoomControl: true });
+  
+  // OpenStreetMap Tile Layer as background (OSM France mirror - no file policy blocks)
+  L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    subdomains: 'abc',
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://openstreetmap.fr/">OSM France</a>'
+  }).addTo(map);
+
+  // Geographic distance scale bar (metric, in km/m)
+  L.control.scale({ imperial: false, metric: true, position: 'bottomleft' }).addTo(map);
+
+  // Re-scale bubbles dynamically when zooming in or out WITHOUT resetting map bounds!
+  map.on('zoomend', () => {
+    if (displayMode === 'bubble' && geoLayer) {
+      geoLayer.eachLayer(layer => {
+        if (layer.setRadius && layer.stationData) {
+          layer.setRadius(getBubbleRadius(layer.stationData, currentView));
+        }
+      });
+    }
+  });
+
+  function setView(viewKey) {
+    if (!DATA[viewKey]) return;
+    currentView = viewKey;
+    document.querySelectorAll('#tabs .tab-btn').forEach(b => {
+      b.classList.toggle('active', b.dataset.view === viewKey);
+    });
+    window.location.hash = viewKey;
+    renderView();
+  }
+
+  document.getElementById('tabs').addEventListener('click', (e) => {
+    const btn = e.target.closest('.tab-btn');
+    if (!btn) return;
+    setView(btn.dataset.view);
+  });
+
+  window.addEventListener('hashchange', () => {
+    const hash = window.location.hash.replace('#', '');
+    if (hash && hash !== currentView && DATA[hash]) {
+      setView(hash);
+    }
+  });
+
+  document.getElementById('btn-mode-poly').addEventListener('click', () => {
+    displayMode = 'poly';
+    document.getElementById('btn-mode-poly').classList.add('active');
+    document.getElementById('btn-mode-bubble').classList.remove('active');
+    renderCurrentLayer(false);
+  });
+
+  document.getElementById('btn-mode-bubble').addEventListener('click', () => {
+    displayMode = 'bubble';
+    document.getElementById('btn-mode-bubble').classList.add('active');
+    document.getElementById('btn-mode-poly').classList.remove('active');
+    renderCurrentLayer(false);
+  });
+
+  document.getElementById('metric-select').addEventListener('change', () => {
+    renderCurrentLayer(false);
+    updateLegend();
+  });
+
+  document.getElementById('btn-fit').addEventListener('click', () => {
+    if (geoLayer && geoLayer.getBounds && geoLayer.getBounds().isValid()) {
+      map.fitBounds(geoLayer.getBounds(), { padding: [30, 30] });
+    }
+  });
+
+  const initialHash = window.location.hash.replace('#', '');
+  if (initialHash && DATA[initialHash]) {
+    setView(initialHash);
+  } else {
+    renderView();
+  }
+}
+
+// Crisp data-driven color interpolation
+function getColor(val, min, max) {
+  if (!Number.isFinite(val)) return '#94a3b8';
+  let t = (val - min) / (max - min || 1);
+  t = Math.max(0, Math.min(1, t));
+  // Continuous smooth palette: Cool Navy (0.0) -> Cyan -> Amber -> Vermilion Red (1.0)
+  if (t < 0.33) {
+    const sub = t / 0.33;
+    const r = Math.round(30 + sub * 20);
+    const g = Math.round(80 + sub * 80);
+    const b = Math.round(180 + sub * 40);
+    return `rgb(${r},${g},${b})`;
+  } else if (t < 0.66) {
+    const sub = (t - 0.33) / 0.33;
+    const r = Math.round(50 + sub * 190);
+    const g = Math.round(160 - sub * 20);
+    const b = Math.round(220 - sub * 180);
+    return `rgb(${r},${g},${b})`;
+  } else {
+    const sub = (t - 0.66) / 0.34;
+    const r = Math.round(240 + sub * 15);
+    const g = Math.round(140 - sub * 90);
+    const b = Math.round(40 - sub * 20);
+    return `rgb(${r},${g},${b})`;
+  }
+}
+
+function getMetricConfig() {
+  const metric = document.getElementById('metric-select').value;
+  if (currentView === 'senate_51') {
+    if (metric === 'moos_share') return { title: 'Podíl David Moos (#5)', unit: '%', min: 0, max: 40 };
+    if (metric === 'smarda_share') return { title: 'Podíl Michal Šmarda (#3)', unit: '%', min: 0, max: 50 };
+    if (metric === 'cerny_share') return { title: 'Podíl Radek Černý (#4)', unit: '%', min: 0, max: 30 };
+    if (metric === 'klement_share') return { title: 'Podíl Josef Klement (#2)', unit: '%', min: 0, max: 50 };
+    return { title: 'Reziduální odchylka modelu (skór)', unit: '', min: 0, max: 5.5 };
+  } else if (currentView === 'kladno') {
+    return { title: 'Podíl KLADEŇÁCI (#8)', unit: '%', min: 0, max: 40 };
+  } else if (currentView === 'brno') {
+    return { title: 'Podíl Lidovci a Starostové (#2)', unit: '%', min: 0, max: 35 };
+  } else if (currentView === 'praha_2') {
+    return { title: 'Praha 2: Podíl ANO 2011 (č. 22)', unit: '%', min: 0, max: 16 };
+  } else if (currentView === 'praha_3') {
+    return { title: 'Praha 3: Podíl SPOLU pro Prahu (č. 12)', unit: '%', min: 0, max: 30 };
+  }
+  return { title: 'Hodnota', unit: '', min: 0, max: 100 };
+}
+
+function updateLegend() {
+  const cfg = getMetricConfig();
+  const legend = document.getElementById('legend');
+  const isSenate = (currentView === 'senate_51');
+  const isPrague = (currentView === 'praha_2' || currentView === 'praha_3');
+  
+  const size1 = isSenate ? '~30' : (isPrague ? '~10 tis.' : '~3 tis.');
+  const size2 = isSenate ? '~150' : (isPrague ? '~20 tis.' : '~10 tis.');
+  const size3 = isSenate ? '~500+' : (isPrague ? '~35 tis.+' : '~20 tis.+');
+  
+  legend.innerHTML = `
+    <div class="legend-title">Barva: ${cfg.title}</div>
+    <div class="color-bar" style="background: linear-gradient(to right, rgb(30,80,180), rgb(50,160,220), rgb(240,140,40), rgb(255,50,20));"></div>
+    <div class="legend-ticks">
+      <span>${cfg.min} ${cfg.unit}</span>
+      <span>${Math.round((cfg.min + cfg.max)/2)} ${cfg.unit}</span>
+      <span>${cfg.max} ${cfg.unit}</span>
+    </div>
+    ${isSenate && document.getElementById('metric-select').value === 'score' ? '<div>Šedá: modelový skór není k dispozici.</div>' : ''}
+    <div class="size-legend">
+      <div class="size-legend-title">Velikost bubliny: Celkový počet hlasů</div>
+      <div class="size-row">
+        <div class="size-item">
+          <span class="size-circle" style="width:8px;height:8px;"></span>
+          <span>${size1}</span>
+        </div>
+        <div class="size-item">
+          <span class="size-circle" style="width:14px;height:14px;"></span>
+          <span>${size2}</span>
+        </div>
+        <div class="size-item">
+          <span class="size-circle" style="width:22px;height:22px;"></span>
+          <span>${size3}</span>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderView() {
+  const select = document.getElementById('metric-select');
+  select.innerHTML = '';
+  
+  if (currentView === 'senate_51') {
+    select.innerHTML = `
+      <option value="moos_share">Podíl David Moos (#5, %) – extrémní špička 39,4 % v Milešíně</option>
+      <option value="smarda_share">Podíl Michal Šmarda (#3, %) – strmý propad na 9,1 % v Milešíně (okolí 35,2 %)</option>
+      <option value="cerny_share">Podíl Radek Černý (#4, %) – 12,1 % v Milešíně (ladí s okolím 11,4 %)</option>
+      <option value="klement_share">Podíl Josef Klement (#2, %) – 30,3 % v Milešíně (ladí s okolím 28,0 %)</option>
+      <option value="score">Reziduální statistický skór (odchylka od modelu)</option>
+    `;
+    renderSenate51();
+  } else if (currentView === 'kladno') {
+    select.innerHTML = `
+      <option value="klad_share">Podíl KLADEŇÁCI (č. 8, %) – deficit v okrsku 29</option>
+    `;
+    renderKladno();
+  } else if (currentView === 'brno') {
+    select.innerHTML = `
+      <option value="kdu_share">Podíl Lidovci a Starostové (č. 2, %) – nula v okrsku 23018</option>
+    `;
+    renderBrno();
+  } else if (currentView === 'praha_2') {
+    select.innerHTML = `
+      <option value="ano_share">Podíl ANO 2011 (č. 22, %) – nula v okrsku 2038</option>
+    `;
+    renderPraha2();
+  } else if (currentView === 'praha_3') {
+    select.innerHTML = `
+      <option value="spolu_share">Podíl SPOLU pro Prahu (č. 12, %) – propad na 2,47 % v okrsku 3036</option>
+    `;
+    renderPraha3();
+  }
+  
+  updateLegend();
+}
+
+function renderSenate51() {
+  const d = DATA.senate_51;
+  const candidate = no => d.candidates.find(c => c.no === no);
+  const districtTotal = d.candidates.reduce((sum, c) => sum + c.total, 0);
+  const panel = document.getElementById('detail-panel');
+  
+  panel.innerHTML = `
+    <div class="teaser-box">
+      <b>🎯 Teaser:</b> Milešín – anomálie hlasů a souboj o 2. kolo
+      <div style="margin-top:6px;font-size:13px;color:var(--text);">
+        Mezi 2. a 3. místem v celém senátním obvodu Žďár nad Sázavou rozhodl <b>pouhý 1 jediný hlas</b> (Klement 11 373 vs. Černý 11 372). Porovnání s okolím ukazuje, že hlasy v Milešíně jsou anomální.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Celkové výsledky obvodu (souboj o 2. kolo)</div>
+      <div class="stat-grid">
+        <div class="stat-box">
+          <div class="stat-label">1. Michal Šmarda (${candidate(3).party})</div>
+          <div class="stat-val success">12 254</div>
+          <div style="font-size:11px;color:var(--success);">Postup do 2. kola</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">2. Josef Klement (${candidate(2).party})</div>
+          <div class="stat-val">11 373</div>
+          <div style="font-size:11px;color:var(--muted);">Postupující (+1 hlas)</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">3. Radek Černý (${candidate(4).party})</div>
+          <div class="stat-val alert">11 372</div>
+          <div style="font-size:11px;color:var(--danger);">Vyřazen o 1 hlas</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">5. David Moos (${candidate(5).party})</div>
+          <div class="stat-val">2 067</div>
+          <div style="font-size:11px;color:var(--muted);">${(Math.floor(candidate(5).total / districtTotal * 10000) / 100).toLocaleString('cs-CZ', {minimumFractionDigits:2, maximumFractionDigits:2})} % v obvodu</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Milešín vs. 6 sousedních obcí: Kde chybí hlasy?</div>
+      <p style="font-size:12px;color:var(--muted);margin-bottom:8px;">
+        Srovnání se všemi 6 sousedními obcemi (Březí, Heřmanov, Radňoves, Rozseč, Skřinářov, Vidonín – celkem 378 hlasů):
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Obec</th>
+            <th>Platné</th>
+            <th>Klement (#2)</th>
+            <th>Šmarda (#3)</th>
+            <th>Černý (#4)</th>
+            <th>Moos (#5)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="focus-row">
+            <td>Milešín</td>
+            <td>33</td>
+            <td>10 (30,3 %)</td>
+            <td><b style="color:var(--danger);">3 (9,1 %)</b></td>
+            <td>4 (12,1 %)</td>
+            <td><b style="color:var(--danger);">13 (39,4 %)</b></td>
+          </tr>
+          <tr><td>Březí</td><td>88</td><td>17 (19,3 %)</td><td>32 (36,4 %)</td><td>13 (14,8 %)</td><td>6 (6,8 %)</td></tr>
+          <tr><td>Heřmanov</td><td>76</td><td>28 (36,8 %)</td><td>26 (34,2 %)</td><td>9 (11,8 %)</td><td>4 (5,3 %)</td></tr>
+          <tr><td>Radňoves</td><td>46</td><td>18 (39,1 %)</td><td>21 (45,7 %)</td><td>4 (8,7 %)</td><td>2 (4,3 %)</td></tr>
+          <tr><td>Rozseč</td><td>34</td><td>17 (50,0 %)</td><td>5 (14,7 %)</td><td>1 (2,9 %)</td><td>1 (2,9 %)</td></tr>
+          <tr><td>Skřinářov</td><td>56</td><td>11 (19,6 %)</td><td>19 (33,9 %)</td><td>12 (21,4 %)</td><td>5 (8,9 %)</td></tr>
+          <tr><td>Vidonín</td><td>78</td><td>15 (19,2 %)</td><td>30 (38,5 %)</td><td>4 (5,1 %)</td><td>6 (7,7 %)</td></tr>
+          <tr style="border-top:2px solid var(--border);font-weight:700;background:rgba(255,255,255,0.03);">
+            <td>6 sousedních obcí</td>
+            <td>378</td>
+            <td>106 (28,0 %)</td>
+            <td>133 (35,2 %)</td>
+            <td>43 (11,4 %)</td>
+            <td>24 (6,3 %)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Dvě analytické hypotézy k Milešínu</div>
+      <div style="font-size:12.5px;line-height:1.55;">
+        <p><b>1. Hypotéza: Šmarda ⇄ Moos (záměna 3 a 13 mezi kandidáty #3 a #5)</b><br>
+        Černého 4 hlasy (12,1 %) v Milešíně <i>přesně odpovídají</i> průměru okolních 6 obcí (11,4 %). Masivní anomálie se týká dvou jiných kandidátů: vítěz obvodu <b>Michal Šmarda má neobvyklý propad na 3 hlasy (9,1 % vs. 35,2 % v okolí)</b>, zatímco <b>David Moos vystřelil na 13 hlasů (39,4 % vs. 6,3 % v okolí)</b>. Záměna čísel 3 ⇄ 13 mezi řádky #3 a #5 by perfektně zarovnala výsledky obou kandidátů s okolím a Černého by ponechala vyřazeného o 1 hlas.</p>
+
+        <p style="margin-top:10px;"><b>2. Hypotéza: Černý ⇄ Moos (záměna 4 a 13 na sousedních řádcích #4 a #5)</b><br>
+        Černý a Moos byli sousedními kandidáty na lístku. Záměna 4 ⇄ 13 by Černému přinesla +9 hlasů a poslala ho do 2. kola před Klementa, ale Šmardův hluboký deficit (pouhé 3 hlasy) v Milešíně by zůstal otevřenou otázkou.</p>
+
+        <div style="margin-top:10px;padding:8px 10px;background:rgba(56,189,248,0.1);border-left:3px solid var(--accent);border-radius:4px;">
+          🔍 <b>Závěr:</b> Moosův zisk 13 hlasů (39,4 %) je v daném místě jednoznačně statisticky chybný. Zda však Moos omylem dostal hlasy Šmardy (#3), nebo Černého (#4), může s jistotou rozsoudit pouze nahlédnutí do fyzického volebního protokolu z Milešína.
+        </div>
+      </div>
+    </div>
+  `;
+
+  loadPrecincts(d.stations, 'senate_51');
+}
+
+function renderKladno() {
+  const d = DATA.kladno;
+  const panel = document.getElementById('detail-panel');
+  
+  panel.innerHTML = `
+    <div class="card">
+      <div class="card-title">Kladno – Okrsek 29: Neobvyklý deficit KLADEŇÁKŮ</div>
+      <div class="stat-grid">
+        <div class="stat-box">
+          <div class="stat-label">Reportováno v okrsku 29</div>
+          <div class="stat-val alert">287 hlasů</div>
+          <div style="font-size:11px;color:var(--danger);">2,84 % v okrsku</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Okolní okrsky Kladna</div>
+          <div class="stat-val">22 – 37 %</div>
+          <div style="font-size:11px;color:var(--muted);">Běžná podpora</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Modelové očekávání</div>
+          <div class="stat-val">2 955 – 3 926</div>
+          <div style="font-size:11px;color:var(--muted);">Podle metody</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Dopad na rozdělení křesel v Kladně</div>
+      <p style="font-size:13px;line-height:1.5;">
+        Případná oprava chybějící číslice <b>287 → 4 287</b> (přidání tisíce) je v rámci kapacity lístků a posouvá 1 mandát:
+        <b>ODS 5 → 4</b>, <b>KLADEŇÁCI 10 → 11</b>.
+      </p>
+    </div>
+  `;
+
+  loadPrecincts(d.stations, 'kladno');
+}
+
+function renderBrno() {
+  const d = DATA.brno;
+  const panel = document.getElementById('detail-panel');
+  
+  panel.innerHTML = `
+    <div class="card">
+      <div class="card-title">Brno-střed – Okrsek 23018: Zapsaná nula pro vítěznou kandidátku</div>
+      <div class="stat-grid">
+        <div class="stat-box">
+          <div class="stat-label">Zapsaný počet hlasů</div>
+          <div class="stat-val alert">0 hlasů</div>
+          <div style="font-size:11px;color:var(--danger);">Výslovná nula v datech</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Očekávání modelu</div>
+          <div class="stat-val">2 703 – 3 290</div>
+          <div style="font-size:11px;color:var(--muted);">Pro koalici #2</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Okolní okrsky</div>
+          <div class="stat-val">18 – 27 %</div>
+          <div style="font-size:11px;color:var(--muted);">Běžná podpora</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Specifikum úřední adresy</div>
+      <p style="font-size:13px;line-height:1.5;color:var(--muted);">
+        Okrsek 23018 je určen pro občany s hlášenou adresou na magistrátu (Dominikánské náměstí). Změna neovlivňuje rozdělení mandátů v Brně, ale vyžaduje kontrolu záznamu.
+      </p>
+    </div>
+  `;
+
+  loadPrecincts(d.stations, 'brno');
+}
+
+function renderPraha2() {
+  const d = DATA.praha_2;
+  const panel = document.getElementById('detail-panel');
+  
+  panel.innerHTML = `
+    <div class="card">
+      <div class="card-title">Praha 2 – Okrsek 2038: Výslovná nula pro ANO 2011</div>
+      <div class="stat-grid">
+        <div class="stat-box">
+          <div class="stat-label">Zapsáno v okrsku 2038</div>
+          <div class="stat-val alert">0 hlasů (0,0 %)</div>
+          <div style="font-size:11px;color:var(--danger);">Prázdné místo na mapě</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Všechny ostatní okrsky P2</div>
+          <div class="stat-val">7,5 – 12,8 %</div>
+          <div style="font-size:11px;color:var(--muted);">Pravidelná hladina podpory</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Očekávání modelu</div>
+          <div class="stat-val">~2 150 – 2 600</div>
+          <div style="font-size:11px;color:var(--muted);">Hlasů pro ANO</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Co ukazuje mapa Prahy 2</div>
+      <p style="font-size:13px;line-height:1.5;">
+        Na mapě je okrsek 2038 okamžitě vidět jako <b>jediný modrý bod s hodnotou 0 %</b>, zatímco všech ostatních 40 okrsků na Praze 2 má stabilní teplé zbarvení (7–12 %). Na rozdělení 65 křesel magistrátu nemá změna vliv, ale dokládá chybu zápisu.
+      </p>
+    </div>
+  `;
+
+  loadPrecincts(d.stations, 'praha_2');
+}
+
+function renderPraha3() {
+  const d = DATA.praha_3;
+  const panel = document.getElementById('detail-panel');
+  
+  panel.innerHTML = `
+    <div class="card">
+      <div class="card-title">Praha 3 – Okrsek 3036: Propad SPOLU pro Prahu</div>
+      <div class="stat-grid">
+        <div class="stat-box">
+          <div class="stat-label">Zapsáno v okrsku 3036</div>
+          <div class="stat-val alert">662 hlasů (2,47 %)</div>
+          <div style="font-size:11px;color:var(--danger);">Tmavě modrý propad</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Okolní okrsky Prahy 3</div>
+          <div class="stat-val">18 – 28 %</div>
+          <div style="font-size:11px;color:var(--muted);">Běžná podpora koalice</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Očekávání modelu</div>
+          <div class="stat-val">~5 600 – 6 800</div>
+          <div style="font-size:11px;color:var(--muted);">Hlasů pro SPOLU</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Hypotéza vynechané číslice: 662 → 6 562</div>
+      <p style="font-size:13px;line-height:1.5;">
+        Na mapě Prahy 3 je okrsek 3036 vidět jako studený bod (2,5 %) v kontrastu s okolními teplými okrsky (20–28 %). Vložení jedné chybějící číslice <b>662 → 6 562</b> dokonale ladí s okolím.
+      </p>
+    </div>
+  `;
+
+  loadPrecincts(d.stations, 'praha_3');
+}
+
+let currentStations = [];
+
+function loadPrecincts(stations, viewKey) {
+  currentStations = stations;
+  renderCurrentLayer(true);
+}
+
+// Dynamic radius based on zoom level so whole district doesn't clump
+function getBubbleRadius(props, viewKey) {
+  const z = map ? map.getZoom() : 12;
+  // Reference zoom is 12. Zoom factor shrinks bubbles when zoomed out and expands when zoomed in
+  const zoomFactor = Math.pow(1.3, z - 12);
+  
+  let val = 10;
+  let scale = 1.8;
+
+  if (viewKey === 'senate_51') {
+    val = props.valid || 10;
+    scale = 1.6;
+  } else if (viewKey === 'kladno') {
+    val = props.total_marks || 100;
+    scale = 0.16;
+  } else if (viewKey === 'brno') {
+    val = props.total_marks || 100;
+    scale = 0.14;
+  } else {
+    // Dense urban districts (Praha 2, Praha 3) with ~15k-40k marks
+    val = props.total_marks || 100;
+    scale = 0.08;
+  }
+
+  // Minimum size scales with zoom so it never over-bloats when zoomed out
+  const minRadius = Math.max(3.0, 5.0 * zoomFactor);
+  const computed = Math.sqrt(val) * scale * zoomFactor;
+  
+  return Math.max(minRadius, Math.min(computed, 28));
+}
+
+function getFeatureValue(props, viewKey) {
+  const metric = document.getElementById('metric-select').value;
+  if (viewKey === 'senate_51') {
+    const total = props.valid || 1;
+    const v = props.votes || {};
+    if (metric === 'moos_share') return ((v['David Moos'] || 0) / total * 100);
+    if (metric === 'smarda_share') return ((v['Michal Šmarda'] || 0) / total * 100);
+    if (metric === 'cerny_share') return ((v['Radek Černý'] || 0) / total * 100);
+    if (metric === 'klement_share') return ((v['Josef Klement'] || 0) / total * 100);
+    return props.score ?? null;
+  } else if (viewKey === 'kladno') {
+    return (props.focus_share !== undefined ? props.focus_share : (props.shares[8] || 0));
+  } else if (viewKey === 'brno') {
+    return (props.focus_share !== undefined ? props.focus_share : (props.shares[2] || 0));
+  } else if (viewKey === 'praha_2') {
+    return (props.focus_share !== undefined ? props.focus_share : (props.shares[22] || 0)); // ANO 2011 (ballot 22)
+  } else if (viewKey === 'praha_3') {
+    return (props.focus_share !== undefined ? props.focus_share : (props.shares[12] || 0)); // SPOLU pro Prahu (ballot 12)
+  }
+  return 0;
+}
+
+function getPopupContent(p, viewKey) {
+  let label = p.name || ('Okrsek ' + p.st);
+  const hasMultipleStations = currentStations.filter(st => st.obec === p.obec).length > 1;
+  if (hasMultipleStations && !/okrsek/i.test(label)) label += ` – okrsek ${p.st}`;
+  let popupContent = `<b>${label}</b><br>`;
+  if (viewKey === 'senate_51') {
+    const v = p.votes || {};
+    const total = p.valid || 1;
+    popupContent += `
+      Platné hlasy: ${p.valid}<br>
+      ${p.score == null ? 'Modelový skór není k dispozici.<br>' : ''}
+      • <b>Michal Šmarda (#3):</b> ${v['Michal Šmarda'] || 0} (${((v['Michal Šmarda'] || 0) / total * 100).toFixed(1)} %)<br>
+      • <b>David Moos (#5):</b> ${v['David Moos'] || 0} (${((v['David Moos'] || 0) / total * 100).toFixed(1)} %)<br>
+      • <b>Radek Černý (#4):</b> ${v['Radek Černý'] || 0} (${((v['Radek Černý'] || 0) / total * 100).toFixed(1)} %)<br>
+      • Josef Klement (#2): ${v['Josef Klement'] || 0} (${((v['Josef Klement'] || 0) / total * 100).toFixed(1)} %)<br>
+      • Radek Koten (#1): ${v['Radek Koten'] || 0} (${((v['Radek Koten'] || 0) / total * 100).toFixed(1)} %)
+    `;
+  } else if (viewKey === 'kladno') {
+    const marks = p.focus_votes !== undefined ? p.focus_votes : (p.votes[8] || 0);
+    const pct = p.focus_share !== undefined ? p.focus_share : (p.shares[8] || 0);
+    const exp = p.focus_expected !== undefined ? p.focus_expected : (p.expected[8] || 'n/a');
+    popupContent += `
+      Celkem hlasů: ${p.total_marks} (lístků: ${p.valid_ballots})<br>
+      • <b>KLADEŇÁCI (č. 8):</b> ${marks} hlasů (${pct.toFixed(2)} %)<br>
+      • Očekávání modelu: ~${exp}
+    `;
+  } else if (viewKey === 'brno') {
+    const marks = p.focus_votes !== undefined ? p.focus_votes : (p.votes[2] || 0);
+    const pct = p.focus_share !== undefined ? p.focus_share : (p.shares[2] || 0);
+    const exp = p.focus_expected !== undefined ? p.focus_expected : (p.expected[2] || 'n/a');
+    popupContent += `
+      Celkem hlasů: ${p.total_marks} (lístků: ${p.valid_ballots})<br>
+      • <b>Lidovci a Starostové (č. 2):</b> ${marks} hlasů (${pct.toFixed(2)} %)<br>
+      • Očekávání modelu: ~${exp}
+    `;
+  } else if (viewKey === 'praha_2') {
+    const anoVotes = p.focus_votes !== undefined ? p.focus_votes : (p.votes[22] || 0);
+    const anoShare = p.focus_share !== undefined ? p.focus_share : (p.shares[22] || 0);
+    const anoExp = p.focus_expected !== undefined ? p.focus_expected : (p.expected[22] || 'n/a');
+    popupContent += `
+      Celkem hlasů: ${p.total_marks} (lístků: ${p.valid_ballots})<br>
+      • <b>ANO 2011 (č. 22):</b> ${anoVotes} hlasů (${anoShare.toFixed(2)} %)<br>
+      • Očekávání modelu: ~${anoExp}
+    `;
+  } else if (viewKey === 'praha_3') {
+    const spoluVotes = p.focus_votes !== undefined ? p.focus_votes : (p.votes[12] || 0);
+    const spoluShare = p.focus_share !== undefined ? p.focus_share : (p.shares[12] || 0);
+    const spoluExp = p.focus_expected !== undefined ? p.focus_expected : (p.expected[12] || 'n/a');
+    popupContent += `
+      Celkem hlasů: ${p.total_marks} (lístků: ${p.valid_ballots})<br>
+      • <b>SPOLU pro Prahu (č. 12):</b> ${spoluVotes} hlasů (${spoluShare.toFixed(2)} %)<br>
+      • Očekávání modelu: ~${spoluExp}
+    `;
+  }
+  return popupContent;
+}
+
+function renderCurrentLayer(autoFit = false) {
+  if (geoLayer) map.removeLayer(geoLayer);
+  const cfg = getMetricConfig();
+
+  if (displayMode === 'bubble') {
+    const markers = [];
+    currentStations.forEach(st => {
+      const pos = st.pos;
+      if (!pos) return;
+      
+      const val = getFeatureValue(st, currentView);
+      const fillColor = getColor(val, cfg.min, cfg.max);
+      const radius = getBubbleRadius(st, currentView);
+      
+      // Clean neutral subtle border on all bubbles - let the data speak for itself!
+      const marker = L.circleMarker(pos, {
+        radius: radius,
+        fillColor: fillColor,
+        fillOpacity: 0.82,
+        color: '#ffffff',
+        weight: 1.0
+      });
+      marker.stationData = st;
+      
+      marker.bindPopup(getPopupContent(st, currentView));
+      markers.push(marker);
+    });
+    
+    geoLayer = L.featureGroup(markers).addTo(map);
+  } else {
+    const features = [];
+    currentStations.forEach(st => {
+      if (st.geom) {
+        features.push({
+          type: "Feature",
+          properties: st,
+          geometry: st.geom
+        });
+      }
+    });
+
+    geoLayer = L.geoJSON({ type: "FeatureCollection", features: features }, {
+      style: (feat) => {
+        const val = getFeatureValue(feat.properties, currentView);
+        return {
+          fillColor: getColor(val, cfg.min, cfg.max),
+          fillOpacity: 0.65,
+          color: '#334155',
+          weight: 1.0
+        };
+      },
+      onEachFeature: (feature, layer) => {
+        layer.bindPopup(getPopupContent(feature.properties, currentView));
+      }
+    }).addTo(map);
+  }
+
+  if (autoFit && geoLayer && geoLayer.getBounds && geoLayer.getBounds().isValid()) {
+    map.fitBounds(geoLayer.getBounds(), { padding: [30, 30] });
+  }
+}
+
+document.addEventListener('DOMContentLoaded', initMap);
+</script>
+</body>
+</html>

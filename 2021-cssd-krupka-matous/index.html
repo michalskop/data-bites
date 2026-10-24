@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zdeněk Matouš – Preferenční hlasy ČSSD (2017 & 2021) | Ústecký kraj</title>
+  
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-panel: rgba(255, 255, 255, 0.94);
+      --bg-panel-dark: rgba(24, 28, 36, 0.94);
+      --border-panel: rgba(0, 0, 0, 0.08);
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --primary: #e11d48;
+      --primary-hover: #be123c;
+      --accent: #2563eb;
+      --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+      --tile-opacity: 0.55;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--text-main);
+      background-color: #f1f5f9;
+      overflow: hidden;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    #app-container {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      width: 100vw;
+      position: relative;
+    }
+
+    /* Header Bar */
+    header {
+      height: 64px;
+      background: #ffffff;
+      border-bottom: 1px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      z-index: 1000;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .brand-badge {
+      background: linear-gradient(135deg, #e11d48, #be123c);
+      color: white;
+      font-weight: 700;
+      font-size: 12px;
+      padding: 4px 9px;
+      border-radius: 6px;
+      letter-spacing: 0.4px;
+    }
+
+    .brand-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .brand-sub {
+      font-size: 12px;
+      color: #64748b;
+      margin-left: 4px;
+    }
+
+    /* Top Controls */
+    .controls-top {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+    }
+
+    .btn-group {
+      display: inline-flex;
+      background: #f1f5f9;
+      padding: 3px;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+      flex-shrink: 0;
+    }
+
+    .toggle-btn {
+      border: none;
+      background: transparent;
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #64748b;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      white-space: nowrap;
+    }
+
+    .toggle-btn:hover {
+      color: #1e293b;
+    }
+
+    .toggle-btn.active {
+      background: #ffffff;
+      color: #0f172a;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .toggle-btn.metric-active {
+      background: #0f172a;
+      color: #ffffff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+
+    .action-btn {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      color: #334155;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 7px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.15s;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .action-btn:hover {
+      background: #f8fafc;
+      border-color: #94a3b8;
+    }
+
+    .action-btn.primary {
+      background: #e11d48;
+      border-color: #e11d48;
+      color: #ffffff;
+    }
+    .action-btn.primary:hover {
+      background: #be123c;
+    }
+
+    /* Maps Container */
+    #maps-wrapper {
+      flex: 1;
+      display: flex;
+      position: relative;
+      width: 100%;
+      height: calc(100vh - 64px);
+      background: #e2e8f0;
+    }
+
+    .map-pane {
+      flex: 1;
+      height: 100%;
+      position: relative;
+    }
+
+    .map-pane.hidden {
+      display: none;
+    }
+
+    /* Apply semi-transparent opacity to basemap tile pane */
+    .leaflet-tile-pane {
+      opacity: var(--tile-opacity);
+      transition: opacity 0.2s ease;
+    }
+
+    .map-title-badge {
+      position: absolute;
+      top: 16px;
+      left: 70px;
+      z-index: 900;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      padding: 6px 14px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+      border: 1px solid rgba(0,0,0,0.06);
+      font-size: 13px;
+      font-weight: 700;
+      color: #0f172a;
+      pointer-events: none;
+    }
+
+    /* Floating Left Sidebar / Info Panel */
+    .floating-sidebar {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      width: 350px;
+      max-height: calc(100% - 32px);
+      background: var(--bg-panel);
+      backdrop-filter: blur(12px);
+      border-radius: 12px;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border-panel);
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: transform 0.2s ease;
+    }
+
+    .sidebar-header {
+      padding: 14px 16px;
+      border-bottom: 1px solid #e2e8f0;
+      background: rgba(255,255,255,0.7);
+    }
+
+    .sidebar-body {
+      padding: 14px 16px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .candidate-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 10px 12px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+
+    .candidate-name {
+      font-weight: 700;
+      font-size: 14px;
+      color: #0f172a;
+    }
+
+    .candidate-role {
+      font-size: 12px;
+      color: #64748b;
+      margin-top: 2px;
+      line-height: 1.4;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .stat-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 10px;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      font-weight: 600;
+    }
+
+    .stat-val {
+      font-size: 17px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-top: 2px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .stat-sub {
+      font-size: 11px;
+      color: #64748b;
+      margin-top: 1px;
+    }
+
+    .highlight-krupka {
+      background: #fff1f2;
+      border-color: #fecdd3;
+    }
+    .highlight-krupka .stat-val {
+      color: #e11d48;
+    }
+
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    .filter-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: #475569;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    input[type=range] {
+      width: 100%;
+      accent-color: #e11d48;
+      cursor: pointer;
+    }
+
+    .search-box {
+      width: 100%;
+      padding: 8px 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 7px;
+      font-size: 13px;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    .search-box:focus {
+      border-color: #e11d48;
+    }
+
+    /* Floating Bottom-Right Legend */
+    .floating-legend {
+      position: absolute;
+      bottom: 24px;
+      right: 24px;
+      background: var(--bg-panel);
+      backdrop-filter: blur(12px);
+      padding: 14px 18px;
+      border-radius: 12px;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border-panel);
+      z-index: 1000;
+      max-width: 340px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 12px;
+    }
+
+    .legend-title {
+      font-weight: 700;
+      font-size: 11px;
+      color: #0f172a;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      line-height: 1.4;
+    }
+
+    .color-gradient-bar {
+      height: 12px;
+      border-radius: 6px;
+      background: linear-gradient(to right, 
+        #94a3b8 0%, 
+        #06b6d4 12%, 
+        #f59e0b 28%, 
+        #f97316 48%, 
+        #ef4444 68%, 
+        #881337 100%
+      );
+      margin-bottom: 4px;
+      border: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .color-ticks {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      color: #64748b;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .size-legend {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 8px;
+      border-top: 1px solid #e2e8f0;
+      gap: 10px;
+    }
+
+    .size-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .size-circle {
+      border-radius: 50%;
+      background: rgba(225, 29, 72, 0.4);
+      border: 1.5px solid #e11d48;
+    }
+
+    .size-label {
+      font-size: 10px;
+      color: #64748b;
+      font-weight: 600;
+    }
+
+    /* Tooltip & Popups */
+    .custom-tooltip {
+      background: rgba(15, 23, 42, 0.95);
+      border: none;
+      color: #ffffff;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    }
+
+    .leaflet-popup-content-wrapper {
+      border-radius: 10px;
+      padding: 0;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .leaflet-popup-content {
+      margin: 0;
+      padding: 16px;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      line-height: 1.5;
+      min-width: 260px;
+    }
+
+    .popup-header {
+      font-weight: 700;
+      font-size: 15px;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2px;
+    }
+
+    .popup-sub {
+      font-size: 12px;
+      color: #64748b;
+      margin-bottom: 10px;
+    }
+
+    .popup-krupka-badge {
+      display: inline-block;
+      background: #ffe4e6;
+      color: #e11d48;
+      font-weight: 700;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    .popup-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+
+    .popup-table td {
+      padding: 5px 0;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .popup-table td.val {
+      text-align: right;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .popup-active-row {
+      background: #f8fafc;
+      font-weight: 600;
+    }
+
+    .popup-active-row td {
+      padding: 6px 4px;
+      color: #0f172a;
+    }
+
+    .popup-highlight {
+      color: #e11d48;
+      font-weight: 700;
+    }
+
+    .rate-badge {
+      display: inline-block;
+      font-size: 10px;
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-weight: 600;
+      margin-left: 4px;
+    }
+    .rate-badge-active {
+      background: #e11d48;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="app-container">
+    <!-- Header -->
+    <header>
+      <div class="brand">
+        <a href="../" style="text-decoration: none; color: var(--text-muted); font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 4px; padding: 4px 8px; border-radius: 6px; background: #f1f5f9; border: 1px solid #e2e8f0; margin-right: 6px; transition: all 0.15s;" onmouseover="this.style.color='#0f172a'; this.style.borderColor='#cbd5e1';" onmouseout="this.style.color='var(--text-muted)'; this.style.borderColor='#e2e8f0';">
+          ← DataBites
+        </a>
+        <span class="brand-badge">ČSSD / SOCDEM</span>
+        <div>
+          <span class="brand-title">Zdeněk Matouš – Preferenční hlasy</span>
+          <span class="brand-sub">Ústecký kraj (2017 & 2021)</span>
+        </div>
+      </div>
+
+      <div class="controls-top">
+        <!-- Metric Selector Toggle (Two Rates) -->
+        <div class="btn-group" title="Zvolte způsob výpočtu podílu pro barvu bublin">
+          <button id="btn-metric-pref" class="toggle-btn" onclick="setMetric('pref')">
+            🗳️ Matouš / Pref. hlasy ČSSD
+          </button>
+          <button id="btn-metric-votes" class="toggle-btn metric-active" onclick="setMetric('votes')">
+            👥 Matouš / Voliči ČSSD (hlasy)
+          </button>
+        </div>
+
+        <!-- Year selector (for single view) -->
+        <div id="year-toggle-group" class="btn-group">
+          <button id="btn-year-2017" class="toggle-btn active" onclick="setYear(2017)">
+            2017 (#2 na kandidátce)
+          </button>
+          <button id="btn-year-2021" class="toggle-btn" onclick="setYear(2021)">
+            2021 (#1 Lídr kandidátky)
+          </button>
+        </div>
+
+        <!-- View mode: Single vs Split -->
+        <div class="btn-group">
+          <button id="btn-mode-single" class="toggle-btn active" onclick="setViewMode('single')">
+            Samostatně
+          </button>
+          <button id="btn-mode-split" class="toggle-btn" onclick="setViewMode('split')">
+            Vedle sebe
+          </button>
+        </div>
+
+        <!-- Quick actions -->
+        <button class="action-btn primary" onclick="focusKrupka()">
+          🎯 Krupka
+        </button>
+        <button class="action-btn" onclick="resetView()">
+          🗺️ Celý kraj
+        </button>
+      </div>
+    </header>
+
+    <!-- Map Panes Wrapper -->
+    <div id="maps-wrapper">
+      <!-- Floating Left Sidebar / Info Panel -->
+      <div class="floating-sidebar">
+        <div class="sidebar-header">
+          <div class="candidate-name" id="side-cand-name">PhDr. Ing. Zdeněk Matouš, Ph.D., MBA</div>
+          <div class="candidate-role" id="side-cand-role">Starosta Krupky</div>
+        </div>
+        <div class="sidebar-body">
+          <input type="text" id="obec-search" class="search-box" placeholder="Hledat obec (Krupka, Teplice, Most, Ústí...)" oninput="filterBySearch(this.value)">
+
+          <div class="candidate-card" id="side-cand-details">
+            <!-- Dynamic Candidate Info -->
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-label">Hlasy ČSSD v kraji</div>
+              <div class="stat-val" id="stat-votes-kraj">-</div>
+              <div class="stat-sub">celkem za Ústecký kraj</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label" id="lbl-matous-kraj">Pref. hlasy Matouš</div>
+              <div class="stat-val" id="stat-matous-kraj">-</div>
+              <div class="stat-sub" id="stat-matous-rate-kraj">-</div>
+            </div>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-card highlight-krupka">
+              <div class="stat-label">Krupka – ČSSD hlasy</div>
+              <div class="stat-val" id="stat-krupka-votes">-</div>
+              <div class="stat-sub">11 okrsků</div>
+            </div>
+            <div class="stat-card highlight-krupka">
+              <div class="stat-label" id="lbl-krupka-rate">Krupka – Podíl</div>
+              <div class="stat-val" id="stat-krupka-rate">-</div>
+              <div class="stat-sub" id="stat-krupka-matous">-</div>
+            </div>
+          </div>
+
+          <!-- Opacity slider for basemap -->
+          <div class="filter-group">
+            <div class="filter-label">
+              <span>Průhlednost mapy (podkladu)</span>
+              <span id="opacity-val" style="font-family:'JetBrains Mono'">55 %</span>
+            </div>
+            <input type="range" id="filter-opacity" min="15" max="100" value="55" oninput="updateTileOpacity(this.value)">
+          </div>
+
+          <!-- Minimum votes filter slider -->
+          <div class="filter-group">
+            <div class="filter-label">
+              <span>Min. počet hlasů ČSSD v okrsku</span>
+              <span id="min-votes-val" style="font-family:'JetBrains Mono'">35</span>
+            </div>
+            <input type="range" id="filter-min-votes" min="1" max="60" value="35" oninput="updateMinVotes(this.value)">
+          </div>
+
+          <div style="font-size: 11px; color: #64748b; line-height: 1.45;">
+            <strong>Velikost bubliny:</strong> Počet hlasů pro ČSSD v okrsku.<br>
+            <strong>Barva bubliny:</strong> <span id="info-metric-desc">Podíl voličů ČSSD v okrsku, kteří dali preferenční hlas Matoušovi (Matouš / celkem hlasů ČSSD).</span><br>
+            <span style="display:inline-block; margin-top:4px; color:#475569;">💡 <em>Při filtru min. 35 hlasů pro ČSSD v roce 2017 mimo Krupku vystupují okrsky <strong>Ústí nad Labem (2016)</strong> s 68,9 % a <strong>Trmice (2)</strong> s 48,1 %.</em></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Map 1 (Primary / 2021 or 2017) -->
+      <div id="map-pane-1" class="map-pane">
+        <div class="map-title-badge" id="badge-map-1">Volby 2017 (#2 na kandidátce)</div>
+        <div id="map1" style="width:100%; height:100%;"></div>
+      </div>
+
+      <!-- Map 2 (Secondary for split view / 2017) -->
+      <div id="map-pane-2" class="map-pane hidden">
+        <div class="map-title-badge" id="badge-map-2">Volby 2017</div>
+        <div id="map2" style="width:100%; height:100%;"></div>
+      </div>
+
+      <!-- Floating Bottom Legend -->
+      <div class="floating-legend">
+        <div>
+          <div class="legend-title" id="legend-rate-title">Podíl pref. hlasů pro Matouše (% ze všech pref. ČSSD)</div>
+          <div class="color-gradient-bar"></div>
+          <div class="color-ticks">
+            <span>0%</span>
+            <span>12%</span>
+            <span>28%</span>
+            <span>48%</span>
+            <span>68%+</span>
+          </div>
+        </div>
+
+        <div class="size-legend">
+          <span style="font-size: 11px; font-weight: 600; color: #475569;">Hlasy ČSSD:</span>
+          <div class="size-item">
+            <div class="size-circle" style="width: 8px; height: 8px;"></div>
+            <span class="size-label">5</span>
+          </div>
+          <div class="size-item">
+            <div class="size-circle" style="width: 14px; height: 14px;"></div>
+            <span class="size-label">20</span>
+          </div>
+          <div class="size-item">
+            <div class="size-circle" style="width: 22px; height: 22px;"></div>
+            <span class="size-label">50</span>
+          </div>
+          <div class="size-item">
+            <div class="size-circle" style="width: 30px; height: 30px;"></div>
+            <span class="size-label">100</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <!-- Data -->
+  <script src="elections_data.js"></script>
+
+  <script>
+    let currentMode = 'single'; // 'single' or 'split'
+    let currentYear = 2017; // default 2017
+    let currentMetric = 'votes'; // default: Matouš / Voliči ČSSD (hlasy)
+    let minVotesThreshold = 35; // default: min. 35 votes
+    let searchFilter = '';
+    let currentTileOpacity = 0.55;
+
+    let map1, map2;
+    let layer1 = L.layerGroup();
+    let layer2 = L.layerGroup();
+
+    const KRUPKA_COORDS = [50.6865, 13.8569];
+    const REGION_BOUNDS = [[50.15, 13.00], [51.05, 14.75]];
+
+    // Color ramp interpolation
+    function getColor(rate) {
+      if (rate === 0) return '#94a3b8'; // Slate 400 (0 votes for him)
+      if (rate < 0.12) return '#06b6d4'; // Cyan
+      if (rate < 0.28) return '#f59e0b'; // Amber / Yellow
+      if (rate < 0.48) return '#f97316'; // Orange
+      if (rate < 0.68) return '#ef4444'; // Red
+      return '#881337'; // Deep Rose/Burgundy for dominant
+    }
+
+    // Bubble radius: square root scale for area proportionality
+    function getRadius(votes) {
+      return Math.max(3.5, Math.min(26, Math.sqrt(votes) * 2.5));
+    }
+
+    function initMaps() {
+      // Free and unblocked OpenStreetMap & Esri tile providers (no API keys, no file:// policy blocks)
+      const osmFrUrl = 'https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png';
+      const osmAttrib = '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> &copy; <a href="https://openstreetmap.fr/" target="_blank">OSM France</a>';
+      
+      const esriStreetUrl = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}';
+      const esriGrayUrl = 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}';
+      const esriTopoUrl = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}';
+      const topoUrl = 'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png';
+
+      // Map 1
+      map1 = L.map('map1', { zoomControl: true }).fitBounds(REGION_BOUNDS);
+      const baseOsm1 = L.tileLayer(osmFrUrl, { 
+        attribution: osmAttrib, 
+        maxZoom: 19,
+        subdomains: 'abc'
+      }).addTo(map1);
+      layer1.addTo(map1);
+
+      // Map 2 (for split view)
+      map2 = L.map('map2', { zoomControl: true }).fitBounds(REGION_BOUNDS);
+      const baseOsm2 = L.tileLayer(osmFrUrl, { 
+        attribution: osmAttrib, 
+        maxZoom: 19,
+        subdomains: 'abc'
+      }).addTo(map2);
+      layer2.addTo(map2);
+
+      // Basemap switcher controls
+      const baseMaps1 = {
+        "OpenStreetMap": baseOsm1,
+        "Esri Barevná uliční mapa": L.tileLayer(esriStreetUrl, { attribution: 'Tiles &copy; Esri', maxZoom: 18 }),
+        "Esri Světlá mapa (vyniknou bubliny)": L.tileLayer(esriGrayUrl, { attribution: 'Tiles &copy; Esri', maxZoom: 16 }),
+        "OpenTopoMap (Topografická)": L.tileLayer(topoUrl, { attribution: 'Map data &copy; OpenStreetMap | Style &copy; OpenTopoMap', maxZoom: 17 }),
+        "Esri Topografická": L.tileLayer(esriTopoUrl, { attribution: 'Tiles &copy; Esri', maxZoom: 18 })
+      };
+      L.control.layers(baseMaps1, null, { position: 'topright' }).addTo(map1);
+
+      const baseMaps2 = {
+        "OpenStreetMap": baseOsm2,
+        "Esri Barevná uliční mapa": L.tileLayer(esriStreetUrl, { attribution: 'Tiles &copy; Esri', maxZoom: 18 }),
+        "Esri Světlá mapa (vyniknou bubliny)": L.tileLayer(esriGrayUrl, { attribution: 'Tiles &copy; Esri', maxZoom: 16 }),
+        "OpenTopoMap (Topografická)": L.tileLayer(topoUrl, { attribution: 'Map data &copy; OpenStreetMap | Style &copy; OpenTopoMap', maxZoom: 17 }),
+        "Esri Topografická": L.tileLayer(esriTopoUrl, { attribution: 'Tiles &copy; Esri', maxZoom: 18 })
+      };
+      L.control.layers(baseMaps2, null, { position: 'topright' }).addTo(map2);
+
+      // Sync map movements in split mode
+      let syncing = false;
+      function sync(source, target) {
+        if (currentMode !== 'split' || syncing) return;
+        syncing = true;
+        target.setView(source.getCenter(), source.getZoom(), { animate: false });
+        syncing = false;
+      }
+      map1.on('move', () => sync(map1, map2));
+      map2.on('move', () => sync(map2, map1));
+
+      // Initial render
+      renderYear(currentYear, map1, layer1);
+      renderYear(2021, map2, layer2);
+      updateSidebarStats();
+      updateMetricLabels();
+    }
+
+    function renderYear(year, mapObj, layerObj) {
+      layerObj.clearLayers();
+      const dataset = ELECTIONS_DATA[year.toString()];
+      if (!dataset) return;
+
+      dataset.okrsky.forEach(item => {
+        if (item.votes < minVotesThreshold) return;
+        if (searchFilter && !item.obec_name.toLowerCase().includes(searchFilter.toLowerCase())) return;
+
+        // Active rate depends on currentMetric
+        const activeRate = (currentMetric === 'pref') ? item.rate : item.rate_votes;
+        const radius = getRadius(item.votes);
+        const color = getColor(activeRate);
+
+        const circle = L.circleMarker([item.lat, item.lon], {
+          radius: radius,
+          fillColor: color,
+          color: item.krupka ? '#be123c' : '#ffffff',
+          weight: item.krupka ? 2.5 : 1.2,
+          opacity: 1,
+          fillOpacity: activeRate === 0 ? 0.45 : 0.88
+        });
+
+        // Hover tooltip
+        const prefRateStr = (item.rate * 100).toFixed(1) + ' %';
+        const voterRateStr = (item.rate_votes * 100).toFixed(1) + ' %';
+        
+        circle.bindTooltip(`
+          <strong>${item.obec_name}</strong> – okrsek ${item.okrsek}<br>
+          ${currentMetric === 'pref' ? 
+            `Podíl z pref. hlasů: <strong>${prefRateStr}</strong>` : 
+            `Podíl z voličů ČSSD: <strong>${voterRateStr}</strong>`}<br>
+          Hlasy ČSSD: ${item.votes} | Matouš: ${item.matous}
+        `, { className: 'custom-tooltip', sticky: true });
+
+        // Click popup
+        circle.bindPopup(`
+          <div class="popup-header">
+            ${item.obec_name}
+            <span style="font-size:12px; font-weight:600; color:#64748b;">Okrsek ${item.okrsek}</span>
+          </div>
+          <div class="popup-sub">Okres ${item.okres_name} • Volby ${year}</div>
+          ${item.krupka ? '<span class="popup-krupka-badge">⭐ Domovská obec kandidáta (Krupka)</span>' : ''}
+          <table class="popup-table">
+            <tr>
+              <td>Pref. hlasy Zdeněk Matouš</td>
+              <td class="val popup-highlight">${item.matous}</td>
+            </tr>
+            <tr>
+              <td>Hlasy pro stranu ČSSD (voliči)</td>
+              <td class="val">${item.votes}</td>
+            </tr>
+            <tr>
+              <td>ČSSD pref. hlasy v okrsku celkem</td>
+              <td class="val">${item.total_pref}</td>
+            </tr>
+            <tr class="${currentMetric === 'pref' ? 'popup-active-row' : ''}">
+              <td>
+                <strong>Matouš / Všechny pref. hlasy ČSSD</strong>
+                ${currentMetric === 'pref' ? '<span class="rate-badge rate-badge-active">Aktivní</span>' : ''}
+              </td>
+              <td class="val ${currentMetric === 'pref' ? 'popup-highlight' : ''}">${prefRateStr}</td>
+            </tr>
+            <tr class="${currentMetric === 'votes' ? 'popup-active-row' : ''}">
+              <td>
+                <strong>Matouš / Voliči ČSSD (hlasy)</strong>
+                ${currentMetric === 'votes' ? '<span class="rate-badge rate-badge-active">Aktivní</span>' : ''}
+              </td>
+              <td class="val ${currentMetric === 'votes' ? 'popup-highlight' : ''}">${voterRateStr}</td>
+            </tr>
+          </table>
+        `);
+
+        layerObj.addLayer(circle);
+      });
+    }
+
+    function setMetric(metric) {
+      currentMetric = metric;
+      document.getElementById('btn-metric-pref').classList.toggle('metric-active', metric === 'pref');
+      document.getElementById('btn-metric-votes').classList.toggle('metric-active', metric === 'votes');
+
+      updateMetricLabels();
+      updateSidebarStats();
+
+      renderYear(currentMode === 'split' ? 2021 : currentYear, map1, layer1);
+      if (currentMode === 'split') {
+        renderYear(2017, map2, layer2);
+      }
+    }
+
+    function updateMetricLabels() {
+      const isPref = (currentMetric === 'pref');
+      document.getElementById('legend-rate-title').innerText = isPref ? 
+        'Podíl pref. hlasů pro Matouše (% ze všech pref. ČSSD)' : 
+        'Podíl voličů ČSSD hlasujících pro Matouše (% z hlasů ČSSD)';
+      
+      document.getElementById('info-metric-desc').innerText = isPref ? 
+        'Podíl preferenčních hlasů pro Matouše ze všech preferenčních hlasů ČSSD.' : 
+        'Podíl voličů ČSSD v okrsku, kteří dali preferenční hlas Matoušovi (Matouš / celkem hlasů ČSSD).';
+    }
+
+    function updateSidebarStats() {
+      const year = (currentMode === 'split') ? 2021 : currentYear;
+      const stats = ELECTIONS_DATA[year.toString()].stats;
+
+      document.getElementById('side-cand-name').innerText = stats.candidate_name;
+      document.getElementById('side-cand-role').innerText = stats.candidate_role;
+
+      document.getElementById('side-cand-details').innerHTML = `
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-weight:700; color:#0f172a;">Volby ${stats.year}</span>
+          <span style="background:#e2e8f0; font-size:11px; font-weight:700; padding:2px 6px; border-radius:4px;">Pozice: #${stats.candidate_position}</span>
+        </div>
+        <div style="font-size:12px; color:#475569; margin-top:4px;">
+          ${stats.year === 2017 ? 'Kandidoval z 2. místa za poslaneckým lídrem Jaroslavem Foldynou (skončil jako 1. náhradník).' : 'Krajský volební lídr (1. místo na kandidátce ČSSD v Ústeckém kraji).'}
+        </div>
+      `;
+
+      document.getElementById('stat-votes-kraj').innerText = stats.total_cssd_votes.toLocaleString('cs-CZ');
+      document.getElementById('stat-matous-kraj').innerText = stats.total_matous_pref_votes.toLocaleString('cs-CZ');
+
+      if (currentMetric === 'pref') {
+        document.getElementById('lbl-matous-kraj').innerText = 'Pref. hlasy Matouš';
+        document.getElementById('stat-matous-rate-kraj').innerText = `${stats.region_matous_pref_rate} % pref. hlasů ČSSD`;
+        document.getElementById('lbl-krupka-rate').innerText = 'Krupka – Podíl z pref.';
+        document.getElementById('stat-krupka-rate').innerText = `${stats.krupka_matous_pref_rate} %`;
+        document.getElementById('stat-krupka-matous').innerText = `${stats.krupka_matous_pref_votes} z ${stats.krupka_cssd_pref_votes} pref.`;
+      } else {
+        document.getElementById('lbl-matous-kraj').innerText = 'Matouš / Voliči ČSSD';
+        document.getElementById('stat-matous-rate-kraj').innerText = `${stats.region_matous_voter_rate} % voličů v kraji`;
+        document.getElementById('lbl-krupka-rate').innerText = 'Krupka – Podíl z voličů';
+        document.getElementById('stat-krupka-rate').innerText = `${stats.krupka_matous_voter_rate} %`;
+        document.getElementById('stat-krupka-matous').innerText = `${stats.krupka_matous_pref_votes} ze ${stats.krupka_cssd_votes} voličů`;
+      }
+
+      document.getElementById('stat-krupka-votes').innerText = stats.krupka_cssd_votes.toLocaleString('cs-CZ');
+    }
+
+    function setYear(year) {
+      currentYear = year;
+      document.getElementById('btn-year-2017').classList.toggle('active', year === 2017);
+      document.getElementById('btn-year-2021').classList.toggle('active', year === 2021);
+      document.getElementById('badge-map-1').innerText = `Volby ${year} (#${ELECTIONS_DATA[year].stats.candidate_position} na kandidátce)`;
+      
+      renderYear(currentYear, map1, layer1);
+      updateSidebarStats();
+    }
+
+    function setViewMode(mode) {
+      currentMode = mode;
+      document.getElementById('btn-mode-single').classList.toggle('active', mode === 'single');
+      document.getElementById('btn-mode-split').classList.toggle('active', mode === 'split');
+
+      const yearGroup = document.getElementById('year-toggle-group');
+      const pane2 = document.getElementById('map-pane-2');
+
+      if (mode === 'split') {
+        yearGroup.style.display = 'none';
+        pane2.classList.remove('hidden');
+        document.getElementById('badge-map-1').innerText = 'Volby 2021 (Lídr #1)';
+        document.getElementById('badge-map-2').innerText = 'Volby 2017 (#2 na kandidátce)';
+        
+        setTimeout(() => {
+          map1.invalidateSize();
+          map2.invalidateSize();
+          renderYear(2021, map1, layer1);
+          renderYear(2017, map2, layer2);
+          map2.setView(map1.getCenter(), map1.getZoom());
+        }, 150);
+      } else {
+        yearGroup.style.display = 'inline-flex';
+        pane2.classList.add('hidden');
+        document.getElementById('badge-map-1').innerText = `Volby ${currentYear}`;
+        setTimeout(() => {
+          map1.invalidateSize();
+          renderYear(currentYear, map1, layer1);
+        }, 150);
+      }
+      updateSidebarStats();
+    }
+
+    function updateTileOpacity(val) {
+      currentTileOpacity = parseInt(val) / 100;
+      document.documentElement.style.setProperty('--tile-opacity', currentTileOpacity);
+      document.getElementById('opacity-val').innerText = `${val} %`;
+    }
+
+    function updateMinVotes(val) {
+      minVotesThreshold = parseInt(val);
+      document.getElementById('min-votes-val').innerText = val;
+      renderYear(currentMode === 'split' ? 2021 : currentYear, map1, layer1);
+      if (currentMode === 'split') {
+        renderYear(2017, map2, layer2);
+      }
+    }
+
+    function filterBySearch(val) {
+      searchFilter = val.trim();
+      renderYear(currentMode === 'split' ? 2021 : currentYear, map1, layer1);
+      if (currentMode === 'split') {
+        renderYear(2017, map2, layer2);
+      }
+    }
+
+    function focusKrupka() {
+      map1.flyTo(KRUPKA_COORDS, 13.5, { duration: 1.5 });
+      if (currentMode === 'split') {
+        map2.flyTo(KRUPKA_COORDS, 13.5, { duration: 1.5 });
+      }
+    }
+
+    function resetView() {
+      map1.fitBounds(REGION_BOUNDS, { animate: true });
+      if (currentMode === 'split') {
+        map2.fitBounds(REGION_BOUNDS, { animate: true });
+      }
+    }
+
+    // Start on load
+    window.addEventListener('DOMContentLoaded', () => {
+      initMaps();
+    });
+  </script>
+</body>
+</html>

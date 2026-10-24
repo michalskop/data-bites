@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bg-grad-v1" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#fdfbf7"/>
+      <stop offset="100%" stop-color="#f3f1e9"/>
+    </radialGradient>
+    <filter id="shadow-v1" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#101432" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="640" height="400" fill="url(#bg-grad-v1)"/>
+
+  <!-- Subtle Chart Grid -->
+  <path d="M 0 100 L 640 100 M 0 180 L 640 180 M 0 260 L 640 260 M 0 340 L 640 340" stroke="#e8e8dc" stroke-width="1" stroke-dasharray="4 4"/>
+  <path d="M 120 0 L 120 400 M 260 0 L 260 400 M 400 0 L 400 400 M 540 0 L 540 400" stroke="#e8e8dc" stroke-width="1" stroke-dasharray="4 4"/>
+
+  <!-- Header -->
+  <text x="36" y="44" font-family="'Work Sans', sans-serif" font-size="12" font-weight="700" fill="#0e839e" letter-spacing="1.5">ŽIVÝ STATISTICKÝ MODEL • DATA ČSÚ</text>
+  <text x="36" y="74" font-family="'Roboto Slab', Georgia, serif" font-size="22" font-weight="700" fill="#101432">Predikce vs. sčítání – volby 2026</text>
+
+  <!-- Live Pulse Dot -->
+  <circle cx="585" cy="40" r="5" fill="#de1743"/>
+  <circle cx="585" cy="40" r="10" fill="none" stroke="#de1743" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <text x="565" y="44" font-family="'Work Sans', sans-serif" font-size="11" font-weight="600" fill="#de1743" text-anchor="end">LIVE</text>
+
+  <!-- Mock Bars: Prediction vs Reality Cards -->
+  <!-- Card 1 -->
+  <g transform="translate(36, 115)" filter="url(#shadow-v1)">
+    <rect width="568" height="64" rx="6" fill="#ffffff" stroke="#e8e8dc" stroke-width="1"/>
+    <text x="18" y="26" font-family="'Work Sans', sans-serif" font-size="13" font-weight="700" fill="#101432">Praha – Zastupitelstvo hl. m. Prahy</text>
+    <text x="18" y="46" font-family="'Work Sans', sans-serif" font-size="11" font-weight="500" fill="#6267a3">Sečteno: 82,4 % okrsků</text>
+    
+    <!-- Progress bar -->
+    <rect x="260" y="22" width="280" height="12" rx="3" fill="#f8f6f0" stroke="#e8e8dc"/>
+    <rect x="260" y="22" width="230" height="12" rx="3" fill="#0e839e"/>
+    <line x1="490" y1="16" x2="490" y2="40" stroke="#de1743" stroke-width="2.5"/>
+    <text x="260" y="50" font-family="'Work Sans', sans-serif" font-size="10" font-weight="600" fill="#0e839e">Sčítání: 34,2 %</text>
+    <text x="490" y="50" font-family="'Work Sans', sans-serif" font-size="10" font-weight="700" fill="#de1743" text-anchor="middle">Predikce: 35,8 %</text>
+  </g>
+
+  <!-- Card 2 -->
+  <g transform="translate(36, 195)" filter="url(#shadow-v1)">
+    <rect width="568" height="64" rx="6" fill="#ffffff" stroke="#e8e8dc" stroke-width="1"/>
+    <text x="18" y="26" font-family="'Work Sans', sans-serif" font-size="13" font-weight="700" fill="#101432">Brno – Zastupitelstvo města Brna</text>
+    <text x="18" y="46" font-family="'Work Sans', sans-serif" font-size="11" font-weight="500" fill="#6267a3">Sečteno: 94,1 % okrsků</text>
+    
+    <rect x="260" y="22" width="280" height="12" rx="3" fill="#f8f6f0" stroke="#e8e8dc"/>
+    <rect x="260" y="22" width="205" height="12" rx="3" fill="#6267a3"/>
+    <line x1="465" y1="16" x2="465" y2="40" stroke="#de1743" stroke-width="2.5"/>
+    <text x="260" y="50" font-family="'Work Sans', sans-serif" font-size="10" font-weight="600" fill="#6267a3">Sčítání: 28,1 %</text>
+    <text x="465" y="50" font-family="'Work Sans', sans-serif" font-size="10" font-weight="700" fill="#de1743" text-anchor="middle">Predikce: 28,7 %</text>
+  </g>
+
+  <!-- Card 3: Senate -->
+  <g transform="translate(36, 275)" filter="url(#shadow-v1)">
+    <rect width="568" height="64" rx="6" fill="#ffffff" stroke="#e8e8dc" stroke-width="1"/>
+    <text x="18" y="26" font-family="'Work Sans', sans-serif" font-size="13" font-weight="700" fill="#101432">Senát – 27 obvodů (1. kolo)</text>
+    <text x="18" y="46" font-family="'Work Sans', sans-serif" font-size="11" font-weight="500" fill="#6267a3">Pravděpodobnosti postupu do 2. kola</text>
+    
+    <rect x="260" y="22" width="280" height="12" rx="3" fill="#f8f6f0" stroke="#e8e8dc"/>
+    <rect x="260" y="22" width="265" height="12" rx="3" fill="#efb704"/>
+    <line x1="525" y1="16" x2="525" y2="40" stroke="#101432" stroke-width="2.5"/>
+    <text x="260" y="50" font-family="'Work Sans', sans-serif" font-size="10" font-weight="600" fill="#efb704">Účast: 36,5 %</text>
+    <text x="525" y="50" font-family="'Work Sans', sans-serif" font-size="10" font-weight="700" fill="#101432" text-anchor="middle">Final: 37,2 %</text>
+  </g>
+
+  <!-- Footer Tag -->
+  <g transform="translate(36, 360)">
+    <text x="0" y="16" font-family="'Work Sans', sans-serif" font-size="12" font-weight="600" fill="#6267a3">volby2026.datatimes.cz ↗</text>
+  </g>
+</svg>
