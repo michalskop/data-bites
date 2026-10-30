@@ -4,7 +4,7 @@ Krátké datové analýzy, mikro-studie a interaktivní vizualizace otevřených
 
 Design vychází z vizuálního systému projektu [Sněmovna.DataTimes.cz](https://snemovna.datatimes.cz/digest).
 
-Production domain: **https://databites.datatimes.cz/** (launch pending DNS and certificate issuance).
+Production domain: **https://databites.datatimes.cz/** (DNS verified; launch pending certificate issuance and HTTPS enforcement).
 Hosting: GitHub Pages, `main`, repository root.
 
 ---
@@ -132,8 +132,7 @@ same policy. Infrastructure reference:
 ## Domain configuration
 
 The committed `CNAME` file, canonical links and GitHub Pages custom-domain setting
-use `databites.datatimes.cz`. To finish activation, add this Cloudflare **DNS-only**
-CNAME record:
+use `databites.datatimes.cz`. The verified Cloudflare **DNS-only** CNAME record is:
 
 | Type | Name | Target | Proxy |
 | --- | --- | --- | --- |
