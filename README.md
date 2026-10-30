@@ -4,8 +4,8 @@ Krátké datové analýzy, mikro-studie a interaktivní vizualizace otevřených
 
 Design vychází z vizuálního systému projektu [Sněmovna.DataTimes.cz](https://snemovna.datatimes.cz/digest).
 
-Target domain: **https://databites.datatimes.cz/** (activation pending DNS).
-Current site: https://michalskop.github.io/data-bites/ (GitHub Pages, `main`, repository root).
+Production domain: **https://databites.datatimes.cz/** (launch pending DNS and certificate issuance).
+Hosting: GitHub Pages, `main`, repository root.
 
 ---
 
@@ -131,16 +131,16 @@ same policy. Infrastructure reference:
 
 ## Domain configuration
 
-Activate the prepared `CNAME` file and production canonical links after the DNS record
-is ready. Until then, keep the current GitHub Pages URL working. The domain needs a
-Cloudflare **DNS-only** CNAME record:
+The committed `CNAME` file, canonical links and GitHub Pages custom-domain setting
+use `databites.datatimes.cz`. To finish activation, add this Cloudflare **DNS-only**
+CNAME record:
 
 | Type | Name | Target | Proxy |
 | --- | --- | --- | --- |
 | CNAME | `databites` | `michalskop.github.io` | DNS only |
 
-Set the same custom domain in repository Settings → Pages. Keep HTTPS enforced
-once GitHub has issued the certificate. Canonical links use the production domain;
+The same custom domain is registered in repository Settings → Pages. Enable HTTPS
+enforcement once GitHub has issued the certificate. Canonical links use the production domain;
 analysis routes and datasets keep relative paths so local development works.
 
 ## Verification
