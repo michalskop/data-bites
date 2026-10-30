@@ -1,0 +1,37 @@
+#!/usr/bin/env python3
+"""Enforce the DataTimes media policy, adapted from mahdalova-skop/.githooks."""
+
+from pathlib import PurePosixPath
+import subprocess
+import sys
+
+
+result = subprocess.run(
+    ["git", "diff", "--cached", "--name-only", "--diff-filter=ACMRT", "-z"],
+    check=True, stdout=subprocess.PIPE,
+)
+extensions = {
+    ".png", ".jpg", ".jpeg", ".webp", ".gif", ".avif", ".svg", ".ico",
+    ".mp4", ".webm", ".mov", ".m4v", ".tif", ".tiff", ".bmp",
+    ".mp3", ".wav", ".ogg", ".pdf", ".woff", ".woff2", ".ttf", ".otf",
+}
+blocked = [
+    name.decode("utf-8", errors="replace")
+    for name in result.stdout.split(b"\0") if name
+    and PurePosixPath(name.decode("utf-8", errors="replace")).suffix.lower() in extensions
+]
+if blocked:
+    print("COMMIT REJECTED: Media belongs on https://media.datatimes.org, not in Git.", file=sys.stderr)
+    for name in blocked:
+        print(f"  {name}", file=sys.stderr)
+    print(
+        "\nUpload first:\n"
+        "  python3 scripts/upload_media.py --file <local-file> "
+        "--target data-bites/<analysis>/chart-v1.webp\n"
+        "Use the verified CDN URL in HTML, JavaScript or Markdown.\n"
+        "Unstage the media with: git restore --staged -- <local-file>\n"
+        "For an already tracked file, migrate references and remove it from Git.\n"
+        "See AGENTS.md and README.md for the media workflow.",
+        file=sys.stderr,
+    )
+    sys.exit(1)
