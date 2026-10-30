@@ -40,8 +40,8 @@ def prepare(path, target, mode):
     ) or "?" in target or "#" in target:
         raise ValueError("Target must be a relative object key without empty segments, . or ..")
     key = PurePosixPath(target)
-    if key.parts[0] != "data-bites" or len(key.parts) < 3 or not key.suffix:
-        raise ValueError("Use a full filename under data-bites/<analysis-or-site>/")
+    if key.parts[0] != "databites-dtcz" or len(key.parts) < 3 or not key.suffix:
+        raise ValueError("Use a full filename under databites-dtcz/<analysis-or-site>/")
     data = path.read_bytes()
     source_ext = path.suffix.lower()
     if mode == "og-image" or (mode in ("auto", "content") and source_ext in (".png", ".jpg", ".jpeg")):
@@ -112,7 +112,7 @@ def verify(key, data, content_type):
     for attempt in range(4):
         try:
             response = requests.head(url, headers={
-                "Origin": "https://data-bites.datatimes.cz", "Accept-Encoding": "identity",
+                "Origin": "https://databites.datatimes.cz", "Accept-Encoding": "identity",
             }, timeout=15)
             response.raise_for_status()
             if response.status_code != 200:
@@ -121,7 +121,7 @@ def verify(key, data, content_type):
                 raise ValueError("CDN Content-Length differs from uploaded media")
             if response.headers.get("Content-Type", "").split(";")[0] != content_type:
                 raise ValueError("CDN Content-Type differs from uploaded media")
-            if response.headers.get("Access-Control-Allow-Origin") not in ("*", "https://data-bites.datatimes.cz"):
+            if response.headers.get("Access-Control-Allow-Origin") not in ("*", "https://databites.datatimes.cz"):
                 raise ValueError("CDN does not allow the site's origin")
             if response.headers.get("X-Bz-Content-Sha1") != hashlib.sha1(data).hexdigest():
                 raise ValueError("CDN content hash differs from uploaded media")
@@ -143,7 +143,7 @@ def verify(key, data, content_type):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--file", required=True, type=Path)
-    parser.add_argument("--target", required=True, help="Full object key: data-bites/<analysis>/chart-v1.webp")
+    parser.add_argument("--target", required=True, help="Full object key: databites-dtcz/<analysis>/chart-v1.webp")
     parser.add_argument("--format", choices=("auto", "content", "preserve", "og-image"), default="auto")
     parser.add_argument("--fail-if-exists", action="store_true", help="Always enabled; overwrites are refused")
     parser.add_argument("--verify-only", action="store_true", help="Verify a previous upload without writing to B2")

@@ -27,7 +27,7 @@ if blocked:
     print(
         "\nUpload first:\n"
         "  python3 scripts/upload_media.py --file <local-file> "
-        "--target data-bites/<analysis>/chart-v1.webp\n"
+        "--target databites-dtcz/<analysis>/chart-v1.webp\n"
         "Use the verified CDN URL in HTML, JavaScript or Markdown.\n"
         "Unstage the media with: git restore --staged -- <local-file>\n"
         "For an already tracked file, migrate references and remove it from Git.\n"

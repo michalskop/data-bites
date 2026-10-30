@@ -1,8 +1,8 @@
 [
   {
     "status": "success",
-    "url": "https://media.datatimes.org/data-bites/volby2026-predikce/preview-2026-10-v2.svg",
-    "key": "data-bites/volby2026-predikce/preview-2026-10-v2.svg",
+    "url": "https://media.datatimes.org/databites-dtcz/volby2026-predikce/preview-2026-10-v2.svg",
+    "key": "databites-dtcz/volby2026-predikce/preview-2026-10-v2.svg",
     "sha256": "681592b911d787af758b78f0e6d3f06e4c990755705026592baacf5a22bfdc26",
     "bytes": 4912,
     "content_type": "image/svg+xml",
@@ -11,8 +11,8 @@
   },
   {
     "status": "success",
-    "url": "https://media.datatimes.org/data-bites/volby2026-senat-2kolo/preview-2026-10-v1.svg",
-    "key": "data-bites/volby2026-senat-2kolo/preview-2026-10-v1.svg",
+    "url": "https://media.datatimes.org/databites-dtcz/volby2026-senat-2kolo/preview-2026-10-v1.svg",
+    "key": "databites-dtcz/volby2026-senat-2kolo/preview-2026-10-v1.svg",
     "sha256": "0e514a10fe24a0a27a6e89935708a1432f60d63f75c99ed64dc407690a27ee0e",
     "bytes": 4062,
     "content_type": "image/svg+xml",
@@ -21,8 +21,8 @@
   },
   {
     "status": "success",
-    "url": "https://media.datatimes.org/data-bites/2021-cssd-krupka-matous/preview-2026-10-v1.svg",
-    "key": "data-bites/2021-cssd-krupka-matous/preview-2026-10-v1.svg",
+    "url": "https://media.datatimes.org/databites-dtcz/2021-cssd-krupka-matous/preview-2026-10-v1.svg",
+    "key": "databites-dtcz/2021-cssd-krupka-matous/preview-2026-10-v1.svg",
     "sha256": "4563c534bab469b6575e25c5e52c2072e7efa512bacbd63803ef52d73c5f2bbf",
     "bytes": 120308,
     "content_type": "image/svg+xml",
@@ -31,8 +31,8 @@
   },
   {
     "status": "success",
-    "url": "https://media.datatimes.org/data-bites/2026-volebni-anomalie/preview-2026-10-v1.svg",
-    "key": "data-bites/2026-volebni-anomalie/preview-2026-10-v1.svg",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-volebni-anomalie/preview-2026-10-v1.svg",
+    "key": "databites-dtcz/2026-volebni-anomalie/preview-2026-10-v1.svg",
     "sha256": "d834c9c3aaeefb817506625319b8cb6bb83995150ebd013fef37de1d4430b9bb",
     "bytes": 4979,
     "content_type": "image/svg+xml",
@@ -41,8 +41,8 @@
   },
   {
     "status": "success",
-    "url": "https://media.datatimes.org/data-bites/site/datatimes-logo-2026-10-v1.webp",
-    "key": "data-bites/site/datatimes-logo-2026-10-v1.webp",
+    "url": "https://media.datatimes.org/databites-dtcz/site/datatimes-logo-2026-10-v1.webp",
+    "key": "databites-dtcz/site/datatimes-logo-2026-10-v1.webp",
     "sha256": "d21476a4f4fd6ac8edf99430594a42adeb5239b8a09a91a5a604466978866a3d",
     "bytes": 11620,
     "content_type": "image/webp",

@@ -4,7 +4,7 @@ Krátké datové analýzy, mikro-studie a interaktivní vizualizace otevřených
 
 Design vychází z vizuálního systému projektu [Sněmovna.DataTimes.cz](https://snemovna.datatimes.cz/digest).
 
-Target domain: **https://data-bites.datatimes.cz/** (activation pending DNS).
+Target domain: **https://databites.datatimes.cz/** (activation pending DNS).
 Current site: https://michalskop.github.io/data-bites/ (GitHub Pages, `main`, repository root).
 
 ---
@@ -54,7 +54,7 @@ Poté otevřete v prohlížeči [http://localhost:8000](http://localhost:8000).
   created_at: "YYYY-MM-DD",
   updated_at: "YYYY-MM-DD",
   url: "./YYYY-nazev-tematu/",
-  image: "https://media.datatimes.org/data-bites/YYYY-nazev-tematu/preview-v1.svg",
+  image: "https://media.datatimes.org/databites-dtcz/YYYY-nazev-tematu/preview-v1.svg",
   tags: ["Téma 1", "Téma 2"]
 }
 ```
@@ -62,7 +62,7 @@ Poté otevřete v prohlížeči [http://localhost:8000](http://localhost:8000).
 ## Media uploads and agent setup
 
 Media is stored in the shared Backblaze B2 bucket `datatimes-media` and served
-through **https://media.datatimes.org/data-bites/**. Keep source code and analysis
+through **https://media.datatimes.org/databites-dtcz/**. Keep source code and analysis
 datasets in Git. Do not commit images, chart exports, video, audio, fonts or PDFs.
 Existing bundled Leaflet icons remain part of the vendored library.
 
@@ -86,23 +86,23 @@ existing shared credentials file when available; never commit credentials.
 # Convert a PNG/JPEG chart to WebP; the output URL uses .webp.
 python3 scripts/upload_media.py \
   --file /tmp/chart.png \
-  --target data-bites/YYYY-analysis-slug/chart-v1.webp \
+  --target databites-dtcz/YYYY-analysis-slug/chart-v1.webp \
   --format auto --fail-if-exists
 
 # Preserve SVG, video, animated GIF, audio, PDF or other original formats.
 python3 scripts/upload_media.py \
   --file /tmp/preview.svg \
-  --target data-bites/YYYY-analysis-slug/preview-v1.svg \
+  --target databites-dtcz/YYYY-analysis-slug/preview-v1.svg \
   --format preserve --fail-if-exists
 
 # Generate a 1200×630 JPEG social card.
 python3 scripts/upload_media.py \
   --file /tmp/cover.png \
-  --target data-bites/YYYY-analysis-slug/cover-og-v1.jpg \
+  --target databites-dtcz/YYYY-analysis-slug/cover-og-v1.jpg \
   --format og-image --fail-if-exists
 ```
 
-Use `data-bites/<analysis-id>/` for analysis media and `data-bites/site/` for site
+Use `databites-dtcz/<analysis-id>/` for analysis media and `databites-dtcz/site/` for site
 assets. The target is a **full filename**, unlike the directory example in the RFC.
 The script returns JSON with the public URL, SHA-256, size, MIME type and verification
 result. Record published uploads in `media-assets.json` and use the returned URL in
@@ -137,7 +137,7 @@ Cloudflare **DNS-only** CNAME record:
 
 | Type | Name | Target | Proxy |
 | --- | --- | --- | --- |
-| CNAME | `data-bites` | `michalskop.github.io` | DNS only |
+| CNAME | `databites` | `michalskop.github.io` | DNS only |
 
 Set the same custom domain in repository Settings → Pages. Keep HTTPS enforced
 once GitHub has issued the certificate. Canonical links use the production domain;
