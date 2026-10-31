@@ -4,7 +4,7 @@ Krátké datové analýzy, mikro-studie a interaktivní vizualizace otevřených
 
 Design vychází z vizuálního systému projektu [Sněmovna.DataTimes.cz](https://snemovna.datatimes.cz/digest).
 
-Production domain: **https://databites.datatimes.cz/** (DNS verified; launch pending certificate issuance and HTTPS enforcement).
+Production domain: **https://databites.datatimes.cz/** (DNS and HTTPS verified; HTTP redirects to HTTPS).
 Hosting: GitHub Pages, `main`, repository root.
 
 ---
@@ -138,8 +138,8 @@ use `databites.datatimes.cz`. The verified Cloudflare **DNS-only** CNAME record 
 | --- | --- | --- | --- |
 | CNAME | `databites` | `michalskop.github.io` | DNS only |
 
-The same custom domain is registered in repository Settings → Pages. Enable HTTPS
-enforcement once GitHub has issued the certificate. Canonical links use the production domain;
+The same custom domain is registered in repository Settings → Pages. Its certificate
+is issued and HTTPS enforcement is enabled. Keep enforcement enabled. Canonical links use the production domain;
 analysis routes and datasets keep relative paths so local development works.
 
 ## Verification

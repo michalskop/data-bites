@@ -1,7 +1,7 @@
 # Data Bites agent instructions
 
 - This is a buildless static HTML/JavaScript site published by GitHub Pages from `main`, repository root.
-- Production URL: https://databites.datatimes.cz. GitHub Pages and DNS are configured; launch is pending certificate issuance and HTTPS enforcement. Keep `CNAME` set to `databites.datatimes.cz`.
+- Production URL: https://databites.datatimes.cz. GitHub Pages, DNS and HTTPS are active. Keep `CNAME` set to `databites.datatimes.cz` and HTTPS enforcement enabled.
 - Keep Czech website copy in Czech. Write new code comments and technical documentation in English.
 - Preserve existing analyses and relative analysis/data links. Do not publish unrelated untracked work.
 
