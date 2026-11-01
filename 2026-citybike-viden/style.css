@@ -1,0 +1,17 @@
+.format-list { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.gallery-summary { color: var(--muted); font-size: 12px; margin-bottom: 20px; }
+.section-count { display: inline-block; color: var(--muted); background: var(--wash); border: 1px solid var(--border); border-radius: 4px; padding: 2px 7px; font: 500 11px var(--sans); vertical-align: middle; margin-left: 5px; }
+.editions-heading { margin-top: 26px; }
+.editions-heading h2 { font-size: 15px; }
+.format-name { flex-wrap: wrap; }
+.format-variant { display: block; color: #626678; font-size: 10px; line-height: 1.5; margin-top: 5px; }
+.format-thumbnail { height: 110px; }
+.ride { background: var(--brand); }
+.round-trip { background: var(--regional); }
+.format-detail { padding-top: 27px; }
+@media (max-width: 760px) {
+  .format-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .format-thumbnail { height: 100px; }
+  .format-variant { font-size: 9px; }
+  .player-topline { flex-wrap: wrap; }
+}

@@ -4,6 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>DataBites | Rychlé datové analýzy a vizualizace | DataTimes.cz</title>
+  <link rel="icon" href="https://media.datatimes.org/databites-dtcz/site/favicon-bites-2026-11-v1.ico" type="image/x-icon" sizes="16x16 32x32 48x48 64x64">
+  <link rel="icon" href="https://media.datatimes.org/databites-dtcz/site/favicon-bites-2026-11-v1.svg" type="image/svg+xml" sizes="any">
+  <link rel="apple-touch-icon" href="https://media.datatimes.org/databites-dtcz/site/apple-touch-icon-bites-2026-11-v1.png" sizes="180x180">
   <link rel="canonical" href="https://databites.datatimes.cz/">
   
   <meta name="description" content="Krátké datové analýzy, mikro-studie a interaktivní vizualizace otevřených dat. Analytický zápisník projektu DataTimes." />
@@ -487,7 +490,7 @@
       <header class="page-intro">
         <h1 class="page-title">Data Bites</h1>
         <p class="page-subtitle">
-          Krátké datové analýzy, mikro-studie a interaktivní vizualizace otevřených dat. Rychlá zjištění, volební geografie a analytické sondy.
+          Krátké datové analýzy, mikro-studie a vizualizace otevřených dat. Mapy, pohyb v čase a příběhy ukryté v číslech.
         </p>
       </header>
 
@@ -570,6 +573,54 @@
     // To add a new analysis, simply append an object to this list!
     const DATA_BITES = [
       {
+        id: "2026-doprava-v-evrope",
+        title: "Doprava napříč Evropou",
+        description: "Vlaky v Česku, Rakousku, na Slovensku, v Polsku a Itálii, veřejná doprava v Norsku a městský detail Vídně. Vyberte zemi, celý den nebo ranní špičku a formát pro sociální sítě či web. U každé verze najdete datum, jazyk a rozsah použitých dat.",
+        created_at: "2026-11-01",
+        updated_at: "2026-11-01",
+        url: "./2026-doprava-v-evrope/",
+        image: "https://media.datatimes.org/databites-dtcz/2026-doprava-v-evrope/austria_homepage_web_17.00-v1.png",
+        category: "Doprava · evropské země",
+        cta: "Prohlédnout země a videa →",
+        tags: ["doprava", "video", "Evropa", "Česko", "Rakousko", "Slovensko", "Polsko", "Itálie", "Norsko"]
+      },
+      {
+        id: "2026-regionalni-verejna-doprava",
+        title: "Veřejná doprava v českých regionech",
+        description: "Města a kraje v pohybu podle jízdních řádů pro 27. října 2026. Porovnejte celý den s ranní špičkou v ODIS, IDS JMK, Brně, Plzni, Ústí nad Labem a dalších oblastech. Každá tečka představuje jedno vozidlo.",
+        created_at: "2026-11-01",
+        updated_at: "2026-11-01",
+        url: "./2026-regionalni-verejna-doprava/",
+        image: "https://media.datatimes.org/databites-dtcz/2026-regionalni-verejna-doprava/brno_web_08.00-v1.png",
+        category: "Regionální veřejná doprava",
+        cta: "Prohlédnout města a kraje →",
+        tags: ["doprava", "veřejná doprava", "regiony", "Česko", "video"]
+      },
+      {
+        id: "2026-citybike-viden",
+        title: "Citybike: vypůjčená kola ve Vídni",
+        description: "Historické výpůjčky kol Citybike na mapě Vídně. Celý den, večerní špička i nejvytíženější den v záznamu, s variantami se stopou pohybu a videoformáty pro sociální sítě a web. Časy výpůjček jsou skutečné, trasy odhadované.",
+        created_at: "2026-10-31",
+        updated_at: "2026-10-31",
+        url: "./2026-citybike-viden/",
+        image: "https://media.datatimes.org/databites-dtcz/2026-citybike-viden/citybike_homepage_web_17.50-v1.png",
+        category: "Doprava · sdílená kola",
+        cta: "Prohlédnout videa z Vídně →",
+        tags: ["doprava", "kola", "Vídeň", "Rakousko", "video"]
+      },
+      {
+        id: "2026-vlaky-v-cesku",
+        title: "Vlaky v Česku za jediný den",
+        description: "Jeden všední den na českých kolejích v 57 sekundách. Pohyb vlaků podle jízdního řádu pro 6. října 2026 v pěti videoformátech pro sociální sítě a web. Každá tečka představuje jeden vlak.",
+        created_at: "2026-10-31",
+        updated_at: "2026-10-31",
+        url: "./2026-vlaky-v-cesku/",
+        image: "https://media.datatimes.org/databites-dtcz/2026-vlaky-v-cesku/czechia_iso_homepage_web_14.20-v1.png",
+        category: "Doprava · pohyb vlaků",
+        cta: "Prohlédnout videoformáty →",
+        tags: ["doprava", "vlaky", "video", "Česko"]
+      },
+      {
         id: "2021-cssd-krupka-matous",
         title: "Zdeněk Matouš a preferenční hlasy ČSSD v Ústeckém kraji (2017 & 2021)",
         description: "Podrobná okrsková mapa preferenčních hlasů starosty Krupky Zdeňka Matouše ve volbách 2017 a 2021. Mimo Krupku odhaluje nápadné anomálie v okrscích Ústí nad Labem (okrsek 2016) a Trmice (okrsek 2), kde pro něj hlasovalo 69 % resp. 48 % všech voličů ČSSD.",
@@ -579,7 +630,7 @@
         image: "https://media.datatimes.org/databites-dtcz/2021-cssd-krupka-matous/preview-2026-10-v1.svg",
         category: "Poslanecká sněmovna PČR",
         cta: "Otevřít interaktivní mapu →",
-        tags: ["volby", "preferenční hlasy", "forenzní analýza", "sněmovna"]
+        tags: ["volby", "preferenční hlasy", "forenzní analýza", "sněmovna", "dashboard"]
       },
       {
         id: "volby2026-senat-2kolo",
@@ -591,7 +642,7 @@
         image: "https://media.datatimes.org/databites-dtcz/volby2026-senat-2kolo/preview-2026-10-v1.svg",
         category: "Senátní volby 2026 (2. kolo)",
         cta: "Otevřít predikce 2. kola ↗",
-        tags: ["volby", "predikce", "senát"]
+        tags: ["volby", "predikce", "senát", "dashboard"]
       },
       {
         id: "2026-volebni-anomalie",
@@ -603,7 +654,7 @@
         image: "https://media.datatimes.org/databites-dtcz/2026-volebni-anomalie/preview-2026-10-v1.svg",
         category: "Senát & Komunální volby 2026",
         cta: "Otevřít interaktivní dashboard →",
-        tags: ["volby", "forenzní analýza", "senát", "komunální volby"]
+        tags: ["volby", "forenzní analýza", "senát", "komunální volby", "dashboard"]
       },
       {
         id: "volby2026-predikce",
@@ -615,7 +666,7 @@
         image: "https://media.datatimes.org/databites-dtcz/volby2026-predikce/preview-2026-10-v2.svg",
         category: "Komunální volby & Senát 2026",
         cta: "Otevřít predikce vs. sčítání ↗",
-        tags: ["volby", "predikce", "komunální volby", "senát"]
+        tags: ["volby", "predikce", "komunální volby", "senát", "dashboard"]
       }
     ];
 

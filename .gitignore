@@ -4,3 +4,10 @@
 __pycache__/
 *.pyc
 .venv/
+/2026-vlaky-v-cesku/media/
+/2026-citybike-viden/media/
+/2026-regionalni-verejna-doprava/media/
+/2026-doprava-v-evrope/media/
+/assets/site-local/
+/favicon.ico
+/media-assets.json.part

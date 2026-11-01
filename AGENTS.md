@@ -7,6 +7,10 @@
 
 ## Media storage: Backblaze B2 and the DataTimes CDN
 
+- The reviewed galleries `2026-vlaky-v-cesku/`, `2026-citybike-viden/`, `2026-regionalni-verejna-doprava/` and `2026-doprava-v-evrope/` use verified, immutable CDN media. Their local `media/` folders remain Git-ignored. The user authorized uploads and local commit preparation; do not push or deploy without an explicit request.
+- Refresh source metadata with `scripts/import_citybike_videos.py`, `scripts/import_regional_transport.py` or `scripts/import_country_transport.py`. Unchanged assets retain their verified CDN URLs via `media-assets.json`. New/changed assets remain local drafts until uploaded and linked; never commit production references to ignored local media.
+- Use `python3 scripts/prepare_gallery_media.py` for a dry-run inventory, `--upload` to upload authorized assets and verify CDN/Range behavior, then `--apply` to replace links only after every asset is verified. Increment `--revision` for changed content; never overwrite an existing key.
+- The favicon is a distinct crimson badge with an outlined white B, derived from the Sněmovna/Města icon family. Its verified CDN URLs are registered in `media-assets.json`; rebuild ignored local outputs with `python3 scripts/build_favicon.py` (Roboto Slab font; optional `--font`). Publish changed icons at a new revision and update references.
 - Do not commit media files to GitHub. This includes chart exports, previews, photos, SVGs, videos, audio, PDFs and fonts. Keep HTML, JavaScript, CSS and analysis datasets in this repository.
 - Upload media to the shared Backblaze B2 bucket `datatimes-media`. Use **https://media.datatimes.org/databites-dtcz/** URLs in HTML, JavaScript catalog entries and Markdown. Never use B2 origin/download URLs or a local media path in published content.
 - Use `scripts/upload_media.py`; see README.md for installation and examples. Credentials come from `~/.datatimes-media.env` or an ignored repository `.env`. Never print, commit or copy credentials into source.

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vlaky v Česku za jediný den | Data Bites</title>
+  <link rel="icon" href="https://media.datatimes.org/databites-dtcz/site/favicon-bites-2026-11-v1.ico" type="image/x-icon" sizes="16x16 32x32 48x48 64x64">
+  <link rel="icon" href="https://media.datatimes.org/databites-dtcz/site/favicon-bites-2026-11-v1.svg" type="image/svg+xml" sizes="any">
+  <link rel="apple-touch-icon" href="https://media.datatimes.org/databites-dtcz/site/apple-touch-icon-bites-2026-11-v1.png" sizes="180x180">
+  <meta name="description" content="Jeden den na českých kolejích v 57 sekundách. Pět videoformátů pro sociální sítě a web, od vertikálního videa po široký náhled.">
+  <link rel="canonical" href="https://databites.datatimes.cz/2026-vlaky-v-cesku/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="formats.js" defer></script>
+  <script src="gallery.js" defer></script>
+  <script src="../assets/media-download.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="wordmark" href="../" aria-label="Data Bites — úvodní stránka">DataBites<span>.</span><strong>DataTimes</strong><span>.</span>cz</a>
+      <a class="back-link" href="../">← Všechny vizualizace</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <header class="intro">
+      <div>
+        <p class="eyebrow">Doprava · Česko · 6. října 2026</p>
+        <h1>Vlaky v Česku<br><em>za jediný den.</em></h1>
+        <p class="lead">Od prvních nočních spojů po ranní špičku a poslední večerní vlaky. Jeden všední den na českých kolejích, zrychlený do necelé minuty.</p>
+      </div>
+      <div class="intro-facts" aria-label="O vizualizaci">
+        <p><strong>24 h</strong><span>provozu podle jízdního řádu</span></p>
+        <p><strong>57 s</strong><span>v jedné animaci</span></p>
+        <p><strong>5</strong><span>formátů pro sítě a web</span></p>
+      </div>
+    </header>
+
+    <section class="formats-section" aria-labelledby="formats-heading">
+      <div class="section-heading">
+        <h2 id="formats-heading">Stejný příběh. Vyberte si formát.</h2>
+        <p>Každá verze má vlastní rozvržení.</p>
+      </div>
+      <div id="format-list" class="format-list" role="group" aria-label="Videoformáty"></div>
+    </section>
+
+    <section class="viewer" aria-labelledby="selected-title">
+      <div class="player-column">
+        <div class="player-topline"><span><i class="status-dot"></i> 24 hodin na kolejích</span><span>6. 10. 2026 · 00:00–24:00</span></div>
+        <div class="video-stage">
+          <video id="preview-video" controls playsinline preload="none" poster="https://media.datatimes.org/databites-dtcz/2026-vlaky-v-cesku/czechia_iso_homepage_web_14.20-v1.png" src="https://media.datatimes.org/databites-dtcz/2026-vlaky-v-cesku/czechia_iso_homepage_web_trains_20261006-v1.mp4" aria-label="Pohyb vlaků v Česku během jednoho dne"></video>
+        </div>
+        <div class="player-caption"><span><i class="legend-dot regional"></i>Regionální vlaky <i class="legend-dot long-distance"></i>Dálkové vlaky</span><span>Každá tečka je jeden vlak.</span></div>
+        <p id="video-error" class="video-error" role="status" hidden>Video se nepodařilo načíst. Zkuste přímý odkaz „Otevřít video“ nebo soubor stáhněte.</p>
+      </div>
+      <aside class="format-detail">
+        <p id="selected-kicker" class="eyebrow">Web · 5:4</p>
+        <h2 id="selected-title">Náhled na web</h2>
+        <p id="selected-description" class="format-description">Varianta pro titulní stránku a vložení do článku. Širší plocha dává prostor mapě, statistikám i přehledu dopravců.</p>
+        <p id="selected-platforms" class="platform-label">Web · titulní stránka</p>
+        <dl class="specs">
+          <div><dt>Rozlišení</dt><dd id="selected-resolution">1 500 × 1 200 px</dd></div>
+          <div><dt>Poměr stran</dt><dd id="selected-ratio">5:4</dd></div>
+          <div><dt>Délka</dt><dd>57 sekund</dd></div>
+          <div><dt>Soubor</dt><dd id="selected-file">MP4 · 22,2 MB</dd></div>
+          <div><dt>Zvuk</dt><dd>Bez zvuku</dd></div>
+        </dl>
+        <a id="download-video" class="button-primary" href="https://media.datatimes.org/databites-dtcz/2026-vlaky-v-cesku/czechia_iso_homepage_web_trains_20261006-v1.mp4" download>Stáhnout video <span aria-hidden="true">↓</span></a>
+        <a id="download-poster" class="button-secondary" href="https://media.datatimes.org/databites-dtcz/2026-vlaky-v-cesku/czechia_iso_homepage_web_14.20-v1.png" download>Stáhnout náhled PNG <span aria-hidden="true">↓</span></a>
+        <p id="download-status" class="download-status" role="status" hidden></p>
+        <a id="open-video" class="open-video" href="https://media.datatimes.org/databites-dtcz/2026-vlaky-v-cesku/czechia_iso_homepage_web_trains_20261006-v1.mp4" target="_blank" rel="noopener">Otevřít video v nové kartě ↗</a>
+        <p class="poster-note">Náhled zachycuje 14:12. Video přehrává celý den od půlnoci.</p>
+      </aside>
+    </section>
+
+    <section class="context" aria-labelledby="context-heading">
+      <div class="context-title"><p class="eyebrow">Jak číst vizualizaci</p><h2 id="context-heading">Jízdní řád v pohybu</h2></div>
+      <div><h3>Každá tečka má svůj spoj</h3><p>Animace zobrazuje plánovaný pohyb vlaků v úterý 6. října 2026. Modře jsou regionální spoje, oranžově dálkové. Během dne se mění počet vlaků na trati i součet ujetých kilometrů.</p></div>
+      <div><h3>Polohy jsou odhadované</h3><p>Pohyb mezi stanicemi i ujeté kilometry jsou dopočtené z jízdního řádu a železniční sítě. Základem jsou data Správy železnic (CIS JŘ), převedená do GTFS projektem <a href="https://data.jr.ggu.cz/" target="_blank" rel="noopener">JrUtil ↗</a>.</p></div>
+    </section>
+
+    <noscript><p class="no-script">Pro přepínání formátů zapněte JavaScript. Výchozí video můžete přehrát a uložit z nabídky prohlížeče i bez něj.</p></noscript>
+  </main>
+
+  <footer class="site-footer"><div><a class="wordmark" href="../">DataBites<span>.</span><strong>DataTimes</strong><span>.</span>cz</a><p>Kateřina Mahdalová &amp; Michal Škop · <a href="https://datatimes.cz" target="_blank" rel="noopener">DataTimes.cz ↗</a></p></div></footer>
+</body>
+</html>

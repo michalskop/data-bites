@@ -1,0 +1,88 @@
+// Generated gallery metadata; media URLs are verified immutable CDN assets.
+window.TRAIN_GALLERY = {
+  "defaultFormat": "homepage",
+  "dataDate": "2026-10-06",
+  "posterTime": "14:12",
+  "formats": [
+    {
+      "id": "story",
+      "name": "Reels a Stories",
+      "title": "Na výšku",
+      "category": "Sociální sítě",
+      "ratio": "9:16",
+      "platforms": "Instagram a Facebook · Reels / Stories · YouTube Shorts",
+      "description": "Celá výška mobilní obrazovky. Varianta pro Reels, Stories a YouTube Shorts, s mapou, přehledem dopravců a průběhem dne pod sebou.",
+      "width": 1080,
+      "height": 1920,
+      "duration": 57.0,
+      "bytes": 24626374,
+      "video": "https://media.datatimes.org/databites-dtcz/2026-vlaky-v-cesku/czechia_iso_web_trains_20261006-v1.mp4",
+      "poster": "https://media.datatimes.org/databites-dtcz/2026-vlaky-v-cesku/czechia_iso_web_14.20-v1.png",
+      "renderedAt": "2026-10-31T19:23:34.226255+00:00"
+    },
+    {
+      "id": "portrait",
+      "name": "Příspěvek 4:5",
+      "title": "Portrét do příspěvku",
+      "category": "Sociální sítě",
+      "ratio": "4:5",
+      "platforms": "Instagram / Facebook · portrétní příspěvek",
+      "description": "Portrétní rozvržení pro příspěvek ve feedu. Mapa i statistiky zůstávají pohromadě v kratším formátu než u vertikálního videa 9:16.",
+      "width": 1080,
+      "height": 1350,
+      "duration": 57.0,
+      "bytes": 18540639,
+      "video": "https://media.datatimes.org/databites-dtcz/2026-vlaky-v-cesku/czechia_iso_portrait_web_trains_20261006-v1.mp4",
+      "poster": "https://media.datatimes.org/databites-dtcz/2026-vlaky-v-cesku/czechia_iso_portrait_web_14.20-v1.png",
+      "renderedAt": "2026-10-31T19:25:34.020143+00:00"
+    },
+    {
+      "id": "square",
+      "name": "Čtverec",
+      "title": "Čtvercový příspěvek",
+      "category": "Sociální sítě",
+      "ratio": "1:1",
+      "platforms": "Instagram / Facebook · čtvercový příspěvek",
+      "description": "Čtvercová verze pro příspěvky na sociálních sítích. Počty vlaků jsou vedle mapy, přehled dopravců a časový graf pod ní.",
+      "width": 1080,
+      "height": 1080,
+      "duration": 57.0,
+      "bytes": 14615951,
+      "video": "https://media.datatimes.org/databites-dtcz/2026-vlaky-v-cesku/czechia_iso_square_web_trains_20261006-v1.mp4",
+      "poster": "https://media.datatimes.org/databites-dtcz/2026-vlaky-v-cesku/czechia_iso_square_web_14.20-v1.png",
+      "renderedAt": "2026-10-31T19:27:08.920054+00:00"
+    },
+    {
+      "id": "og",
+      "name": "Sdílený odkaz",
+      "title": "Široký náhled odkazu",
+      "category": "Web a sdílení",
+      "ratio": "1,91:1",
+      "platforms": "Web · sdílený odkaz / Open Graph",
+      "description": "Široká kompozice pro sdílený odkaz. Video lze vložit na web; přiložený PNG slouží jako statický náhled odkazu na sociálních sítích.",
+      "width": 1200,
+      "height": 630,
+      "duration": 57.0,
+      "bytes": 17494155,
+      "video": "https://media.datatimes.org/databites-dtcz/2026-vlaky-v-cesku/czechia_iso_og_web_trains_20261006-v1.mp4",
+      "poster": "https://media.datatimes.org/databites-dtcz/2026-vlaky-v-cesku/czechia_iso_og_web_14.20-v1.png",
+      "renderedAt": "2026-10-31T19:28:51.571959+00:00"
+    },
+    {
+      "id": "homepage",
+      "name": "Web / homepage",
+      "title": "Náhled na web",
+      "category": "Web",
+      "ratio": "5:4",
+      "platforms": "Web · titulní stránka",
+      "description": "Varianta pro titulní stránku a vložení do článku. Širší plocha dává prostor mapě, statistikám i přehledu dopravců.",
+      "width": 1500,
+      "height": 1200,
+      "duration": 57.0,
+      "bytes": 22186158,
+      "video": "https://media.datatimes.org/databites-dtcz/2026-vlaky-v-cesku/czechia_iso_homepage_web_trains_20261006-v1.mp4",
+      "poster": "https://media.datatimes.org/databites-dtcz/2026-vlaky-v-cesku/czechia_iso_homepage_web_14.20-v1.png",
+      "renderedAt": "2026-10-31T19:31:44.165797+00:00"
+    }
+  ]
+};

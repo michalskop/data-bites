@@ -12,6 +12,10 @@ Hosting: GitHub Pages, `main`, repository root.
 ## 📁 Struktura repozitáře
 
 * `index.html` — Hlavní katalog / rozcestník analýz s filtrováním podle štítků a vyhledáváním
+* `2026-vlaky-v-cesku/` — five Czechia train-video formats with verified CDN media. See [preview instructions](2026-vlaky-v-cesku/README.md). Media is served from the shared DataTimes CDN.
+* `2026-citybike-viden/` — Vienna Citybike videos with dates, time windows and social-format labels. See [preview and refresh instructions](2026-citybike-viden/README.md). Media is served from the shared DataTimes CDN.
+* `2026-regionalni-verejna-doprava/` — Czech regional public transport, grouped by area with full-day and rush-hour cuts. See [preview and refresh instructions](2026-regionalni-verejna-doprava/README.md). Media is served from the shared DataTimes CDN.
+* `2026-doprava-v-evrope/` — six European countries plus Vienna's city transport detail, with country, format, date and coverage choices. See [preview and refresh instructions](2026-doprava-v-evrope/README.md). Media is served from the shared DataTimes CDN.
 * `2021-cssd-krupka-matous/` — Interaktivní mapa preferenčních hlasů Zdeňka Matouše (ČSSD, Ústecký kraj, 2017 & 2021)
   * `index.html` — Samotná interaktivní mapa (Leaflet + OpenStreetMap)
   * Náhledový obrázek je uložen na `media.datatimes.org` (viz `media-assets.json`)
@@ -33,10 +37,38 @@ Jednoduše otevřete `index.html` v libovolném webovém prohlížeči, nebo spu
 
 ```bash
 cd ~/dev/ms/data-bites
-python3 -m http.server 8000
+python3 scripts/preview.py --port 8002
 ```
 
-Poté otevřete v prohlížeči [http://localhost:8000](http://localhost:8000).
+Poté otevřete v prohlížeči [http://localhost:8002](http://localhost:8002).
+The preview server supports HTTP byte ranges for video seeking.
+
+## Favicon
+
+The catalog and its local analysis/gallery pages use a distinct **B** badge,
+derived from the crimson, three-rounded-corner icons of
+[Sněmovna](https://snemovna.datatimes.cz/favicon.svg) and
+[Města](https://mesta.datatimes.cz/favicon.svg). The white Roboto Slab initial is
+inset and converted to SVG paths, so it does not depend on installed browser fonts.
+There is also an ICO fallback (16, 32, 48 and 64 px) and an opaque 180×180 Apple
+touch icon. Generated local files stay Git-ignored. The pages reference verified, versioned CDN copies.
+
+Rebuild with CairoSVG, Pillow and fontTools installed:
+
+```bash
+python3 scripts/build_favicon.py
+```
+
+The default font is
+`~/.local/share/fonts/roboto_slab/RobotoSlab-VariableFont_wght.ttf`; use
+`--font <path>` on another checkout. Outputs are
+`assets/site-local/favicon-bites-v2.svg`, root `favicon.ico`, and
+`assets/site-local/apple-touch-icon-bites-v2.png`. Versioned icon references avoid
+retaining the earlier generic DataTimes favicon in browser caches.
+
+For an icon revision, upload new assets to versioned URLs under
+`databites-dtcz/site/`, verify them, update the icon links in all HTML pages,
+and record the uploads in `media-assets.json`. Do not commit the generated media.
 
 ---
 
@@ -58,6 +90,38 @@ Poté otevřete v prohlížeči [http://localhost:8000](http://localhost:8000).
   tags: ["Téma 1", "Téma 2"]
 }
 ```
+
+## Gallery publication workflow
+
+All four video galleries and the B favicon now reference verified immutable assets
+under `https://media.datatimes.org/databites-dtcz/`. Original MP4s and downloadable
+PNG previews are preserved. The upload manifest records hashes, byte counts, MIME
+types and video Range verification. Local media stays ignored and is not needed
+to browse a fresh source checkout.
+
+To import future completed renders, run the appropriate importer listed in each
+gallery README. Existing, unchanged media keeps its CDN URL. New or changed media
+is initially local and must complete this workflow before a source commit:
+
+```bash
+# Inspect selected assets without uploading or changing links.
+python3 scripts/prepare_gallery_media.py
+# Upload only when authorized; new content requires a new revision suffix.
+python3 scripts/prepare_gallery_media.py --upload --revision 2
+# Apply verified URLs to gallery metadata, HTML fallbacks, catalog and icons.
+python3 scripts/prepare_gallery_media.py --apply
+```
+
+The batch journals each verified upload atomically to `media-assets.json`. It
+resumes interrupted uploads, retries temporary network/server errors and refuses
+to reuse an existing key with different content. `--apply` fails before changing
+pages if any selected file lacks a matching verified upload. It never commits,
+pushes or deploys. Keep media files out of the index; use the tracked pre-commit
+hook on every checkout.
+
+Cross-origin download buttons fetch through CDN CORS and save a local browser
+Blob, retaining proper MP4/PNG downloads after moving media off the site. Direct
+video links remain available for the browser's native save controls.
 
 ## Media uploads and agent setup
 

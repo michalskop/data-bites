@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Veřejná doprava v českých regionech | Data Bites</title>
+  <link rel="icon" href="https://media.datatimes.org/databites-dtcz/site/favicon-bites-2026-11-v1.ico" type="image/x-icon" sizes="16x16 32x32 48x48 64x64">
+  <link rel="icon" href="https://media.datatimes.org/databites-dtcz/site/favicon-bites-2026-11-v1.svg" type="image/svg+xml" sizes="any">
+  <link rel="apple-touch-icon" href="https://media.datatimes.org/databites-dtcz/site/apple-touch-icon-bites-2026-11-v1.png" sizes="180x180">
+  <meta name="description" content="Města a kraje v pohybu podle jízdních řádů. Celodenní animace a ranní špička: autobusy, trolejbusy, tramvaje, vlaky a metro.">
+  <link rel="canonical" href="https://databites.datatimes.cz/2026-regionalni-verejna-doprava/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../2026-vlaky-v-cesku/style.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="formats.js" defer></script>
+  <script src="gallery.js" defer></script>
+  <script src="../assets/media-download.js" defer></script>
+</head>
+<body>
+  <header class="site-header"><div class="header-inner">
+    <a class="wordmark" href="../" aria-label="Data Bites — úvodní stránka">DataBites<span>.</span><strong>DataTimes</strong><span>.</span>cz</a>
+    <a class="back-link" href="../">← Všechny vizualizace</a>
+  </div></header>
+
+  <main class="container">
+    <header class="intro">
+      <div><p class="eyebrow">Doprava · Česko · 27. října 2026</p>
+        <h1>Města a kraje.<br><em>Doprava v pohybu.</em></h1>
+        <p class="lead">Ranní špička, klidnější poledne a večerní návraty. Autobusy, trolejbusy, tramvaje a vlaky oživují mapy českých měst a krajů. Každá tečka představuje jedno vozidlo podle jízdního řádu.</p>
+      </div>
+      <div class="intro-facts" aria-label="O vizualizaci">
+        <p><strong id="region-count">7</strong><span>oblastí k porovnání</span></p>
+        <p><strong>24 h</strong><span>celý den i detail ranní špičky</span></p>
+        <p><strong id="video-count">—</strong><span>dostupných videoverzí</span></p>
+      </div>
+    </header>
+
+    <section class="formats-section" aria-labelledby="regions-heading">
+      <div class="section-heading"><h2 id="regions-heading">Vyberte město nebo kraj</h2><p id="gallery-summary">Dokončená videa pro místní náhled</p></div>
+      <div id="region-list" class="region-list" role="group" aria-label="Města a kraje"></div>
+      <p id="pending-note" class="pending-note">Připravujeme: Praha a Středočeský kraj.</p>
+      <div class="section-heading variants-heading"><h2><span id="variants-heading">Brno</span> <span id="format-count" class="section-count">2</span></h2><p>Vyberte formát a časové okno</p></div>
+      <div id="format-list" class="format-list" role="group" aria-label="Videa vybrané oblasti"></div>
+    </section>
+
+    <section class="viewer" aria-labelledby="selected-title">
+      <div class="player-column">
+        <div class="player-topline"><span><i class="status-dot"></i> <span id="selected-area">Brno</span></span><span id="selected-period">27. 10. 2026 · 00:00–24:00</span></div>
+        <div class="video-stage"><video id="preview-video" controls playsinline preload="none" poster="https://media.datatimes.org/databites-dtcz/2026-regionalni-verejna-doprava/brno_web_08.00-v1.png" src="https://media.datatimes.org/databites-dtcz/2026-regionalni-verejna-doprava/brno_web_trains_20261027-v1.mp4" aria-label="Veřejná doprava v Brně podle jízdního řádu"></video></div>
+        <div class="player-caption"><span id="transport-legend"><i class="legend-dot bus"></i>Autobus <i class="legend-dot trolleybus"></i>Trolejbus <i class="legend-dot tram"></i>Tramvaj <i class="legend-dot train"></i>Vlak</span><span>Každá tečka je jedno vozidlo.</span></div>
+        <p id="video-error" class="video-error" role="status" hidden>Video se nepodařilo načíst. Zkuste přímý odkaz „Otevřít video“ nebo soubor stáhněte.</p>
+      </div>
+      <aside class="format-detail">
+        <p id="selected-kicker" class="eyebrow">Brno · 9:16</p>
+        <h2 id="selected-title">Celý den</h2>
+        <p id="selected-description" class="format-description">Brno během 27. října 2026, od půlnoci do půlnoci. Pohyb vozidel je dopočtený podle jízdního řádu, bez zohlednění zpoždění.</p>
+        <p id="selected-platforms" class="platform-label">Instagram a Facebook · Reels / Stories · YouTube Shorts</p>
+        <dl class="specs">
+          <div><dt>Datum jízdního řádu</dt><dd id="selected-date">27. 10. 2026</dd></div>
+          <div><dt>Časové okno</dt><dd id="selected-window">00:00–24:00</dd></div>
+          <div><dt>Rozlišení</dt><dd id="selected-resolution">1 080 × 1 920 px</dd></div>
+          <div><dt>Poměr stran</dt><dd id="selected-ratio">9:16</dd></div>
+          <div><dt>Délka</dt><dd id="selected-duration">57 sekund</dd></div>
+          <div><dt>Soubor</dt><dd id="selected-file">MP4</dd></div>
+          <div><dt>Zvuk</dt><dd id="selected-audio">Bez zvuku</dd></div>
+          <div><dt>Jazyk grafiky</dt><dd>Čeština · DataTimes.cz</dd></div>
+        </dl>
+        <a id="download-video" class="button-primary" href="https://media.datatimes.org/databites-dtcz/2026-regionalni-verejna-doprava/brno_web_trains_20261027-v1.mp4" download>Stáhnout video <span aria-hidden="true">↓</span></a>
+        <a id="download-poster" class="button-secondary" href="https://media.datatimes.org/databites-dtcz/2026-regionalni-verejna-doprava/brno_web_08.00-v1.png" download>Stáhnout náhled PNG <span aria-hidden="true">↓</span></a>
+        <p id="download-status" class="download-status" role="status" hidden></p>
+        <a id="open-video" class="open-video" href="https://media.datatimes.org/databites-dtcz/2026-regionalni-verejna-doprava/brno_web_trains_20261027-v1.mp4" target="_blank" rel="noopener">Otevřít video v nové kartě ↗</a>
+        <p id="selected-poster-note" class="poster-note">Náhled: 27. 10. 2026 v 08:00. Video zobrazuje 00:00–24:00.</p>
+        <p id="selected-source" class="source-note">KORDIS JMK (IDS JMK), vlaky CIS JŘ přes JrUtil</p>
+      </aside>
+    </section>
+
+    <section class="context" aria-labelledby="context-heading">
+      <div class="context-title"><p class="eyebrow">Jak číst vizualizaci</p><h2 id="context-heading">Jízdní řád v pohybu</h2></div>
+      <div><h3>Stejné datum, různé oblasti</h3><p>Videa ukazují plánovaný provoz pro úterý 27. října 2026. Celodenní verze běží od půlnoci do půlnoci, detail ranní špičky od 7 do 9 hodin. Barvy rozlišují druhy dopravy; krátké stopy zvýrazňují směr pohybu.</p></div>
+      <div><h3>Polohy a kilometry jsou odhadované</h3><p>Data pocházejí z CIS JŘ přes JrUtil, KORDIS JMK a otevřených dat PID. Pohyb mezi zastávkami je dopočtený podle jízdních řádů a sítě OpenStreetMap; PID využívá také geometrii tras v GTFS. Animace představují plánovaný provoz bez započtení zpoždění.</p></div>
+    </section>
+    <noscript><p class="no-script">Pro přepínání videí zapněte JavaScript. Výchozí video můžete přehrát a uložit z nabídky prohlížeče i bez něj.</p></noscript>
+  </main>
+  <footer class="site-footer"><div><a class="wordmark" href="../">DataBites<span>.</span><strong>DataTimes</strong><span>.</span>cz</a><p>Kateřina Mahdalová &amp; Michal Škop · <a href="https://datatimes.cz" target="_blank" rel="noopener">DataTimes.cz ↗</a></p></div></footer>
+</body>
+</html>
