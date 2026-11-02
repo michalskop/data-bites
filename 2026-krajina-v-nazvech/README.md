@@ -20,3 +20,14 @@ this limitation. The map shows spelling patterns, not verified etymologies.
 Refresh from the upstream project deliberately; preserve the Czech default,
 CDN references, CORS image loading, favicon and catalog navigation when copying
 updated code. Publish changed media under new revision keys, never overwrite.
+
+## Expanded country coverage
+
+Refreshed from upstream on 2 November 2026: eight added countries (CZ, SK, PL,
+FR, HU, SI, HR, RO), 15 region selectors and 33 ending families. Added countries
+show only places with an attested German form. Current-name and German-name
+views retain linked identity, sources and the documented historical-name filter;
+these are name attestations, not historical population estimates.
+
+The expanded terrain uses a new immutable `terrain-v2.png`; catalog and social
+previews use revision 2. Unchanged fonts and signature reuse their verified URLs.

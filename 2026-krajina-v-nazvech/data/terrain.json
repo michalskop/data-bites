@@ -1,14 +1,14 @@
 {
   "projection": "Web Mercator, radians",
   "bounds": [
-    0.024543692606170175,
+    -0.12271846303085132,
     -1.227184630308513,
-    0.4908738521234053,
-    -0.8344855486097886
+    0.5645049299419158,
+    -0.7853981633974483
   ],
   "zoom": 8,
-  "width": 4864,
-  "height": 4096,
+  "width": 7168,
+  "height": 4608,
   "accessed": "2026-11-02",
   "source": "Mapzen Terrain Tiles / AWS Open Data",
   "sourceURL": "https://registry.opendata.aws/terrain-tiles/",

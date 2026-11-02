@@ -2,7 +2,7 @@
 
 An interactive, buildless Canvas atlas of place-name endings across Germany,
 Austria, German-speaking Switzerland and Belgium, Liechtenstein, South Tyrol,
-and optionally Luxembourg. All seven regions are enabled initially.
+and optionally Luxembourg. All regions, including the eight added neighbouring countries, are enabled initially.
 
 Click an ending to select it alone. Ctrl-click (Cmd-click on Mac) adds or removes
 endings for comparison. Show all clears the selection.
@@ -18,8 +18,11 @@ Python dependencies: requests, geopandas, shapely (2+), numpy, scipy, Pillow; sy
 python3 scripts/fetch_inputs.py
 python3 scripts/fetch_osm.py
 python3 scripts/build_data.py
+python3 scripts/fetch_neighbours.py
+python3 scripts/build_neighbours.py
 python3 scripts/build_terrain.py
 python3 scripts/validate.py
+python3 scripts/validate_neighbours.py
 node --check dist/app.js
 ```
 
@@ -83,7 +86,7 @@ The design follows `/home/michal/dev/mahdalova-skop/docs/design/DESIGN.md`:
 newsprint `#fdfbf7`, Ink Wash `#f8f6f0`, crimson `#de1743`, ink `#101432`,
 IBM Plex Sans headings and IBM Plex Serif body text. The circular signature is
 adapted directly from the shared `ChartSignature.tsx`; signatures, author links,
-labels and PNG exports use DataTimes.at. All DataTimes links point to https://datatimes.cz while the visible branding remains DataTimes.at. `dist/data/palette.json` holds 32 distinct
+labels and PNG exports use DataTimes.at. All DataTimes links point to https://datatimes.cz while the visible branding remains DataTimes.at. `dist/data/palette.json` holds 33 distinct
 categorical colours from the documented brand scales and is read by the builder.
 Canvas colours are read from the CSS design tokens.
 
@@ -100,8 +103,8 @@ different origins; this remains a spelling-pattern atlas.
 
 ## Terrain
 
-`build_terrain.py` caches 304 Mapzen Terrarium elevation tiles at zoom 8 from the
-AWS Terrain Tiles open dataset, then creates a 4864 × 4096 transparent hillshade.
+`build_terrain.py` caches 504 Mapzen Terrarium elevation tiles at zoom 8 from the
+AWS Terrain Tiles open dataset, then creates a 7168 × 4608 transparent hillshade.
 The mosaic stays in Web Mercator, with bounds in `dist/data/terrain.json`.
 The canvas applies the same projection/zoom/pan transform to raster and points.
 Multidirectional lighting and 1.9× visual vertical exaggeration reveal the relief;
@@ -129,3 +132,73 @@ with each place counted once. They follow the current dataset, search and region
 filters; zoom/pan change only their screen positions. Labels are moved apart by
 a deterministic collision-avoidance placement, with leader lines to the actual
 centres. Off-screen centres are not labelled. Labels are included in PNG exports.
+
+
+## Neighbours: linked present and German names
+
+Added country coverage: CZ, SK, PL, FR, HU, SI, HR and RO. Current data are from
+GeoNames country downloads and their `alternatenames/XX.zip` files (CC BY 4.0).
+Downloads, modification times and URLs are cached by `fetch_neighbours.py`.
+`build_neighbours.py` writes one small JSON per country plus `neighbours.json`.
+
+There are two name views, independent of the settlement/municipality selector:
+
+* **Current local names:** the core data plus current names in added countries
+  where a German-language form is attested, whether identical or different.
+  GeoNames national-language preferred names take priority over international
+  main names. Selected localized spelling patterns are grouped with their
+  German-looking endings: e.g. `-stejn/-štejn/-štýn` with the new `-stein` family,
+  `-berk/-perk` with `-berg`, `-burk/-bourg` with `-burg`, `-house` with `-hausen`,
+  `-willer` with `-wil`, and `-vald/-wałd` with `-wald`. These are spelling matches,
+  not individually proven etymologies.
+* **German names:** the core retains its local names; added countries show a
+  distinct German alternative for the same place. Each place counts once.
+  Preferred German alternatives win, then non-historical alternatives, then
+  marked historical alternatives; reviewed primary-source examples override
+  that order. Other German forms remain in the paired metadata and search.
+
+A German exonym alone does not prove historical German-speaking population or
+past local official use. Both the visible map note and About explain that these
+are **name attestations, not reconstructed settlement, population or border maps**.
+Coverage is incomplete. Of 189,437 source settlements in the added countries,
+4,702 have a German-name attestation, including 3,028 distinct German alternatives.
+The rest are retained in the country source outputs for audit, but not plotted.
+
+“Neighbours: documented historical names only” filters the added-country
+German-name view to source-marked historical/datable names or reviewed primary
+sources. Unverified alternatives are labelled explicitly in tooltips. The core
+is unchanged by this filter. Changing names preserves country selections,
+ending selection and zoom; search checks current, chosen German and other German
+forms. Tooltips show both names and the evidence category. PNG titles and
+filenames distinguish the name view and the historical-only subtitle.
+
+Reviewed examples:
+
+* **Rabštejn nad Střelou / Rabenstein an der Schnella:** State District Archive
+  Plzeň-sever, *Archiv města Rabštejn nad Střelou*, 2019, printed p. 3:
+  https://www.inventare.cz/pdf/soap-ps/soap-ps_ap0384_00134_am-rabstejn-nad-strelou.pdf
+  explicitly describes the Czech form as an adaptation of Rabenstein.
+* **Liberec / Reichenberg:** City of Liberec planning documentation:
+  https://docs.liberec.cz/Odb_HA/1_UP/PROJEDNAVANE/Liberec/NOVY_UP-zmeny/Z1_D/Zmena-UP-Liberec-Z1_kraj-raz_final.pdf
+
+Municipalities use GISCO LAU 2024 names and geometry. A German alternative is
+attached only when the normalized current municipality name equals a GeoNames
+settlement name and that point lies inside the municipality. No alternative is
+guessed from proximity alone. GISCO's French population column is uniformly
+zero, so legal French communes are retained and that population is treated as
+missing, rather than declaring all France uninhabited. Only European geometries
+inside -6…31° longitude and 41…56° latitude are included.
+
+The core nine-field row schema remains unchanged. Added-country rows append a
+10th field, a name-pair array documented by `neighbours.json.namePairSchema`:
+German name, German family, matched German suffix, evidence category, GeoNames ID,
+current name, other German forms, evidence URL, optional from/to dates. An empty
+array means no German-language attestation was found. `same` means the German
+form is identical to the current name; `alternative` carries no historical-use
+claim; `historic` comes from GeoNames history/date fields; `reviewed` has a
+separate primary source. No time period is invented where it is unknown.
+
+Run `python3 scripts/validate_neighbours.py` for identity/schema/coverage checks
+and `python3 scripts/check_neighbours_browser.py` for the two example pairs,
+paired tooltips, evidence filtering, municipality links, language and mobile QA.
+The existing browser suite covers the original interactions with all 15 regions.

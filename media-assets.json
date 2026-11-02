@@ -1876,5 +1876,35 @@
     "content_type": "image/jpeg",
     "verified_at_edge": true,
     "original_source": "2026-krajina-v-nazvech/media-local/preview.png"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-krajina-v-nazvech/terrain-v2.png",
+    "key": "databites-dtcz/2026-krajina-v-nazvech/terrain-v2.png",
+    "sha256": "a4cafeaae21c3c6d4c8f892d05192636516d5eea86b2ca941f11f7b84edd1857",
+    "bytes": 15036794,
+    "content_type": "image/png",
+    "verified_at_edge": true,
+    "original_source": "2026-krajina-v-nazvech/media-local/terrain.png"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-krajina-v-nazvech/preview-v2.webp",
+    "key": "databites-dtcz/2026-krajina-v-nazvech/preview-v2.webp",
+    "sha256": "0063641007e4a1a33b2d5c6d1017484e8d618232a60b30663ed4d9a4debb45f2",
+    "bytes": 110970,
+    "content_type": "image/webp",
+    "verified_at_edge": true,
+    "original_source": "2026-krajina-v-nazvech/media-local/preview.png"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-krajina-v-nazvech/og-image-v2.jpg",
+    "key": "databites-dtcz/2026-krajina-v-nazvech/og-image-v2.jpg",
+    "sha256": "0b665e0afcfbbc5157b91f4c87f7f463053274a0fc6046ee45ec93aa0a62560c",
+    "bytes": 152436,
+    "content_type": "image/jpeg",
+    "verified_at_edge": true,
+    "original_source": "2026-krajina-v-nazvech/media-local/preview.png"
   }
 ]
