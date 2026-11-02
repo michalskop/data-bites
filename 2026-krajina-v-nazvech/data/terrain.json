@@ -1,0 +1,19 @@
+{
+  "projection": "Web Mercator, radians",
+  "bounds": [
+    0.024543692606170175,
+    -1.227184630308513,
+    0.4908738521234053,
+    -0.8344855486097886
+  ],
+  "zoom": 8,
+  "width": 4864,
+  "height": 4096,
+  "accessed": "2026-11-02",
+  "source": "Mapzen Terrain Tiles / AWS Open Data",
+  "sourceURL": "https://registry.opendata.aws/terrain-tiles/",
+  "tileURL": "https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png",
+  "attributionURL": "https://github.com/tilezen/joerd/blob/master/docs/attribution.md",
+  "attribution": "Europe terrain data produced using Copernicus data and information funded by the European Union \u2013 EU-DEM layers; Austria terrain data \u00a9 offene Daten \u00d6sterreichs \u2013 Digitales Gel\u00e4ndemodell (DGM) \u00d6sterreich; SRTM data courtesy of NASA/USGS. Mapzen Terrain Tiles.",
+  "rendering": "Multidirectional hillshade; visual vertical exaggeration 1.9; alpha is not elevation."
+}

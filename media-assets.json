@@ -1716,5 +1716,155 @@
     "content_type": "image/png",
     "verified_at_edge": true,
     "original_source": "2026-doprava-v-evrope/media/vienna_web_trail_trains_7-9h_20261006.png"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-krajina-v-nazvech/datatimes-symbol-v1.svg",
+    "key": "databites-dtcz/2026-krajina-v-nazvech/datatimes-symbol-v1.svg",
+    "sha256": "c1f8c73e3c6d7d2be6258a10c74ecf991e9712a9598d7e0547638d7d6e14b6ce",
+    "bytes": 1144,
+    "content_type": "image/svg+xml",
+    "verified_at_edge": true,
+    "original_source": "2026-krajina-v-nazvech/media-local/datatimes-symbol.svg"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-krajina-v-nazvech/ibm-plex-sans-latin-400-normal-v1.woff2",
+    "key": "databites-dtcz/2026-krajina-v-nazvech/ibm-plex-sans-latin-400-normal-v1.woff2",
+    "sha256": "3b646991d30055a93a4ecc499713d4347953a74a947ecab435ab72070cbdab0e",
+    "bytes": 22588,
+    "content_type": "font/woff2",
+    "verified_at_edge": true,
+    "original_source": "2026-krajina-v-nazvech/media-local/ibm-plex-sans-latin-400-normal.woff2"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-krajina-v-nazvech/ibm-plex-sans-latin-600-normal-v1.woff2",
+    "key": "databites-dtcz/2026-krajina-v-nazvech/ibm-plex-sans-latin-600-normal-v1.woff2",
+    "sha256": "8960851d691c054ed38e259bdcf1a6190d157b4203ed5bb32c632a863fb8ec2f",
+    "bytes": 24252,
+    "content_type": "font/woff2",
+    "verified_at_edge": true,
+    "original_source": "2026-krajina-v-nazvech/media-local/ibm-plex-sans-latin-600-normal.woff2"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-krajina-v-nazvech/ibm-plex-sans-latin-700-normal-v1.woff2",
+    "key": "databites-dtcz/2026-krajina-v-nazvech/ibm-plex-sans-latin-700-normal-v1.woff2",
+    "sha256": "42e7b0c143c19df9d99fd896e76b48f846edf0902d200bc29796b34d12c33aa7",
+    "bytes": 22832,
+    "content_type": "font/woff2",
+    "verified_at_edge": true,
+    "original_source": "2026-krajina-v-nazvech/media-local/ibm-plex-sans-latin-700-normal.woff2"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-krajina-v-nazvech/ibm-plex-sans-latin-ext-400-normal-v1.woff2",
+    "key": "databites-dtcz/2026-krajina-v-nazvech/ibm-plex-sans-latin-ext-400-normal-v1.woff2",
+    "sha256": "c93d2a12aaa280f68b9ab7b726ff8dfedda67c99ef9abed047c1847a1cc6d583",
+    "bytes": 15980,
+    "content_type": "font/woff2",
+    "verified_at_edge": true,
+    "original_source": "2026-krajina-v-nazvech/media-local/ibm-plex-sans-latin-ext-400-normal.woff2"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-krajina-v-nazvech/ibm-plex-sans-latin-ext-600-normal-v1.woff2",
+    "key": "databites-dtcz/2026-krajina-v-nazvech/ibm-plex-sans-latin-ext-600-normal-v1.woff2",
+    "sha256": "b25dfd4f979e442ae1e25cd0894463434cf01ba21ac1a35d39f4a82bd4cc060e",
+    "bytes": 16448,
+    "content_type": "font/woff2",
+    "verified_at_edge": true,
+    "original_source": "2026-krajina-v-nazvech/media-local/ibm-plex-sans-latin-ext-600-normal.woff2"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-krajina-v-nazvech/ibm-plex-sans-latin-ext-700-normal-v1.woff2",
+    "key": "databites-dtcz/2026-krajina-v-nazvech/ibm-plex-sans-latin-ext-700-normal-v1.woff2",
+    "sha256": "92f0392bd74fa3955bfa92f6ec747e7246d3567b6f46b32ddbaf271104836ab8",
+    "bytes": 16188,
+    "content_type": "font/woff2",
+    "verified_at_edge": true,
+    "original_source": "2026-krajina-v-nazvech/media-local/ibm-plex-sans-latin-ext-700-normal.woff2"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-krajina-v-nazvech/ibm-plex-serif-latin-400-normal-v1.woff2",
+    "key": "databites-dtcz/2026-krajina-v-nazvech/ibm-plex-serif-latin-400-normal-v1.woff2",
+    "sha256": "cb2c5eee2c0a43ff30d2365407c7bc8b20e3bd90720a4a64102ba0b328022a02",
+    "bytes": 19580,
+    "content_type": "font/woff2",
+    "verified_at_edge": true,
+    "original_source": "2026-krajina-v-nazvech/media-local/ibm-plex-serif-latin-400-normal.woff2"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-krajina-v-nazvech/ibm-plex-serif-latin-600-normal-v1.woff2",
+    "key": "databites-dtcz/2026-krajina-v-nazvech/ibm-plex-serif-latin-600-normal-v1.woff2",
+    "sha256": "e279e4f8baa0d4634d98868092f2198ae0dcd9e142c935822c385b9843352a9b",
+    "bytes": 20516,
+    "content_type": "font/woff2",
+    "verified_at_edge": true,
+    "original_source": "2026-krajina-v-nazvech/media-local/ibm-plex-serif-latin-600-normal.woff2"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-krajina-v-nazvech/ibm-plex-serif-latin-700-normal-v1.woff2",
+    "key": "databites-dtcz/2026-krajina-v-nazvech/ibm-plex-serif-latin-700-normal-v1.woff2",
+    "sha256": "886ea167faf6610c3448a7dd058dbe7c7438f710229c9ff52343ef006960939c",
+    "bytes": 19904,
+    "content_type": "font/woff2",
+    "verified_at_edge": true,
+    "original_source": "2026-krajina-v-nazvech/media-local/ibm-plex-serif-latin-700-normal.woff2"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-krajina-v-nazvech/ibm-plex-serif-latin-ext-400-normal-v1.woff2",
+    "key": "databites-dtcz/2026-krajina-v-nazvech/ibm-plex-serif-latin-ext-400-normal-v1.woff2",
+    "sha256": "8b4077bd28d36819590924090252e811d4d0b2c78cb4bf1e4abe46d7428a2781",
+    "bytes": 15476,
+    "content_type": "font/woff2",
+    "verified_at_edge": true,
+    "original_source": "2026-krajina-v-nazvech/media-local/ibm-plex-serif-latin-ext-400-normal.woff2"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-krajina-v-nazvech/ibm-plex-serif-latin-ext-600-normal-v1.woff2",
+    "key": "databites-dtcz/2026-krajina-v-nazvech/ibm-plex-serif-latin-ext-600-normal-v1.woff2",
+    "sha256": "3c56fe27718921294dd8573acbe5a2822d34dd55f5313437514e8bb33e00a6b7",
+    "bytes": 15560,
+    "content_type": "font/woff2",
+    "verified_at_edge": true,
+    "original_source": "2026-krajina-v-nazvech/media-local/ibm-plex-serif-latin-ext-600-normal.woff2"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-krajina-v-nazvech/ibm-plex-serif-latin-ext-700-normal-v1.woff2",
+    "key": "databites-dtcz/2026-krajina-v-nazvech/ibm-plex-serif-latin-ext-700-normal-v1.woff2",
+    "sha256": "4c47e5be83b18b0851ffb58d6ec94ef439bd52a190b66ea479cfb19298720f68",
+    "bytes": 15568,
+    "content_type": "font/woff2",
+    "verified_at_edge": true,
+    "original_source": "2026-krajina-v-nazvech/media-local/ibm-plex-serif-latin-ext-700-normal.woff2"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-krajina-v-nazvech/terrain-v1.png",
+    "key": "databites-dtcz/2026-krajina-v-nazvech/terrain-v1.png",
+    "sha256": "fffb2e55ca90f05b0a95fd0f6fb0befa2fcfb4795b4a801283ec9db417cda502",
+    "bytes": 9703384,
+    "content_type": "image/png",
+    "verified_at_edge": true,
+    "original_source": "2026-krajina-v-nazvech/media-local/terrain.png"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-krajina-v-nazvech/preview-v1.webp",
+    "key": "databites-dtcz/2026-krajina-v-nazvech/preview-v1.webp",
+    "sha256": "76c9241ce189e26216bb05b35e2b39d733d020bbac2d14ee25ed439c04b287aa",
+    "bytes": 129954,
+    "content_type": "image/webp",
+    "verified_at_edge": true,
+    "original_source": "2026-krajina-v-nazvech/media-local/preview.png"
   }
 ]
