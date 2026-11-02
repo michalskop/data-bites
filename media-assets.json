@@ -1866,5 +1866,15 @@
     "content_type": "image/webp",
     "verified_at_edge": true,
     "original_source": "2026-krajina-v-nazvech/media-local/preview.png"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-krajina-v-nazvech/og-image-v1.jpg",
+    "key": "databites-dtcz/2026-krajina-v-nazvech/og-image-v1.jpg",
+    "sha256": "8f39b9fc4357d7734ddf7e8f85e8f8802fc37363d3bd70f2ec5f7f5506c1656c",
+    "bytes": 174746,
+    "content_type": "image/jpeg",
+    "verified_at_edge": true,
+    "original_source": "2026-krajina-v-nazvech/media-local/preview.png"
   }
 ]
