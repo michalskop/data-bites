@@ -1,0 +1,17 @@
+{
+  "selected": {
+    "districts": 435,
+    "overlap_count": 0,
+    "max_relative_area_error": 1.7770440674524934e-10
+  },
+  "reported": {
+    "districts": 435,
+    "overlap_count": 0,
+    "max_relative_area_error": 4.2650771803209864e-10
+  },
+  "president2024": {
+    "districts": 435,
+    "overlap_count": 0,
+    "max_relative_area_error": 3.3392177911650833e-11
+  }
+}

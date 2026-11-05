@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "election_date": "2026-11-03",
+  "prepared_at": "2026-11-04T22:13:04.815561+00:00",
+  "snapshot_at": "2026-11-04T22:12:10.165Z",
+  "source_file": "/home/michal/dev/volby2026/us2026/live/snapshots/2026-11-03/house/20261104T221229Z.json.gz",
+  "frozen_file": "data/raw/nyt/20261104T221229Z.json.gz",
+  "source_sha256": "f969ec620e22e93ba70ab4461bbbd5cdb04e2cb328c87244d132294998bc3f5b",
+  "source_url": "https://static01.nyt.com/elections-assets/pages/data/2026-11-03/results-house.json",
+  "district_count": 435,
+  "candidate_count": 1243,
+  "methods": {
+    "reported_votes": 23,
+    "nyt_candidate_estimates": 412
+  },
+  "called_parties": {
+    "uncalled": 60,
+    "R": 143,
+    "D": 232
+  },
+  "certified_count": 0,
+  "flag_counts": {
+    "reported_fallback_no_complete_dr_estimates": 23,
+    "ranked_choice_party_totals_are_not_final_round_margin": 2,
+    "some_nyt_estimates_below_latest_reported": 26,
+    "single_party_ballot": 14,
+    "no_republican_candidate": 17,
+    "no_democratic_candidate": 1
+  },
+  "scope": "435 voting House districts; excludes national aggregate and non-voting delegates",
+  "party_policy": "Literal DEM/GOP ballot parties; no independent-to-D substitution; sum same-party candidates.",
+  "selection_policy": "Use NYT candidate estimates if all D/R candidates have them; otherwise use all reported D/R totals for the district.",
+  "presidential_2024": {
+    "file": "data/processed/president_2024.json",
+    "manifest": "data/processed/president_2024_manifest.json",
+    "district_count": 435
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "election": "2024 US President",
+  "election_date": "2024-11-05",
+  "boundary_vintage": "Districts used in the 2026 House election; Missouri verified against operative-boundary baseline",
+  "prepared_at": "2026-11-04T22:39:38.057191+00:00",
+  "district_count": 435,
+  "sources": [
+    {
+      "path": "/home/michal/dev/ai/data-at/30days/03/data/raw/president2024/downballot_2026_lines.csv",
+      "sha256": "cc1d51ab58dfbdeb0f7ddaa8daf9e15f32e15845f2c3cc6c28bd2c84c79d9348",
+      "source_url": "https://docs.google.com/spreadsheets/d/1eZfaFI-c-PFOoKx1-zZA2MP0_dxRq_LVK0re3BOQqy0/export?format=csv&gid=1491069057"
+    }
+  ],
+  "attribution": "The Downballot",
+  "source_page": "https://www.the-downballot.com/p/the-downballots-calculations-of-presidential",
+  "missouri_reference": {
+    "file": "data/raw/president2024/missouri_operative_baseline.json",
+    "sha256": "a8206bfc9e28b7530a24d60c7dd0e01b368173a814bb735dab52f351121be0f2",
+    "tolerance_two_party_pp": 1
+  },
+  "winner_counts": {
+    "R": 234,
+    "D": 201
+  },
+  "totals_50_states": {
+    "votes_d": 74725325,
+    "votes_r": 77282962,
+    "votes_other": 2671839,
+    "votes_total": 154680126
+  },
+  "scope": "435 voting districts in 50 states; DC excluded. District retabulations, not a new election result.",
+  "method": "Actual published vote tallies. No extrapolation from NYT percentages or 2026 turnout.",
+  "write_in_note": "Downballot methodology generally omits write-ins except unusually high tallies; see source methodology."
+}

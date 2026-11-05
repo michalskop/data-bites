@@ -1879,6 +1879,36 @@
   },
   {
     "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-brazil-live-r2/preview-v1.webp",
+    "key": "databites-dtcz/2026-brazil-live-r2/preview-v1.webp",
+    "sha256": "e8e5bcadfb7827ff70caf59af29696e67df823660fa18e745144399c07ec863d",
+    "bytes": 50800,
+    "content_type": "image/webp",
+    "verified_at_edge": true,
+    "original_source": "screenshot of 2026-brazil-live-r2/ (local, not committed)"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-serbia-live/preview-v1.webp",
+    "key": "databites-dtcz/2026-serbia-live/preview-v1.webp",
+    "sha256": "6baa51b297946c62421880b67a48d821485120b5e1f5747f2a4e40b763325a99",
+    "bytes": 50864,
+    "content_type": "image/webp",
+    "verified_at_edge": true,
+    "original_source": "screenshot of 2026-serbia-live/ (local, not committed)"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-israel-live/preview-v1.webp",
+    "key": "databites-dtcz/2026-israel-live/preview-v1.webp",
+    "sha256": "5471fd551ae957f07d94b7febde4bc2d456d40ad0814577c4658c5fd82603444",
+    "bytes": 26268,
+    "content_type": "image/webp",
+    "verified_at_edge": true,
+    "original_source": "screenshot of 2026-israel-live/ (local, not committed)"
+  },
+  {
+    "status": "success",
     "url": "https://media.datatimes.org/databites-dtcz/2026-krajina-v-nazvech/terrain-v2.png",
     "key": "databites-dtcz/2026-krajina-v-nazvech/terrain-v2.png",
     "sha256": "a4cafeaae21c3c6d4c8f892d05192636516d5eea86b2ca941f11f7b84edd1857",
@@ -1906,5 +1936,126 @@
     "content_type": "image/jpeg",
     "verified_at_edge": true,
     "original_source": "2026-krajina-v-nazvech/media-local/preview.png"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-usa-volebni-kartogram/font-056e4e2459f57a00-v1.woff2",
+    "key": "databites-dtcz/2026-usa-volebni-kartogram/font-056e4e2459f57a00-v1.woff2",
+    "sha256": "056e4e2459f57a0033c8c9c844ff19d6e42ac8602027803d4345823bcc939818",
+    "bytes": 40240,
+    "content_type": "font/woff2",
+    "verified_at_edge": true,
+    "original_source": "2026-usa-volebni-kartogram/media-local/font-056e4e2459f57a00.woff2"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-usa-volebni-kartogram/font-ae1d854fefa1167a-v1.woff2",
+    "key": "databites-dtcz/2026-usa-volebni-kartogram/font-ae1d854fefa1167a-v1.woff2",
+    "sha256": "ae1d854fefa1167a79071f1afe01d4d51b60c5840c1be36dd74bd5fe7375b405",
+    "bytes": 25868,
+    "content_type": "font/woff2",
+    "verified_at_edge": true,
+    "original_source": "2026-usa-volebni-kartogram/media-local/font-ae1d854fefa1167a.woff2"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-usa-volebni-kartogram/font-9fbb32c4c07037bc-v1.woff2",
+    "key": "databites-dtcz/2026-usa-volebni-kartogram/font-9fbb32c4c07037bc-v1.woff2",
+    "sha256": "9fbb32c4c07037bc1e9107ee9cbf3a84662449cb36511138d5adb80e195b9302",
+    "bytes": 14916,
+    "content_type": "font/woff2",
+    "verified_at_edge": true,
+    "original_source": "2026-usa-volebni-kartogram/media-local/font-9fbb32c4c07037bc.woff2"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-usa-volebni-kartogram/font-836fd31988bd9b82-v1.woff2",
+    "key": "databites-dtcz/2026-usa-volebni-kartogram/font-836fd31988bd9b82-v1.woff2",
+    "sha256": "836fd31988bd9b826397032af618e906bfdc80e0c6c25b102e8b9e03353ed5e0",
+    "bytes": 10868,
+    "content_type": "font/woff2",
+    "verified_at_edge": true,
+    "original_source": "2026-usa-volebni-kartogram/media-local/font-836fd31988bd9b82.woff2"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-usa-volebni-kartogram/font-718ced55c5d8e207-v1.woff2",
+    "key": "databites-dtcz/2026-usa-volebni-kartogram/font-718ced55c5d8e207-v1.woff2",
+    "sha256": "718ced55c5d8e207d6d14b1765fe6cf5886882834f45cc0ad23283cd210f9a96",
+    "bytes": 46080,
+    "content_type": "font/woff2",
+    "verified_at_edge": true,
+    "original_source": "2026-usa-volebni-kartogram/media-local/font-718ced55c5d8e207.woff2"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-usa-volebni-kartogram/font-a0116a788a1915a0-v1.woff2",
+    "key": "databites-dtcz/2026-usa-volebni-kartogram/font-a0116a788a1915a0-v1.woff2",
+    "sha256": "a0116a788a1915a01006334bf8ae893967eb65ae229da985c5095ddde5f6a977",
+    "bytes": 28908,
+    "content_type": "font/woff2",
+    "verified_at_edge": true,
+    "original_source": "2026-usa-volebni-kartogram/media-local/font-a0116a788a1915a0.woff2"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-usa-volebni-kartogram/image-3f1d6be3b3c7f00e-v1.png",
+    "key": "databites-dtcz/2026-usa-volebni-kartogram/image-3f1d6be3b3c7f00e-v1.png",
+    "sha256": "3f1d6be3b3c7f00efabb6ea6ea944a1b86709b7c7ac8d6d5e286a81cc734ea43",
+    "bytes": 21020,
+    "content_type": "image/png",
+    "verified_at_edge": true,
+    "original_source": "2026-usa-volebni-kartogram/media-local/image-3f1d6be3b3c7f00e.png"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-usa-volebni-kartogram/image-95e228253678c020-v1.png",
+    "key": "databites-dtcz/2026-usa-volebni-kartogram/image-95e228253678c020-v1.png",
+    "sha256": "95e228253678c020e09d877922ab6b48c90e5d4fecaff67096a0ef19ce78711b",
+    "bytes": 472322,
+    "content_type": "image/png",
+    "verified_at_edge": true,
+    "original_source": "2026-usa-volebni-kartogram/media-local/image-95e228253678c020.png"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-usa-volebni-kartogram/social_animation_1200-v1.mp4",
+    "key": "databites-dtcz/2026-usa-volebni-kartogram/social_animation_1200-v1.mp4",
+    "sha256": "c11947def443b4da6e846d7b6039cb96cdb3dbde48e45fe2b35673b82225fe32",
+    "bytes": 6349175,
+    "content_type": "video/mp4",
+    "verified_at_edge": true,
+    "original_source": "2026-usa-volebni-kartogram/media-local/social_animation_1200.mp4",
+    "range_verified": true
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-usa-volebni-kartogram/social_animation_1200_poster-v1.png",
+    "key": "databites-dtcz/2026-usa-volebni-kartogram/social_animation_1200_poster-v1.png",
+    "sha256": "d47f20bb5a87f9fa4734d36438b08cd062ec67ef10c566ae9f93e4dad6467bcd",
+    "bytes": 357401,
+    "content_type": "image/png",
+    "verified_at_edge": true,
+    "original_source": "2026-usa-volebni-kartogram/media-local/social_animation_1200_poster.png"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-usa-volebni-kartogram/preview-v1.webp",
+    "key": "databites-dtcz/2026-usa-volebni-kartogram/preview-v1.webp",
+    "sha256": "22f8c0d0ba0b96bb309a39f4d1f56b8533f28f1167fa45f72bf0e2039ff285f6",
+    "bytes": 109816,
+    "content_type": "image/webp",
+    "verified_at_edge": true,
+    "original_source": "2026-usa-volebni-kartogram/media-local/preview.png"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-usa-volebni-kartogram/og-image-v1.jpg",
+    "key": "databites-dtcz/2026-usa-volebni-kartogram/og-image-v1.jpg",
+    "sha256": "c37486c336196e970bb20bef196afff5efaeb57ebada97d1cf231410ce8c5640",
+    "bytes": 109711,
+    "content_type": "image/jpeg",
+    "verified_at_edge": true,
+    "original_source": "2026-usa-volebni-kartogram/media-local/og-image.png"
   }
 ]

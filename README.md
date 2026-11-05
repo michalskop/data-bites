@@ -12,6 +12,7 @@ Hosting: GitHub Pages, `main`, repository root.
 ## 📁 Struktura repozitáře
 
 * `2026-krajina-v-nazvech/` — interactive place-name endings atlas in Czech, German and English. See [source and publication notes](2026-krajina-v-nazvech/README.md).
+* `2026-usa-volebni-kartogram/` — interactive comparison of preliminary 2026 House vote margins and the 2024 presidential election, with a square video and downloadable charts/data. See [copy and source notes](2026-usa-volebni-kartogram/README.md).
 * `index.html` — Hlavní katalog / rozcestník analýz s filtrováním podle štítků a vyhledáváním
 * `2026-vlaky-v-cesku/` — five Czechia train-video formats with verified CDN media. See [preview instructions](2026-vlaky-v-cesku/README.md). Media is served from the shared DataTimes CDN.
 * `2026-citybike-viden/` — Vienna Citybike videos with dates, time windows and social-format labels. See [preview and refresh instructions](2026-citybike-viden/README.md). Media is served from the shared DataTimes CDN.
