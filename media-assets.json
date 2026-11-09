@@ -2057,5 +2057,25 @@
     "content_type": "image/jpeg",
     "verified_at_edge": true,
     "original_source": "2026-usa-volebni-kartogram/media-local/og-image.png"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-gasse-strasse/terrain-v1.png",
+    "key": "databites-dtcz/2026-gasse-strasse/terrain-v1.png",
+    "sha256": "5d7d12baca51b8b50f357f5d5e078eab46f58277f1e336237a649ad4aad682ea",
+    "bytes": 2452170,
+    "content_type": "image/png",
+    "verified_at_edge": true,
+    "original_source": "/home/michal/dev/ai/data-at/30days/09/dist/data/terrain.png"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-gasse-strasse/preview-v1.webp",
+    "key": "databites-dtcz/2026-gasse-strasse/preview-v1.webp",
+    "sha256": "5aac30e6dfa5a2d89b4ef26bc5ed3a5f4216c4ecbaf054e7d6575576a6361fb8",
+    "bytes": 156296,
+    "content_type": "image/webp",
+    "verified_at_edge": true,
+    "original_source": "2026-gasse-strasse/media-local/preview.png"
   }
 ]

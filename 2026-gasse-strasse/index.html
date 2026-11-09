@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="cs"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#fdfbf7">
+<meta name="description" content="Gasse, nebo Straße? Interaktivní mapa typů uličních názvů v německy mluvící Evropě. Porovnejte názvy ulic v šestiúhelnících o šířce 5, 10 nebo 20 km.">
+<title>Gasse, nebo Straße? · DataTimes.at</title>  <link rel="icon" href="https://media.datatimes.org/databites-dtcz/site/favicon-bites-2026-11-v1.ico" type="image/x-icon" sizes="16x16 32x32 48x48 64x64">
+  <link rel="icon" href="https://media.datatimes.org/databites-dtcz/site/favicon-bites-2026-11-v1.svg" type="image/svg+xml" sizes="any">
+  <link rel="apple-touch-icon" href="https://media.datatimes.org/databites-dtcz/site/apple-touch-icon-bites-2026-11-v1.png" sizes="180x180">
+<link rel="canonical" href="https://databites.datatimes.cz/2026-gasse-strasse/"><link rel="stylesheet" href="style.css">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="cs_CZ">
+<meta property="og:title" content="Gasse, nebo Straße?">
+<meta property="og:description" content="Interaktivní mapa typů uličních názvů v německy mluvící Evropě.">
+<meta property="og:url" content="https://databites.datatimes.cz/2026-gasse-strasse/">
+<meta property="og:image" content="https://media.datatimes.org/databites-dtcz/2026-gasse-strasse/preview-v1.webp">
+<meta name="twitter:card" content="summary_large_image">
+</head><body>
+<header class="site-header"><a class="brand" href="https://datatimes.cz" target="_blank" rel="noopener"><img crossorigin="anonymous" src="https://media.datatimes.org/databites-dtcz/2026-krajina-v-nazvech/datatimes-symbol-v1.svg" width="40" height="40" alt=""><span>DataTimes.at</span></a><a class="edition" href="../">← Data Bites</a><div class="lang" role="group" data-i18n-aria="language" aria-label="Jazyk"><button data-lang="cs" lang="cs">Česky</button><button data-lang="en" lang="en">English</button><button data-lang="de" lang="de">Deutsch</button></div><button id="about" class="text-button" data-i18n="about">O datech</button></header>
+<main>
+<aside>
+<div class="eyebrow" data-i18n="eyebrow">ULIČNÍ NÁZVY V NĚMECKY MLUVÍCÍ EVROPĚ</div>
+<h1 data-i18n-html="h1">Gasse<br><span>nebo Straße?</span></h1>
+<p class="intro" data-i18n-html="intro">Každý šestiúhelník obsahuje pojmenované ulice na svém území. <b>Barva</b> ukazuje, který typ názvu převažuje; <b>sytost</b> ukazuje počet ulic.</p>
+
+<div class="field"><label for="a" data-i18n="orange">Oranžová strana</label><select id="a"></select></div>
+<div class="field"><label for="b" data-i18n="blue">Modrá strana</label><select id="b"></select></div>
+<button id="swap" class="text-button" data-i18n="swap">⇄ Prohodit strany</button>
+
+<div class="field"><span class="lbl" data-i18n="colourShows">Barva ukazuje</span>
+<div class="seg" id="metric"><button data-v="logit" aria-pressed="true" data-i18n="logit">Logaritmus poměru</button><button data-v="share" aria-pressed="false" data-i18n="share">Podíl</button></div>
+<p class="small" id="metric-note"></p></div>
+<div class="field"><span class="lbl" data-i18n="greyMeans">Neutrální šedá znamená</span>
+<div class="seg" id="centre"><button data-v="parity" aria-pressed="true" data-i18n="parity">Stejné počty</button><button data-v="mean" aria-pressed="false" data-i18n="mean">Celkový průměr</button></div></div>
+<div class="field"><span class="lbl" data-i18n="strengthShows">Sytost ukazuje</span>
+<div class="seg" id="alpha"><button data-v="all" aria-pressed="true" data-i18n="allStreets">Všechny ulice</button><button data-v="pair" aria-pressed="false" data-i18n="onlyTwo">Jen vybrané dva typy</button></div></div>
+<div class="field"><span class="lbl" data-i18n="underlying">Podkladová mapa</span><label class="chk"><input id="terrain" type="checkbox" checked><span data-i18n="terrainRelief"> Reliéf terénu</span></label><label class="chk"><input id="cities" type="checkbox" checked><span data-i18n="cityLabels"> Názvy měst</span></label></div>
+<div class="field"><span class="lbl" data-i18n="hexWidth">Šířka šestiúhelníku</span>
+<div class="seg" id="size"><button data-v="20" aria-pressed="false">20 km</button><button data-v="10" aria-pressed="true">10 km</button><button data-v="5" aria-pressed="false">5 km</button></div></div>
+</aside>
+<section class="map-section"><div class="chart-card">
+<div class="map-top"><div><div class="eyebrow" data-i18n="mapEyebrow">GEOGRAFIE ULIČNÍCH NÁZVŮ</div><h2 id="title"></h2><p class="chart-subtitle" id="subtitle"></p></div><a class="chart-signature" href="https://datatimes.cz" target="_blank" rel="noopener"><img crossorigin="anonymous" src="https://media.datatimes.org/databites-dtcz/2026-krajina-v-nazvech/datatimes-symbol-v1.svg" width="28" height="28" alt=""><span>DataTimes.at</span></a></div>
+<div class="map-wrap"><canvas id="map" tabindex="0" data-i18n-aria="mapAria" aria-label="Šestiúhelníková mapa. Tažením posunete, kolečkem přiblížíte. Fungují také klávesy plus, minus a šipky."></canvas>
+<div id="loading" data-i18n="loading">Počítáme ulice…</div><div id="tooltip" role="status" hidden></div>
+<div class="map-controls"><button id="zoom-in" data-i18n-aria="zoomIn" aria-label="Přiblížit">+</button><button id="zoom-out" data-i18n-aria="zoomOut" aria-label="Oddálit">−</button><button id="reset" data-i18n-aria="resetView" aria-label="Výchozí pohled">⤢</button></div>
+<div class="legend" id="legend"><div class="lg-row"><span id="lg-a"></span><canvas id="lg-color" width="180" height="12"></canvas><span id="lg-b"></span></div>
+<div class="lg-row"><span data-i18n="few">málo ulic</span><canvas id="lg-alpha" width="180" height="12"></canvas><span data-i18n="many">hodně</span></div></div></div>
+<div class="plates" id="plates" aria-label="Street plates"></div>
+<div class="map-footer"><div class="chart-credits"><div>• <span data-i18n="authors">Autoři:</span> <a href="https://datatimes.cz" target="_blank" rel="noopener">Kateřina Mahdalová &amp; Michal Škop</a></div><div>• <span data-i18n="data">Data:</span> © OpenStreetMap contributors (ODbL) via Geofabrik · © EuroGeographics, Eurostat GISCO LAU 2024 · <span data-i18n="viennaDistricts">Čísla vídeňských obvodů:</span> Stadt Wien – data.wien.gv.at (CC BY 4.0)</div><div>• <span data-i18n="basemap">Podklad: terén Mapzen / Copernicus EU-DEM / DGM Austria / SRTM · obrysy Natural Earth (volné dílo)</span></div></div><button id="export" class="text-button" data-i18n="save">Stáhnout mapu ↓</button></div>
+</div></section></main>
+<footer class="site-footer"><span data-i18n="footer">TROCHA JAZYKA. SPOUSTA GEOGRAFIE.</span><span data-i18n="disclaimer">Vzory zápisu uličních názvů v OpenStreetMap.</span></footer>
+<dialog id="dlg"><button id="close" class="close" data-i18n-aria="close" aria-label="Zavřít">×</button><div class="eyebrow" data-i18n="notes">POZNÁMKY</div><div id="about-body"></div><div id="srcs"></div></dialog>
+<script src="i18n.js"></script><script src="app.js"></script>
+</body></html>

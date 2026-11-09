@@ -11,6 +11,7 @@ Hosting: GitHub Pages, `main`, repository root.
 
 ## 📁 Struktura repozitáře
 
+* `2026-gasse-strasse/` — street-name hexagon atlas of German-speaking Europe, with Czech, English and German interfaces and PNG export. See [source and import notes](2026-gasse-strasse/README.md).
 * `2026-krajina-v-nazvech/` — interactive place-name endings atlas in Czech, German and English. See [source and publication notes](2026-krajina-v-nazvech/README.md).
 * `2026-usa-volebni-kartogram/` — interactive comparison of preliminary 2026 House vote margins and the 2024 presidential election, with a square video and downloadable charts/data. See [copy and source notes](2026-usa-volebni-kartogram/README.md).
 * `index.html` — Hlavní katalog / rozcestník analýz s filtrováním podle štítků a vyhledáváním
