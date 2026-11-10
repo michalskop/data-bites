@@ -2257,5 +2257,65 @@
     "content_type": "image/webp",
     "verified_at_edge": true,
     "original_source": "2026-jak-rikame-ulici/media-local/thumb-spain-v1.webp"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-jak-rikame-ulici/terrain-dach-v1.png",
+    "key": "databites-dtcz/2026-jak-rikame-ulici/terrain-dach-v1.png",
+    "sha256": "5fe5eb0d34f2fb103d5ef1b899f8dab6c2623c7157191430da1f66f0002d1d45",
+    "bytes": 2976415,
+    "content_type": "image/png",
+    "verified_at_edge": true,
+    "original_source": "dist/data/dach/terrain.png"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-jak-rikame-ulici/terrain-spain-v1.png",
+    "key": "databites-dtcz/2026-jak-rikame-ulici/terrain-spain-v1.png",
+    "sha256": "5f4e4e2054883d840f7c44523eca5bdf2ec015f7dd62198bb857b1fe447a06dd",
+    "bytes": 2059249,
+    "content_type": "image/png",
+    "verified_at_edge": true,
+    "original_source": "dist/data/spain/terrain.png"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-jak-rikame-ulici/terrain-uk_ie-v1.png",
+    "key": "databites-dtcz/2026-jak-rikame-ulici/terrain-uk_ie-v1.png",
+    "sha256": "dc7dfcb7b08143f367f31e27ed563ee02d5358eef4e2c508ca3e602ecdb45289",
+    "bytes": 716237,
+    "content_type": "image/png",
+    "verified_at_edge": true,
+    "original_source": "dist/data/uk_ie/terrain.png"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-jak-rikame-ulici/terrain-lat_am-v1.png",
+    "key": "databites-dtcz/2026-jak-rikame-ulici/terrain-lat_am-v1.png",
+    "sha256": "518fcb1174ae19e99d0526fe798bb469df7a45414555dd71d12c7522d73eb3f1",
+    "bytes": 1047433,
+    "content_type": "image/png",
+    "verified_at_edge": true,
+    "original_source": "dist/data/lat_am/terrain.png"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-jak-rikame-ulici/terrain-arabic-v1.png",
+    "key": "databites-dtcz/2026-jak-rikame-ulici/terrain-arabic-v1.png",
+    "sha256": "404caf9b01b8e30069d1fd4b88fd59ad9f692fa7e5997cc21269ebf934678f62",
+    "bytes": 785017,
+    "content_type": "image/png",
+    "verified_at_edge": true,
+    "original_source": "dist/data/arabic/terrain.png"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-jak-rikame-ulici/terrain-us-v1.png",
+    "key": "databites-dtcz/2026-jak-rikame-ulici/terrain-us-v1.png",
+    "sha256": "684b648caf1ae8df08b34f20732fcf782f6e3536ea35b949e7aa717c2ff01322",
+    "bytes": 1124770,
+    "content_type": "image/png",
+    "verified_at_edge": true,
+    "original_source": "dist/data/us/terrain.png"
   }
 ]
