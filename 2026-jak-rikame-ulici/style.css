@@ -1,0 +1,10 @@
+.bite-viewer { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 40px; padding: 10px 0 50px; align-items: start; }
+.bite-viewer figure { margin: 0; border: 1px solid var(--border); background: var(--surface); }
+.bite-viewer img#map-img { display: block; width: 100%; height: auto; }
+.bite-viewer .format-detail .words { font-family: var(--serif); font-size: 18px; margin: 0 0 14px; }
+.bite-viewer .area-note { font-size: 11px; line-height: 1.8; color: #626678; border-top: 1px solid var(--border); padding-top: 14px; margin-top: 14px; }
+.format-list.regions { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+@media (max-width: 860px) { .bite-viewer { grid-template-columns: 1fr; } }
+.format-list.regions .format-thumbnail { height: 150px; padding: 0; overflow: hidden; display: block; }
+.format-list.regions .format-thumbnail img { width: 100%; height: 100%; max-width: none; object-fit: cover; object-position: center 35%; display: block; }
+.format-list.regions .format-variant { font-size: 12px; }

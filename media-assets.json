@@ -2077,5 +2077,185 @@
     "content_type": "image/webp",
     "verified_at_edge": true,
     "original_source": "2026-gasse-strasse/media-local/preview.png"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-jak-rikame-ulici/thumb-arabic-v1.webp",
+    "key": "databites-dtcz/2026-jak-rikame-ulici/thumb-arabic-v1.webp",
+    "sha256": "669128f83c7b83f2d6aae4e78e6d1eb71cebc89900ffd8b6eaa33871fc1d1afb",
+    "bytes": 23612,
+    "content_type": "image/webp",
+    "verified_at_edge": true,
+    "original_source": "2026-jak-rikame-ulici/media-local/thumb-arabic-v1.webp"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-jak-rikame-ulici/thumb-dach-v1.webp",
+    "key": "databites-dtcz/2026-jak-rikame-ulici/thumb-dach-v1.webp",
+    "sha256": "5f0fabed6d39098410adc562c8150579ff046bc3e40016cd8db7706523a33fda",
+    "bytes": 31980,
+    "content_type": "image/webp",
+    "verified_at_edge": true,
+    "original_source": "2026-jak-rikame-ulici/media-local/thumb-dach-v1.webp"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-jak-rikame-ulici/thumb-lat_am-v1.webp",
+    "key": "databites-dtcz/2026-jak-rikame-ulici/thumb-lat_am-v1.webp",
+    "sha256": "f4340992ebbbdd95ee47c187702647a06e59f430afa1ad13f9ff4c100e65cc6d",
+    "bytes": 21502,
+    "content_type": "image/webp",
+    "verified_at_edge": true,
+    "original_source": "2026-jak-rikame-ulici/media-local/thumb-lat_am-v1.webp"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-jak-rikame-ulici/thumb-uk_ie-v1.webp",
+    "key": "databites-dtcz/2026-jak-rikame-ulici/thumb-uk_ie-v1.webp",
+    "sha256": "a42dc60f472ed0e3e0547d9f274b06fa8a9270a42484695e39e47cc75e6f6b7d",
+    "bytes": 23046,
+    "content_type": "image/webp",
+    "verified_at_edge": true,
+    "original_source": "2026-jak-rikame-ulici/media-local/thumb-uk_ie-v1.webp"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-jak-rikame-ulici/thumb-us-v1.webp",
+    "key": "databites-dtcz/2026-jak-rikame-ulici/thumb-us-v1.webp",
+    "sha256": "98c4e354d626c8ea6baec90ca193d5c4c76f4cccfe08a588ed1b9fc814fd7019",
+    "bytes": 35412,
+    "content_type": "image/webp",
+    "verified_at_edge": true,
+    "original_source": "2026-jak-rikame-ulici/media-local/thumb-us-v1.webp"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-jak-rikame-ulici/ulice-arabic-v1.png",
+    "key": "databites-dtcz/2026-jak-rikame-ulici/ulice-arabic-v1.png",
+    "sha256": "4c0a5835936ebc3a513b15758447d2941037a2626940c5c837bec5479c54f5eb",
+    "bytes": 2764321,
+    "content_type": "image/png",
+    "verified_at_edge": true,
+    "original_source": "2026-jak-rikame-ulici/media-local/ulice-arabic-v1.png"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-jak-rikame-ulici/ulice-arabic-v1.webp",
+    "key": "databites-dtcz/2026-jak-rikame-ulici/ulice-arabic-v1.webp",
+    "sha256": "b35b9fcb6f0b43e358cd84574817ecc3e6985503f16905a251cc4aaf1f011061",
+    "bytes": 179510,
+    "content_type": "image/webp",
+    "verified_at_edge": true,
+    "original_source": "2026-jak-rikame-ulici/media-local/ulice-arabic-v1.webp"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-jak-rikame-ulici/ulice-dach-v1.png",
+    "key": "databites-dtcz/2026-jak-rikame-ulici/ulice-dach-v1.png",
+    "sha256": "d54f38eba2258ec9eaad71063f2b91333e125b38af3bbb10c38aa8353fc58874",
+    "bytes": 5307289,
+    "content_type": "image/png",
+    "verified_at_edge": true,
+    "original_source": "2026-jak-rikame-ulici/media-local/ulice-dach-v1.png"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-jak-rikame-ulici/ulice-dach-v1.webp",
+    "key": "databites-dtcz/2026-jak-rikame-ulici/ulice-dach-v1.webp",
+    "sha256": "552b53290eb5537b5b7537aa2b3fd53dd6336824d4ecc0e391ead16316c040e0",
+    "bytes": 287162,
+    "content_type": "image/webp",
+    "verified_at_edge": true,
+    "original_source": "2026-jak-rikame-ulici/media-local/ulice-dach-v1.webp"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-jak-rikame-ulici/ulice-lat_am-v1.png",
+    "key": "databites-dtcz/2026-jak-rikame-ulici/ulice-lat_am-v1.png",
+    "sha256": "b600ccd58783634f4b510249010a7c3cd4441ab1a1e14ae6db06dfd8e14657e8",
+    "bytes": 2147192,
+    "content_type": "image/png",
+    "verified_at_edge": true,
+    "original_source": "2026-jak-rikame-ulici/media-local/ulice-lat_am-v1.png"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-jak-rikame-ulici/ulice-lat_am-v1.webp",
+    "key": "databites-dtcz/2026-jak-rikame-ulici/ulice-lat_am-v1.webp",
+    "sha256": "a4f12d71b35527a065b5cb6501589b0b231f064e881db98b38a57fbf1336da1e",
+    "bytes": 168030,
+    "content_type": "image/webp",
+    "verified_at_edge": true,
+    "original_source": "2026-jak-rikame-ulici/media-local/ulice-lat_am-v1.webp"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-jak-rikame-ulici/ulice-spain-v1.png",
+    "key": "databites-dtcz/2026-jak-rikame-ulici/ulice-spain-v1.png",
+    "sha256": "96b4e929021677e97f38364e608ca8fe1a96e56e7b0800c2820051ebb2ad1d45",
+    "bytes": 3848076,
+    "content_type": "image/png",
+    "verified_at_edge": true,
+    "original_source": "2026-jak-rikame-ulici/media-local/ulice-spain-v1.png"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-jak-rikame-ulici/ulice-spain-v1.webp",
+    "key": "databites-dtcz/2026-jak-rikame-ulici/ulice-spain-v1.webp",
+    "sha256": "feb3f8b42cb4a3eb0eaebfe56702b627bc2571ea6e921603e55d0dac59306024",
+    "bytes": 233246,
+    "content_type": "image/webp",
+    "verified_at_edge": true,
+    "original_source": "2026-jak-rikame-ulici/media-local/ulice-spain-v1.webp"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-jak-rikame-ulici/ulice-uk_ie-v1.png",
+    "key": "databites-dtcz/2026-jak-rikame-ulici/ulice-uk_ie-v1.png",
+    "sha256": "9a188e8a7f2572641b77438da4832a250eb9a9d20e4dffceca4542cb0f960357",
+    "bytes": 2576253,
+    "content_type": "image/png",
+    "verified_at_edge": true,
+    "original_source": "2026-jak-rikame-ulici/media-local/ulice-uk_ie-v1.png"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-jak-rikame-ulici/ulice-uk_ie-v1.webp",
+    "key": "databites-dtcz/2026-jak-rikame-ulici/ulice-uk_ie-v1.webp",
+    "sha256": "b072f6ec1eb2dfa1e6a2ff0de059a3cc7fe19755b17a7335bd66975332d26013",
+    "bytes": 184602,
+    "content_type": "image/webp",
+    "verified_at_edge": true,
+    "original_source": "2026-jak-rikame-ulici/media-local/ulice-uk_ie-v1.webp"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-jak-rikame-ulici/ulice-us-v1.png",
+    "key": "databites-dtcz/2026-jak-rikame-ulici/ulice-us-v1.png",
+    "sha256": "6761c653211d86abf22b0a98a17b1569956966a0377b65c849e7b2f9033bee6a",
+    "bytes": 4901716,
+    "content_type": "image/png",
+    "verified_at_edge": true,
+    "original_source": "2026-jak-rikame-ulici/media-local/ulice-us-v1.png"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-jak-rikame-ulici/ulice-us-v1.webp",
+    "key": "databites-dtcz/2026-jak-rikame-ulici/ulice-us-v1.webp",
+    "sha256": "441238e2c02105a0fb0da7d089f6d9c43e2b1b2e9e8c95169d9a4b7a41106b1b",
+    "bytes": 312322,
+    "content_type": "image/webp",
+    "verified_at_edge": true,
+    "original_source": "2026-jak-rikame-ulici/media-local/ulice-us-v1.webp"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-jak-rikame-ulici/thumb-spain-v1.webp",
+    "key": "databites-dtcz/2026-jak-rikame-ulici/thumb-spain-v1.webp",
+    "sha256": "22ca9b1d344b8a6464c9dbc742f7a31a6a6d5ae1d02f54e9bf51835b1200f8eb",
+    "bytes": 28342,
+    "content_type": "image/webp",
+    "verified_at_edge": true,
+    "original_source": "2026-jak-rikame-ulici/media-local/thumb-spain-v1.webp"
   }
 ]
