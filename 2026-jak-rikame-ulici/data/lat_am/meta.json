@@ -1,0 +1,353 @@
+{
+ "id": "lat_am",
+ "crs": "+proj=laea +lat_0=-6 +lon_0=-73 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs",
+ "families": [
+  {
+   "key": "calle",
+   "label": "Calle"
+  },
+  {
+   "key": "avenida",
+   "label": "Avenida"
+  },
+  {
+   "key": "carrera",
+   "label": "Carrera"
+  },
+  {
+   "key": "pasaje",
+   "label": "Pasaje"
+  },
+  {
+   "key": "jiron",
+   "label": "Jirón"
+  },
+  {
+   "key": "callejon",
+   "label": "Callejón"
+  },
+  {
+   "key": "camino",
+   "label": "Camino"
+  },
+  {
+   "key": "carretera",
+   "label": "Carretera"
+  },
+  {
+   "key": "diagonal",
+   "label": "Diagonal"
+  },
+  {
+   "key": "transversal",
+   "label": "Transversal"
+  },
+  {
+   "key": "privada",
+   "label": "Privada"
+  },
+  {
+   "key": "cerrada",
+   "label": "Cerrada"
+  },
+  {
+   "key": "andador",
+   "label": "Andador"
+  },
+  {
+   "key": "calzada",
+   "label": "Calzada"
+  },
+  {
+   "key": "bulevar",
+   "label": "Bulevar"
+  },
+  {
+   "key": "paseo",
+   "label": "Paseo"
+  },
+  {
+   "key": "plaza",
+   "label": "Plaza"
+  },
+  {
+   "key": "ronda",
+   "label": "Ronda"
+  },
+  {
+   "key": "sendero",
+   "label": "Sendero"
+  },
+  {
+   "key": "rinconada",
+   "label": "Rinconada"
+  },
+  {
+   "key": "pasaje2",
+   "label": "Pasaje peatonal"
+  },
+  {
+   "key": "prolongacion",
+   "label": "Prolongación"
+  },
+  {
+   "key": "via",
+   "label": "Vía"
+  },
+  {
+   "key": "bare",
+   "label": "Name only (no street word)"
+  },
+  {
+   "key": "manzana",
+   "label": "Manzana / lote"
+  }
+ ],
+ "sizes": {
+  "40": {
+   "hexes": 5846,
+   "streets": 1827304
+  },
+  "20": {
+   "hexes": 15600,
+   "streets": 1839205
+  },
+  "10": {
+   "hexes": 36281,
+   "streets": 1862643
+  }
+ },
+ "sources": [
+  {
+   "country": "MX",
+   "region": "north-america/mexico",
+   "url": "https://download.geofabrik.de/north-america/mexico-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 00:20:23 GMT",
+   "file": "north-america_mexico.roads.zip"
+  },
+  {
+   "country": "GT",
+   "region": "central-america/guatemala",
+   "url": "https://download.geofabrik.de/central-america/guatemala-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 00:54:29 GMT",
+   "file": "central-america_guatemala.roads.zip"
+  },
+  {
+   "country": "HN",
+   "region": "central-america/honduras",
+   "url": "https://download.geofabrik.de/central-america/honduras-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 03:21:03 GMT",
+   "file": "central-america_honduras.roads.zip"
+  },
+  {
+   "country": "SV",
+   "region": "central-america/el-salvador",
+   "url": "https://download.geofabrik.de/central-america/el-salvador-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 01:27:50 GMT",
+   "file": "central-america_el-salvador.roads.zip"
+  },
+  {
+   "country": "NI",
+   "region": "central-america/nicaragua",
+   "url": "https://download.geofabrik.de/central-america/nicaragua-220101-free.shp.zip",
+   "modified": "Sat, 29 Jan 2022 22:15:33 GMT",
+   "file": "central-america_nicaragua.roads.zip"
+  },
+  {
+   "country": "CR",
+   "region": "central-america/costa-rica",
+   "url": "https://download.geofabrik.de/central-america/costa-rica-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 01:27:58 GMT",
+   "file": "central-america_costa-rica.roads.zip"
+  },
+  {
+   "country": "PA",
+   "region": "central-america/panama",
+   "url": "https://download.geofabrik.de/central-america/panama-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 03:01:21 GMT",
+   "file": "central-america_panama.roads.zip"
+  },
+  {
+   "country": "CU",
+   "region": "central-america/cuba",
+   "url": "https://download.geofabrik.de/central-america/cuba-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 02:48:17 GMT",
+   "file": "central-america_cuba.roads.zip"
+  },
+  {
+   "country": "DO",
+   "region": "central-america/haiti-and-domrep",
+   "url": "https://download.geofabrik.de/central-america/haiti-and-domrep-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 01:17:06 GMT",
+   "file": "central-america_haiti-and-domrep.roads.zip"
+  },
+  {
+   "country": "CO",
+   "region": "south-america/colombia",
+   "url": "https://download.geofabrik.de/south-america/colombia-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 03:42:00 GMT",
+   "file": "south-america_colombia.roads.zip"
+  },
+  {
+   "country": "VE",
+   "region": "south-america/venezuela",
+   "url": "https://download.geofabrik.de/south-america/venezuela-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 02:46:15 GMT",
+   "file": "south-america_venezuela.roads.zip"
+  },
+  {
+   "country": "EC",
+   "region": "south-america/ecuador",
+   "url": "https://download.geofabrik.de/south-america/ecuador-210101-free.shp.zip",
+   "modified": "Sat, 02 Jan 2021 01:07:32 GMT",
+   "file": "south-america_ecuador.roads.zip"
+  },
+  {
+   "country": "PE",
+   "region": "south-america/peru",
+   "url": "https://download.geofabrik.de/south-america/peru-261108-free.shp.zip",
+   "modified": "Mon, 09 Nov 2026 01:19:55 GMT",
+   "file": "south-america_peru.roads.zip"
+  },
+  {
+   "country": "BO",
+   "region": "south-america/bolivia",
+   "url": "https://download.geofabrik.de/south-america/bolivia-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 01:33:50 GMT",
+   "file": "south-america_bolivia.roads.zip"
+  },
+  {
+   "country": "CL",
+   "region": "south-america/chile",
+   "url": "https://download.geofabrik.de/south-america/chile-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 00:49:13 GMT",
+   "file": "south-america_chile.roads.zip"
+  },
+  {
+   "country": "AR",
+   "region": "south-america/argentina",
+   "url": "https://download.geofabrik.de/south-america/argentina-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 02:40:33 GMT",
+   "file": "south-america_argentina.roads.zip"
+  },
+  {
+   "country": "UY",
+   "region": "south-america/uruguay",
+   "url": "https://download.geofabrik.de/south-america/uruguay-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 01:29:48 GMT",
+   "file": "south-america_uruguay.roads.zip"
+  },
+  {
+   "country": "PY",
+   "region": "south-america/paraguay",
+   "url": "https://download.geofabrik.de/south-america/paraguay-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 01:04:01 GMT",
+   "file": "south-america_paraguay.roads.zip"
+  }
+ ],
+ "report": {
+  "north-america/mexico": {
+   "ways": 1681761,
+   "in_scope": 1659359
+  },
+  "central-america/guatemala": {
+   "ways": 42432,
+   "in_scope": 11171
+  },
+  "central-america/honduras": {
+   "ways": 27188,
+   "in_scope": 11628
+  },
+  "central-america/el-salvador": {
+   "ways": 33103,
+   "in_scope": 24230
+  },
+  "central-america/nicaragua": {
+   "ways": 19594,
+   "in_scope": 7833
+  },
+  "central-america/costa-rica": {
+   "ways": 77151,
+   "in_scope": 73679
+  },
+  "central-america/panama": {
+   "ways": 24221,
+   "in_scope": 23990
+  },
+  "central-america/cuba": {
+   "ways": 75294,
+   "in_scope": 54879
+  },
+  "central-america/haiti-and-domrep": {
+   "ways": 64513,
+   "in_scope": 47929
+  },
+  "south-america/colombia": {
+   "ways": 368411,
+   "in_scope": 362755
+  },
+  "south-america/venezuela": {
+   "ways": 74702,
+   "in_scope": 69987
+  },
+  "south-america/ecuador": {
+   "ways": 105706,
+   "in_scope": 92267
+  },
+  "south-america/peru": {
+   "ways": 186154,
+   "in_scope": 184055
+  },
+  "south-america/bolivia": {
+   "ways": 88377,
+   "in_scope": 79936
+  },
+  "south-america/chile": {
+   "ways": 378779,
+   "in_scope": 326240
+  },
+  "south-america/argentina": {
+   "ways": 599791,
+   "in_scope": 517410
+  },
+  "south-america/uruguay": {
+   "ways": 58474,
+   "in_scope": 49551
+  },
+  "south-america/paraguay": {
+   "ways": 55163,
+   "in_scope": 43113
+  }
+ },
+ "columns": [
+  "q",
+  "r",
+  "streets",
+  "calle",
+  "avenida",
+  "carrera",
+  "pasaje",
+  "jiron",
+  "callejon",
+  "camino",
+  "carretera",
+  "diagonal",
+  "transversal",
+  "privada",
+  "cerrada",
+  "andador",
+  "calzada",
+  "bulevar",
+  "paseo",
+  "plaza",
+  "ronda",
+  "sendero",
+  "rinconada",
+  "pasaje2",
+  "prolongacion",
+  "via",
+  "bare",
+  "manzana"
+ ],
+ "note": "q,r are axial pointy-top hexagon coordinates in the region CRS (km grid); circumradius = width/sqrt(3)."
+}

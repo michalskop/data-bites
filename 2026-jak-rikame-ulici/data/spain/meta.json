@@ -1,0 +1,228 @@
+{
+ "id": "spain",
+ "crs": 3035,
+ "families": [
+  {
+   "key": "calle",
+   "label": "Calle"
+  },
+  {
+   "key": "carrer",
+   "label": "Carrer"
+  },
+  {
+   "key": "kalea",
+   "label": "Kalea"
+  },
+  {
+   "key": "rua",
+   "label": "Rúa"
+  },
+  {
+   "key": "avenida",
+   "label": "Avenida"
+  },
+  {
+   "key": "avinguda",
+   "label": "Avinguda"
+  },
+  {
+   "key": "plaza",
+   "label": "Plaza"
+  },
+  {
+   "key": "placa",
+   "label": "Plaça"
+  },
+  {
+   "key": "praza",
+   "label": "Praza"
+  },
+  {
+   "key": "paseo",
+   "label": "Paseo"
+  },
+  {
+   "key": "passeig",
+   "label": "Passeig"
+  },
+  {
+   "key": "camino",
+   "label": "Camino"
+  },
+  {
+   "key": "cami",
+   "label": "Camí"
+  },
+  {
+   "key": "camino_gal",
+   "label": "Camiño"
+  },
+  {
+   "key": "camin",
+   "label": "Camín"
+  },
+  {
+   "key": "carretera",
+   "label": "Carretera"
+  },
+  {
+   "key": "travesia",
+   "label": "Travesía"
+  },
+  {
+   "key": "travessia",
+   "label": "Travessia"
+  },
+  {
+   "key": "callejon",
+   "label": "Callejón"
+  },
+  {
+   "key": "carrero",
+   "label": "Carreró"
+  },
+  {
+   "key": "pasaje",
+   "label": "Pasaje"
+  },
+  {
+   "key": "passatge",
+   "label": "Passatge"
+  },
+  {
+   "key": "ronda",
+   "label": "Ronda"
+  },
+  {
+   "key": "estrada",
+   "label": "Estrada"
+  },
+  {
+   "key": "carrera",
+   "label": "Carrera"
+  },
+  {
+   "key": "rambla",
+   "label": "Rambla"
+  },
+  {
+   "key": "via",
+   "label": "Vía"
+  },
+  {
+   "key": "puente",
+   "label": "Puente"
+  },
+  {
+   "key": "senda",
+   "label": "Senda"
+  },
+  {
+   "key": "cuesta",
+   "label": "Cuesta"
+  },
+  {
+   "key": "pecuaria",
+   "label": "Cañada / Cordel"
+  },
+  {
+   "key": "glorieta",
+   "label": "Glorieta"
+  },
+  {
+   "key": "bidea",
+   "label": "Bidea (Basque)"
+  }
+ ],
+ "sizes": {
+  "20": {
+   "hexes": 1615,
+   "streets": 636475
+  },
+  "10": {
+   "hexes": 5515,
+   "streets": 642916
+  },
+  "5": {
+   "hexes": 15173,
+   "streets": 654297
+  }
+ },
+ "sources": [
+  {
+   "country": "ES",
+   "region": "europe/spain",
+   "url": "https://download.geofabrik.de/europe/spain-210101-free.shp.zip",
+   "modified": "Sat, 02 Jan 2021 02:01:03 GMT",
+   "file": "europe_spain.roads.zip"
+  },
+  {
+   "country": "ES",
+   "region": "africa/canary-islands",
+   "url": "https://download.geofabrik.de/africa/canary-islands-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 01:29:27 GMT",
+   "file": "africa_canary-islands.roads.zip"
+  },
+  {
+   "country": "AD",
+   "region": "europe/andorra",
+   "url": "https://download.geofabrik.de/europe/andorra-261108-free.shp.zip",
+   "modified": "Mon, 09 Nov 2026 02:14:05 GMT",
+   "file": "europe_andorra.roads.zip"
+  }
+ ],
+ "report": {
+  "europe/spain": {
+   "ways": 1189231,
+   "in_scope": 1151294
+  },
+  "africa/canary-islands": {
+   "ways": 60779,
+   "in_scope": 57385
+  },
+  "europe/andorra": {
+   "ways": 2087,
+   "in_scope": 1928
+  }
+ },
+ "columns": [
+  "q",
+  "r",
+  "streets",
+  "calle",
+  "carrer",
+  "kalea",
+  "rua",
+  "avenida",
+  "avinguda",
+  "plaza",
+  "placa",
+  "praza",
+  "paseo",
+  "passeig",
+  "camino",
+  "cami",
+  "camino_gal",
+  "camin",
+  "carretera",
+  "travesia",
+  "travessia",
+  "callejon",
+  "carrero",
+  "pasaje",
+  "passatge",
+  "ronda",
+  "estrada",
+  "carrera",
+  "rambla",
+  "via",
+  "puente",
+  "senda",
+  "cuesta",
+  "pecuaria",
+  "glorieta",
+  "bidea"
+ ],
+ "note": "q,r are axial pointy-top hexagon coordinates in the region CRS (km grid); circumradius = width/sqrt(3)."
+}

@@ -1,0 +1,64 @@
+{
+ "Ciudad de México": {
+  "calle": "Calle Francisco I. Madero",
+  "avenida": "Avenida Paseo de la Reforma",
+  "pasaje": "Pasaje Comonfort",
+  "callejon": "Callejón San Antonio Abad",
+  "privada": "Privada Cuitláhuac",
+  "cerrada": "Cerrada Fray Servando Teresa de Mier",
+  "andador": "Andador 98",
+  "calzada": "Calzada San Antonio Abad",
+  "paseo": "Paseo de las Luminarias",
+  "plaza": "Plaza de San Pablo",
+  "rinconada": "Anillo de Circunvalación",
+  "pasaje2": "Pasillo A",
+  "prolongacion": "Prolongación Roa Béncenas",
+  "bare": "Guerrero"
+ },
+ "Lima": {
+  "calle": "Calle José Díaz",
+  "avenida": "Avenida Alfonso Ugarte",
+  "pasaje": "Pasaje Martinety",
+  "jiron": "Jirón de la Unión",
+  "callejon": "Callejón del Río Rímac",
+  "paseo": "Paseo de Aguas",
+  "plaza": "Plaza Francisco Bolognesi",
+  "rinconada": "Circunvalación",
+  "pasaje2": "Pasillo Tiendas",
+  "prolongacion": "Prolongación Tacna",
+  "via": "Via de Evitamiento",
+  "bare": "Metropolitano",
+  "manzana": "Manzana D"
+ },
+ "Bogotá": {
+  "calle": "Calle 11",
+  "avenida": "Avenida Carrera 30",
+  "carrera": "Carrera 7",
+  "pasaje": "Pasaje Rivas",
+  "camino": "Camino de Peregrinos",
+  "diagonal": "Diagonal 4A",
+  "transversal": "Transversal 22",
+  "plaza": "Plaza de la Hoja",
+  "via": "Vía Bogotá - Choachí",
+  "bare": "TransMilenio"
+ },
+ "Santiago": {
+  "avenida": "Avenida Libertador Bernardo O'Higgins",
+  "pasaje": "Pasaje Diego de Rosales",
+  "camino": "Camino El Excursionista",
+  "diagonal": "Diagonal Paraguay",
+  "bulevar": "Boulevard Gandarillanas",
+  "paseo": "Paseo Metropolitano - Parque Bicentenario de la Infancia",
+  "plaza": "Plaza de Armas",
+  "sendero": "Sendero Universal Flora Nativa",
+  "bare": "Ahumada"
+ },
+ "Buenos Aires": {
+  "calle": "Calle 3",
+  "avenida": "Avenida 9 de Julio",
+  "pasaje": "Pasaje Iquique",
+  "bulevar": "Boulevard Rosario Vera Peñaloza",
+  "paseo": "Paseo Peatonal Florencio Molina Campos",
+  "bare": "Florida"
+ }
+}

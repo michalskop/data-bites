@@ -1,0 +1,1001 @@
+{
+ "id": "us",
+ "crs": "+proj=laea +lat_0=52 +lon_0=-97 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs",
+ "families": [
+  {
+   "key": "street",
+   "label": "Street"
+  },
+  {
+   "key": "avenue",
+   "label": "Avenue"
+  },
+  {
+   "key": "road",
+   "label": "Road"
+  },
+  {
+   "key": "drive",
+   "label": "Drive"
+  },
+  {
+   "key": "lane",
+   "label": "Lane"
+  },
+  {
+   "key": "court",
+   "label": "Court"
+  },
+  {
+   "key": "boulevard",
+   "label": "Boulevard"
+  },
+  {
+   "key": "way",
+   "label": "Way"
+  },
+  {
+   "key": "place",
+   "label": "Place"
+  },
+  {
+   "key": "circle",
+   "label": "Circle"
+  },
+  {
+   "key": "trail",
+   "label": "Trail"
+  },
+  {
+   "key": "parkway",
+   "label": "Parkway"
+  },
+  {
+   "key": "terrace",
+   "label": "Terrace"
+  },
+  {
+   "key": "path",
+   "label": "Path"
+  },
+  {
+   "key": "pike",
+   "label": "Pike"
+  },
+  {
+   "key": "highway",
+   "label": "Highway"
+  },
+  {
+   "key": "loop",
+   "label": "Loop"
+  },
+  {
+   "key": "run",
+   "label": "Run"
+  },
+  {
+   "key": "ridge",
+   "label": "Ridge"
+  },
+  {
+   "key": "trace",
+   "label": "Trace"
+  },
+  {
+   "key": "crossing",
+   "label": "Crossing"
+  },
+  {
+   "key": "cove",
+   "label": "Cove"
+  },
+  {
+   "key": "bend",
+   "label": "Bend"
+  },
+  {
+   "key": "point",
+   "label": "Point"
+  },
+  {
+   "key": "alley",
+   "label": "Alley"
+  },
+  {
+   "key": "row",
+   "label": "Row"
+  },
+  {
+   "key": "square",
+   "label": "Square"
+  },
+  {
+   "key": "plaza",
+   "label": "Plaza"
+  },
+  {
+   "key": "park",
+   "label": "Park"
+  },
+  {
+   "key": "hill",
+   "label": "Hill"
+  },
+  {
+   "key": "view",
+   "label": "View"
+  },
+  {
+   "key": "heights",
+   "label": "Heights"
+  },
+  {
+   "key": "glen",
+   "label": "Glen"
+  },
+  {
+   "key": "grove",
+   "label": "Grove"
+  },
+  {
+   "key": "green",
+   "label": "Green"
+  },
+  {
+   "key": "walk",
+   "label": "Walk"
+  },
+  {
+   "key": "creek",
+   "label": "Creek"
+  },
+  {
+   "key": "broadway",
+   "label": "Broadway"
+  },
+  {
+   "key": "commons",
+   "label": "Commons"
+  },
+  {
+   "key": "pass",
+   "label": "Pass"
+  },
+  {
+   "key": "hollow",
+   "label": "Hollow"
+  },
+  {
+   "key": "vista",
+   "label": "Vista"
+  },
+  {
+   "key": "landing",
+   "label": "Landing"
+  },
+  {
+   "key": "canyon",
+   "label": "Canyon"
+  },
+  {
+   "key": "crescent",
+   "label": "Crescent"
+  },
+  {
+   "key": "bluff",
+   "label": "Bluff"
+  },
+  {
+   "key": "crest",
+   "label": "Crest"
+  },
+  {
+   "key": "knoll",
+   "label": "Knoll"
+  },
+  {
+   "key": "bay",
+   "label": "Bay"
+  },
+  {
+   "key": "spanish",
+   "label": "Spanish word first (Calle, Camino, Paseo…)"
+  },
+  {
+   "key": "french",
+   "label": "French word first (Rue, Chemin…)"
+  }
+ ],
+ "sizes": {
+  "40": {
+   "hexes": 9076,
+   "streets": 7429503
+  },
+  "20": {
+   "hexes": 30787,
+   "streets": 7470897
+  },
+  "10": {
+   "hexes": 100558,
+   "streets": 7549751
+  }
+ },
+ "sources": [
+  {
+   "country": "US",
+   "region": "north-america/us/alabama",
+   "url": "https://download.geofabrik.de/north-america/us/alabama-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 03:38:28 GMT",
+   "file": "north-america_us_alabama.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/arizona",
+   "url": "https://download.geofabrik.de/north-america/us/arizona-261108-free.shp.zip",
+   "modified": "Mon, 09 Nov 2026 01:29:16 GMT",
+   "file": "north-america_us_arizona.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/arkansas",
+   "url": "https://download.geofabrik.de/north-america/us/arkansas-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 02:24:57 GMT",
+   "file": "north-america_us_arkansas.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/california/norcal",
+   "url": "https://download.geofabrik.de/north-america/us/california/norcal-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 01:21:32 GMT",
+   "file": "north-america_us_california_norcal.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/california/socal",
+   "url": "https://download.geofabrik.de/north-america/us/california/socal-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 00:24:47 GMT",
+   "file": "north-america_us_california_socal.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/colorado",
+   "url": "https://download.geofabrik.de/north-america/us/colorado-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 03:24:41 GMT",
+   "file": "north-america_us_colorado.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/connecticut",
+   "url": "https://download.geofabrik.de/north-america/us/connecticut-261108-free.shp.zip",
+   "modified": "Mon, 09 Nov 2026 00:20:26 GMT",
+   "file": "north-america_us_connecticut.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/delaware",
+   "url": "https://download.geofabrik.de/north-america/us/delaware-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 01:48:13 GMT",
+   "file": "north-america_us_delaware.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/district-of-columbia",
+   "url": "https://download.geofabrik.de/north-america/us/district-of-columbia-261108-free.shp.zip",
+   "modified": "Mon, 09 Nov 2026 00:57:01 GMT",
+   "file": "north-america_us_district-of-columbia.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/florida",
+   "url": "https://download.geofabrik.de/north-america/us/florida-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 03:29:44 GMT",
+   "file": "north-america_us_florida.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/georgia",
+   "url": "https://download.geofabrik.de/north-america/us/georgia-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 01:28:21 GMT",
+   "file": "north-america_us_georgia.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/idaho",
+   "url": "https://download.geofabrik.de/north-america/us/idaho-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 02:17:16 GMT",
+   "file": "north-america_us_idaho.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/illinois",
+   "url": "https://download.geofabrik.de/north-america/us/illinois-261108-free.shp.zip",
+   "modified": "Mon, 09 Nov 2026 00:32:28 GMT",
+   "file": "north-america_us_illinois.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/indiana",
+   "url": "https://download.geofabrik.de/north-america/us/indiana-261108-free.shp.zip",
+   "modified": "Mon, 09 Nov 2026 00:33:02 GMT",
+   "file": "north-america_us_indiana.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/iowa",
+   "url": "https://download.geofabrik.de/north-america/us/iowa-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 01:50:49 GMT",
+   "file": "north-america_us_iowa.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/kansas",
+   "url": "https://download.geofabrik.de/north-america/us/kansas-261108-free.shp.zip",
+   "modified": "Mon, 09 Nov 2026 01:08:04 GMT",
+   "file": "north-america_us_kansas.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/kentucky",
+   "url": "https://download.geofabrik.de/north-america/us/kentucky-261108-free.shp.zip",
+   "modified": "Mon, 09 Nov 2026 01:36:12 GMT",
+   "file": "north-america_us_kentucky.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/louisiana",
+   "url": "https://download.geofabrik.de/north-america/us/louisiana-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 03:12:25 GMT",
+   "file": "north-america_us_louisiana.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/maine",
+   "url": "https://download.geofabrik.de/north-america/us/maine-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 02:24:25 GMT",
+   "file": "north-america_us_maine.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/maryland",
+   "url": "https://download.geofabrik.de/north-america/us/maryland-261108-free.shp.zip",
+   "modified": "Mon, 09 Nov 2026 00:53:52 GMT",
+   "file": "north-america_us_maryland.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/massachusetts",
+   "url": "https://download.geofabrik.de/north-america/us/massachusetts-261108-free.shp.zip",
+   "modified": "Mon, 09 Nov 2026 01:01:55 GMT",
+   "file": "north-america_us_massachusetts.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/michigan",
+   "url": "https://download.geofabrik.de/north-america/us/michigan-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 00:19:29 GMT",
+   "file": "north-america_us_michigan.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/minnesota",
+   "url": "https://download.geofabrik.de/north-america/us/minnesota-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 02:13:43 GMT",
+   "file": "north-america_us_minnesota.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/mississippi",
+   "url": "https://download.geofabrik.de/north-america/us/mississippi-261108-free.shp.zip",
+   "modified": "Mon, 09 Nov 2026 00:56:23 GMT",
+   "file": "north-america_us_mississippi.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/missouri",
+   "url": "https://download.geofabrik.de/north-america/us/missouri-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 00:19:55 GMT",
+   "file": "north-america_us_missouri.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/montana",
+   "url": "https://download.geofabrik.de/north-america/us/montana-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 01:02:50 GMT",
+   "file": "north-america_us_montana.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/nebraska",
+   "url": "https://download.geofabrik.de/north-america/us/nebraska-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 01:46:04 GMT",
+   "file": "north-america_us_nebraska.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/nevada",
+   "url": "https://download.geofabrik.de/north-america/us/nevada-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 01:25:04 GMT",
+   "file": "north-america_us_nevada.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/new-hampshire",
+   "url": "https://download.geofabrik.de/north-america/us/new-hampshire-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 02:21:53 GMT",
+   "file": "north-america_us_new-hampshire.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/new-jersey",
+   "url": "https://download.geofabrik.de/north-america/us/new-jersey-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 02:24:28 GMT",
+   "file": "north-america_us_new-jersey.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/new-mexico",
+   "url": "https://download.geofabrik.de/north-america/us/new-mexico-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 02:26:05 GMT",
+   "file": "north-america_us_new-mexico.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/new-york",
+   "url": "https://download.geofabrik.de/north-america/us/new-york-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 02:31:56 GMT",
+   "file": "north-america_us_new-york.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/north-carolina",
+   "url": "https://download.geofabrik.de/north-america/us/north-carolina-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 00:40:03 GMT",
+   "file": "north-america_us_north-carolina.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/north-dakota",
+   "url": "https://download.geofabrik.de/north-america/us/north-dakota-261108-free.shp.zip",
+   "modified": "Mon, 09 Nov 2026 00:51:03 GMT",
+   "file": "north-america_us_north-dakota.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/ohio",
+   "url": "https://download.geofabrik.de/north-america/us/ohio-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 02:21:43 GMT",
+   "file": "north-america_us_ohio.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/oklahoma",
+   "url": "https://download.geofabrik.de/north-america/us/oklahoma-261108-free.shp.zip",
+   "modified": "Mon, 09 Nov 2026 01:34:36 GMT",
+   "file": "north-america_us_oklahoma.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/oregon",
+   "url": "https://download.geofabrik.de/north-america/us/oregon-261108-free.shp.zip",
+   "modified": "Mon, 09 Nov 2026 01:29:54 GMT",
+   "file": "north-america_us_oregon.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/pennsylvania",
+   "url": "https://download.geofabrik.de/north-america/us/pennsylvania-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 00:37:21 GMT",
+   "file": "north-america_us_pennsylvania.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/rhode-island",
+   "url": "https://download.geofabrik.de/north-america/us/rhode-island-261108-free.shp.zip",
+   "modified": "Mon, 09 Nov 2026 00:45:02 GMT",
+   "file": "north-america_us_rhode-island.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/south-carolina",
+   "url": "https://download.geofabrik.de/north-america/us/south-carolina-261108-free.shp.zip",
+   "modified": "Mon, 09 Nov 2026 01:12:12 GMT",
+   "file": "north-america_us_south-carolina.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/south-dakota",
+   "url": "https://download.geofabrik.de/north-america/us/south-dakota-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 01:23:59 GMT",
+   "file": "north-america_us_south-dakota.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/tennessee",
+   "url": "https://download.geofabrik.de/north-america/us/tennessee-261108-free.shp.zip",
+   "modified": "Mon, 09 Nov 2026 01:42:12 GMT",
+   "file": "north-america_us_tennessee.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/texas",
+   "url": "https://download.geofabrik.de/north-america/us/texas-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 00:26:34 GMT",
+   "file": "north-america_us_texas.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/utah",
+   "url": "https://download.geofabrik.de/north-america/us/utah-261108-free.shp.zip",
+   "modified": "Mon, 09 Nov 2026 01:25:32 GMT",
+   "file": "north-america_us_utah.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/vermont",
+   "url": "https://download.geofabrik.de/north-america/us/vermont-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 02:41:25 GMT",
+   "file": "north-america_us_vermont.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/virginia",
+   "url": "https://download.geofabrik.de/north-america/us/virginia-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 01:20:37 GMT",
+   "file": "north-america_us_virginia.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/washington",
+   "url": "https://download.geofabrik.de/north-america/us/washington-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 03:28:30 GMT",
+   "file": "north-america_us_washington.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/west-virginia",
+   "url": "https://download.geofabrik.de/north-america/us/west-virginia-261108-free.shp.zip",
+   "modified": "Mon, 09 Nov 2026 00:53:40 GMT",
+   "file": "north-america_us_west-virginia.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/wisconsin",
+   "url": "https://download.geofabrik.de/north-america/us/wisconsin-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 02:50:58 GMT",
+   "file": "north-america_us_wisconsin.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/wyoming",
+   "url": "https://download.geofabrik.de/north-america/us/wyoming-261108-free.shp.zip",
+   "modified": "Mon, 09 Nov 2026 01:38:01 GMT",
+   "file": "north-america_us_wyoming.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/alaska",
+   "url": "https://download.geofabrik.de/north-america/us/alaska-261108-free.shp.zip",
+   "modified": "Mon, 09 Nov 2026 00:21:13 GMT",
+   "file": "north-america_us_alaska.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/hawaii",
+   "url": "https://download.geofabrik.de/north-america/us/hawaii-261108-free.shp.zip",
+   "modified": "Mon, 09 Nov 2026 00:59:03 GMT",
+   "file": "north-america_us_hawaii.roads.zip"
+  },
+  {
+   "country": "US",
+   "region": "north-america/us/puerto-rico",
+   "url": "https://download.geofabrik.de/north-america/us/puerto-rico-261108-free.shp.zip",
+   "modified": "Mon, 09 Nov 2026 01:59:26 GMT",
+   "file": "north-america_us_puerto-rico.roads.zip"
+  },
+  {
+   "country": "CA",
+   "region": "north-america/canada/alberta",
+   "url": "https://download.geofabrik.de/north-america/canada/alberta-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 02:24:51 GMT",
+   "file": "north-america_canada_alberta.roads.zip"
+  },
+  {
+   "country": "CA",
+   "region": "north-america/canada/manitoba",
+   "url": "https://download.geofabrik.de/north-america/canada/manitoba-261108-free.shp.zip",
+   "modified": "Mon, 09 Nov 2026 01:23:45 GMT",
+   "file": "north-america_canada_manitoba.roads.zip"
+  },
+  {
+   "country": "CA",
+   "region": "north-america/canada/new-brunswick",
+   "url": "https://download.geofabrik.de/north-america/canada/new-brunswick-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 02:52:50 GMT",
+   "file": "north-america_canada_new-brunswick.roads.zip"
+  },
+  {
+   "country": "CA",
+   "region": "north-america/canada/newfoundland-and-labrador",
+   "url": "https://download.geofabrik.de/north-america/canada/newfoundland-and-labrador-261108-free.shp.zip",
+   "modified": "Mon, 09 Nov 2026 02:30:40 GMT",
+   "file": "north-america_canada_newfoundland-and-labrador.roads.zip"
+  },
+  {
+   "country": "CA",
+   "region": "north-america/canada/northwest-territories",
+   "url": "https://download.geofabrik.de/north-america/canada/northwest-territories-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 02:59:14 GMT",
+   "file": "north-america_canada_northwest-territories.roads.zip"
+  },
+  {
+   "country": "CA",
+   "region": "north-america/canada/nova-scotia",
+   "url": "https://download.geofabrik.de/north-america/canada/nova-scotia-261108-free.shp.zip",
+   "modified": "Mon, 09 Nov 2026 02:44:29 GMT",
+   "file": "north-america_canada_nova-scotia.roads.zip"
+  },
+  {
+   "country": "CA",
+   "region": "north-america/canada/ontario",
+   "url": "https://download.geofabrik.de/north-america/canada/ontario-261108-free.shp.zip",
+   "modified": "Mon, 09 Nov 2026 01:52:36 GMT",
+   "file": "north-america_canada_ontario.roads.zip"
+  },
+  {
+   "country": "CA",
+   "region": "north-america/canada/prince-edward-island",
+   "url": "https://download.geofabrik.de/north-america/canada/prince-edward-island-261108-free.shp.zip",
+   "modified": "Mon, 09 Nov 2026 01:55:06 GMT",
+   "file": "north-america_canada_prince-edward-island.roads.zip"
+  },
+  {
+   "country": "CA",
+   "region": "north-america/canada/quebec",
+   "url": "https://download.geofabrik.de/north-america/canada/quebec-261108-free.shp.zip",
+   "modified": "Mon, 09 Nov 2026 01:21:57 GMT",
+   "file": "north-america_canada_quebec.roads.zip"
+  },
+  {
+   "country": "CA",
+   "region": "north-america/canada/saskatchewan",
+   "url": "https://download.geofabrik.de/north-america/canada/saskatchewan-261108-free.shp.zip",
+   "modified": "Mon, 09 Nov 2026 02:00:25 GMT",
+   "file": "north-america_canada_saskatchewan.roads.zip"
+  },
+  {
+   "country": "CA",
+   "region": "north-america/canada/yukon",
+   "url": "https://download.geofabrik.de/north-america/canada/yukon-261108-free.shp.zip",
+   "modified": "Mon, 09 Nov 2026 02:21:11 GMT",
+   "file": "north-america_canada_yukon.roads.zip"
+  },
+  {
+   "country": "CA",
+   "region": "north-america/canada/british-columbia",
+   "url": "https://download.geofabrik.de/north-america/canada/british-columbia-latest.osm.pbf",
+   "modified": "Mon, 09 Nov 2026 00:38:40 GMT",
+   "file": "north-america_canada_british-columbia.roads.zip",
+   "rows": 198656
+  }
+ ],
+ "report": {
+  "north-america/us/alabama": {
+   "ways": 220855,
+   "in_scope": 203374
+  },
+  "north-america/us/arizona": {
+   "ways": 339968,
+   "in_scope": 335394
+  },
+  "north-america/us/arkansas": {
+   "ways": 173755,
+   "in_scope": 161385
+  },
+  "north-america/us/california/norcal": {
+   "ways": 495631,
+   "in_scope": 491453
+  },
+  "north-america/us/california/socal": {
+   "ways": 637551,
+   "in_scope": 635875
+  },
+  "north-america/us/colorado": {
+   "ways": 262943,
+   "in_scope": 242727
+  },
+  "north-america/us/connecticut": {
+   "ways": 101465,
+   "in_scope": 100981
+  },
+  "north-america/us/delaware": {
+   "ways": 41312,
+   "in_scope": 41152
+  },
+  "north-america/us/district-of-columbia": {
+   "ways": 14757,
+   "in_scope": 14725
+  },
+  "north-america/us/florida": {
+   "ways": 783689,
+   "in_scope": 773573
+  },
+  "north-america/us/georgia": {
+   "ways": 408101,
+   "in_scope": 403171
+  },
+  "north-america/us/idaho": {
+   "ways": 94457,
+   "in_scope": 92402
+  },
+  "north-america/us/illinois": {
+   "ways": 431949,
+   "in_scope": 414866
+  },
+  "north-america/us/indiana": {
+   "ways": 264609,
+   "in_scope": 246243
+  },
+  "north-america/us/iowa": {
+   "ways": 169512,
+   "in_scope": 165274
+  },
+  "north-america/us/kansas": {
+   "ways": 154717,
+   "in_scope": 149862
+  },
+  "north-america/us/kentucky": {
+   "ways": 193197,
+   "in_scope": 187803
+  },
+  "north-america/us/louisiana": {
+   "ways": 168046,
+   "in_scope": 164766
+  },
+  "north-america/us/maine": {
+   "ways": 94730,
+   "in_scope": 92509
+  },
+  "north-america/us/maryland": {
+   "ways": 193335,
+   "in_scope": 192818
+  },
+  "north-america/us/massachusetts": {
+   "ways": 228877,
+   "in_scope": 227177
+  },
+  "north-america/us/michigan": {
+   "ways": 358618,
+   "in_scope": 354554
+  },
+  "north-america/us/minnesota": {
+   "ways": 261882,
+   "in_scope": 245486
+  },
+  "north-america/us/mississippi": {
+   "ways": 131116,
+   "in_scope": 119431
+  },
+  "north-america/us/missouri": {
+   "ways": 290258,
+   "in_scope": 266483
+  },
+  "north-america/us/montana": {
+   "ways": 69243,
+   "in_scope": 66613
+  },
+  "north-america/us/nebraska": {
+   "ways": 122344,
+   "in_scope": 117138
+  },
+  "north-america/us/nevada": {
+   "ways": 124228,
+   "in_scope": 123789
+  },
+  "north-america/us/new-hampshire": {
+   "ways": 67950,
+   "in_scope": 66788
+  },
+  "north-america/us/new-jersey": {
+   "ways": 224582,
+   "in_scope": 223369
+  },
+  "north-america/us/new-mexico": {
+   "ways": 104486,
+   "in_scope": 98601
+  },
+  "north-america/us/new-york": {
+   "ways": 432360,
+   "in_scope": 422142
+  },
+  "north-america/us/north-carolina": {
+   "ways": 477409,
+   "in_scope": 472655
+  },
+  "north-america/us/north-dakota": {
+   "ways": 58731,
+   "in_scope": 53521
+  },
+  "north-america/us/ohio": {
+   "ways": 386277,
+   "in_scope": 378983
+  },
+  "north-america/us/oklahoma": {
+   "ways": 251613,
+   "in_scope": 248119
+  },
+  "north-america/us/oregon": {
+   "ways": 193890,
+   "in_scope": 189885
+  },
+  "north-america/us/pennsylvania": {
+   "ways": 488484,
+   "in_scope": 483387
+  },
+  "north-america/us/rhode-island": {
+   "ways": 34445,
+   "in_scope": 34274
+  },
+  "north-america/us/south-carolina": {
+   "ways": 237666,
+   "in_scope": 234722
+  },
+  "north-america/us/south-dakota": {
+   "ways": 62372,
+   "in_scope": 59922
+  },
+  "north-america/us/tennessee": {
+   "ways": 262609,
+   "in_scope": 259783
+  },
+  "north-america/us/texas": {
+   "ways": 1005523,
+   "in_scope": 918624
+  },
+  "north-america/us/utah": {
+   "ways": 134580,
+   "in_scope": 133919
+  },
+  "north-america/us/vermont": {
+   "ways": 45777,
+   "in_scope": 44690
+  },
+  "north-america/us/virginia": {
+   "ways": 339859,
+   "in_scope": 336650
+  },
+  "north-america/us/washington": {
+   "ways": 315564,
+   "in_scope": 309214
+  },
+  "north-america/us/west-virginia": {
+   "ways": 102760,
+   "in_scope": 101406
+  },
+  "north-america/us/wisconsin": {
+   "ways": 275805,
+   "in_scope": 252238
+  },
+  "north-america/us/wyoming": {
+   "ways": 36870,
+   "in_scope": 34890
+  },
+  "north-america/us/alaska": {
+   "ways": 37069,
+   "in_scope": 36221
+  },
+  "north-america/us/hawaii": {
+   "ways": 32692,
+   "in_scope": 32508
+  },
+  "north-america/us/puerto-rico": {
+   "ways": 68963,
+   "in_scope": 68952
+  },
+  "north-america/canada/alberta": {
+   "ways": 221286,
+   "in_scope": 220443
+  },
+  "north-america/canada/manitoba": {
+   "ways": 49984,
+   "in_scope": 49140
+  },
+  "north-america/canada/new-brunswick": {
+   "ways": 36051,
+   "in_scope": 35767
+  },
+  "north-america/canada/newfoundland-and-labrador": {
+   "ways": 23148,
+   "in_scope": 22607
+  },
+  "north-america/canada/northwest-territories": {
+   "ways": 2482,
+   "in_scope": 2447
+  },
+  "north-america/canada/nova-scotia": {
+   "ways": 65871,
+   "in_scope": 63888
+  },
+  "north-america/canada/ontario": {
+   "ways": 474922,
+   "in_scope": 465978
+  },
+  "north-america/canada/prince-edward-island": {
+   "ways": 11653,
+   "in_scope": 11468
+  },
+  "north-america/canada/quebec": {
+   "ways": 450090,
+   "in_scope": 447636
+  },
+  "north-america/canada/saskatchewan": {
+   "ways": 46336,
+   "in_scope": 45503
+  },
+  "north-america/canada/yukon": {
+   "ways": 3675,
+   "in_scope": 3649
+  },
+  "north-america/canada/british-columbia": {
+   "ways": 198656,
+   "in_scope": 191359
+  }
+ },
+ "columns": [
+  "q",
+  "r",
+  "streets",
+  "street",
+  "avenue",
+  "road",
+  "drive",
+  "lane",
+  "court",
+  "boulevard",
+  "way",
+  "place",
+  "circle",
+  "trail",
+  "parkway",
+  "terrace",
+  "path",
+  "pike",
+  "highway",
+  "loop",
+  "run",
+  "ridge",
+  "trace",
+  "crossing",
+  "cove",
+  "bend",
+  "point",
+  "alley",
+  "row",
+  "square",
+  "plaza",
+  "park",
+  "hill",
+  "view",
+  "heights",
+  "glen",
+  "grove",
+  "green",
+  "walk",
+  "creek",
+  "broadway",
+  "commons",
+  "pass",
+  "hollow",
+  "vista",
+  "landing",
+  "canyon",
+  "crescent",
+  "bluff",
+  "crest",
+  "knoll",
+  "bay",
+  "spanish",
+  "french"
+ ],
+ "note": "q,r are axial pointy-top hexagon coordinates in the region CRS (km grid); circumradius = width/sqrt(3)."
+}

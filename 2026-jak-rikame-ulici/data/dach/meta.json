@@ -1,0 +1,346 @@
+{
+ "id": "dach",
+ "crs": 3035,
+ "families": [
+  {
+   "key": "strasse",
+   "label": "Straße"
+  },
+  {
+   "key": "gasse",
+   "label": "Gasse"
+  },
+  {
+   "key": "weg",
+   "label": "Weg"
+  },
+  {
+   "key": "platz",
+   "label": "Platz"
+  },
+  {
+   "key": "allee",
+   "label": "Allee"
+  },
+  {
+   "key": "ring",
+   "label": "Ring"
+  },
+  {
+   "key": "steig",
+   "label": "Steig"
+  },
+  {
+   "key": "pfad",
+   "label": "Pfad"
+  },
+  {
+   "key": "berg",
+   "label": "Berg"
+  },
+  {
+   "key": "damm",
+   "label": "Damm"
+  },
+  {
+   "key": "hof",
+   "label": "Hof"
+  },
+  {
+   "key": "ufer",
+   "label": "Ufer"
+  },
+  {
+   "key": "zeile",
+   "label": "Zeile"
+  },
+  {
+   "key": "markt",
+   "label": "Markt"
+  },
+  {
+   "key": "graben",
+   "label": "Graben"
+  },
+  {
+   "key": "bruecke",
+   "label": "Brücke"
+  },
+  {
+   "key": "winkel",
+   "label": "Winkel"
+  }
+ ],
+ "sizes": {
+  "20": {
+   "hexes": 1522,
+   "streets": 1479893
+  },
+  "10": {
+   "hexes": 5747,
+   "streets": 1503628
+  },
+  "5": {
+   "hexes": 21557,
+   "streets": 1548181
+  }
+ },
+ "sources": [
+  {
+   "country": "DE",
+   "region": "europe/germany/baden-wuerttemberg",
+   "url": "https://download.geofabrik.de/europe/germany/baden-wuerttemberg-210101-free.shp.zip",
+   "modified": "Mon, 01 Feb 2021 11:12:22 GMT",
+   "file": "europe_germany_baden-wuerttemberg.roads.zip"
+  },
+  {
+   "country": "DE",
+   "region": "europe/germany/bayern",
+   "url": "https://download.geofabrik.de/europe/germany/bayern-210101-free.shp.zip",
+   "modified": "Mon, 01 Feb 2021 11:13:02 GMT",
+   "file": "europe_germany_bayern.roads.zip"
+  },
+  {
+   "country": "DE",
+   "region": "europe/germany/berlin",
+   "url": "https://download.geofabrik.de/europe/germany/berlin-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 03:14:28 GMT",
+   "file": "europe_germany_berlin.roads.zip"
+  },
+  {
+   "country": "DE",
+   "region": "europe/germany/brandenburg",
+   "url": "https://download.geofabrik.de/europe/germany/brandenburg-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 02:05:46 GMT",
+   "file": "europe_germany_brandenburg.roads.zip"
+  },
+  {
+   "country": "DE",
+   "region": "europe/germany/bremen",
+   "url": "https://download.geofabrik.de/europe/germany/bremen-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 01:57:02 GMT",
+   "file": "europe_germany_bremen.roads.zip"
+  },
+  {
+   "country": "DE",
+   "region": "europe/germany/hamburg",
+   "url": "https://download.geofabrik.de/europe/germany/hamburg-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 03:36:29 GMT",
+   "file": "europe_germany_hamburg.roads.zip"
+  },
+  {
+   "country": "DE",
+   "region": "europe/germany/hessen",
+   "url": "https://download.geofabrik.de/europe/germany/hessen-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 01:19:31 GMT",
+   "file": "europe_germany_hessen.roads.zip"
+  },
+  {
+   "country": "DE",
+   "region": "europe/germany/mecklenburg-vorpommern",
+   "url": "https://download.geofabrik.de/europe/germany/mecklenburg-vorpommern-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 02:50:40 GMT",
+   "file": "europe_germany_mecklenburg-vorpommern.roads.zip"
+  },
+  {
+   "country": "DE",
+   "region": "europe/germany/niedersachsen",
+   "url": "https://download.geofabrik.de/europe/germany/niedersachsen-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 03:01:54 GMT",
+   "file": "europe_germany_niedersachsen.roads.zip"
+  },
+  {
+   "country": "DE",
+   "region": "europe/germany/nordrhein-westfalen",
+   "url": "https://download.geofabrik.de/europe/germany/nordrhein-westfalen-210101-free.shp.zip",
+   "modified": "Mon, 01 Feb 2021 11:16:51 GMT",
+   "file": "europe_germany_nordrhein-westfalen.roads.zip"
+  },
+  {
+   "country": "DE",
+   "region": "europe/germany/rheinland-pfalz",
+   "url": "https://download.geofabrik.de/europe/germany/rheinland-pfalz-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 03:07:24 GMT",
+   "file": "europe_germany_rheinland-pfalz.roads.zip"
+  },
+  {
+   "country": "DE",
+   "region": "europe/germany/saarland",
+   "url": "https://download.geofabrik.de/europe/germany/saarland-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 01:33:34 GMT",
+   "file": "europe_germany_saarland.roads.zip"
+  },
+  {
+   "country": "DE",
+   "region": "europe/germany/sachsen",
+   "url": "https://download.geofabrik.de/europe/germany/sachsen-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 01:52:29 GMT",
+   "file": "europe_germany_sachsen.roads.zip"
+  },
+  {
+   "country": "DE",
+   "region": "europe/germany/sachsen-anhalt",
+   "url": "https://download.geofabrik.de/europe/germany/sachsen-anhalt-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 00:50:14 GMT",
+   "file": "europe_germany_sachsen-anhalt.roads.zip"
+  },
+  {
+   "country": "DE",
+   "region": "europe/germany/schleswig-holstein",
+   "url": "https://download.geofabrik.de/europe/germany/schleswig-holstein-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 01:47:21 GMT",
+   "file": "europe_germany_schleswig-holstein.roads.zip"
+  },
+  {
+   "country": "DE",
+   "region": "europe/germany/thueringen",
+   "url": "https://download.geofabrik.de/europe/germany/thueringen-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 03:02:55 GMT",
+   "file": "europe_germany_thueringen.roads.zip"
+  },
+  {
+   "country": "AT",
+   "region": "europe/austria",
+   "url": "https://download.geofabrik.de/europe/austria-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 02:57:12 GMT",
+   "file": "europe_austria.roads.zip"
+  },
+  {
+   "country": "CH",
+   "region": "europe/switzerland",
+   "url": "https://download.geofabrik.de/europe/switzerland-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 00:27:16 GMT",
+   "file": "europe_switzerland.roads.zip"
+  },
+  {
+   "country": "LI",
+   "region": "europe/liechtenstein",
+   "url": "https://download.geofabrik.de/europe/liechtenstein-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 01:06:45 GMT",
+   "file": "europe_liechtenstein.roads.zip"
+  },
+  {
+   "country": "BE",
+   "region": "europe/belgium",
+   "url": "https://download.geofabrik.de/europe/belgium-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 03:07:33 GMT",
+   "file": "europe_belgium.roads.zip"
+  },
+  {
+   "country": "IT",
+   "region": "europe/italy/nord-est",
+   "url": "https://download.geofabrik.de/europe/italy/nord-est-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 02:06:52 GMT",
+   "file": "europe_italy_nord-est.roads.zip"
+  }
+ ],
+ "report": {
+  "europe/germany/baden-wuerttemberg": {
+   "ways": 440575,
+   "in_scope": 439457
+  },
+  "europe/germany/bayern": {
+   "ways": 507588,
+   "in_scope": 507190
+  },
+  "europe/germany/berlin": {
+   "ways": 101027,
+   "in_scope": 101012
+  },
+  "europe/germany/brandenburg": {
+   "ways": 232124,
+   "in_scope": 231890
+  },
+  "europe/germany/bremen": {
+   "ways": 18223,
+   "in_scope": 18222
+  },
+  "europe/germany/hamburg": {
+   "ways": 42304,
+   "in_scope": 42260
+  },
+  "europe/germany/hessen": {
+   "ways": 275828,
+   "in_scope": 275688
+  },
+  "europe/germany/mecklenburg-vorpommern": {
+   "ways": 88053,
+   "in_scope": 87836
+  },
+  "europe/germany/niedersachsen": {
+   "ways": 445864,
+   "in_scope": 444148
+  },
+  "europe/germany/nordrhein-westfalen": {
+   "ways": 634986,
+   "in_scope": 632895
+  },
+  "europe/germany/rheinland-pfalz": {
+   "ways": 202469,
+   "in_scope": 201738
+  },
+  "europe/germany/saarland": {
+   "ways": 42221,
+   "in_scope": 41112
+  },
+  "europe/germany/sachsen": {
+   "ways": 213186,
+   "in_scope": 211712
+  },
+  "europe/germany/sachsen-anhalt": {
+   "ways": 143067,
+   "in_scope": 142840
+  },
+  "europe/germany/schleswig-holstein": {
+   "ways": 129086,
+   "in_scope": 127855
+  },
+  "europe/germany/thueringen": {
+   "ways": 125856,
+   "in_scope": 125774
+  },
+  "europe/austria": {
+   "ways": 453823,
+   "in_scope": 448707
+  },
+  "europe/switzerland": {
+   "ways": 421956,
+   "in_scope": 298235
+  },
+  "europe/liechtenstein": {
+   "ways": 2630,
+   "in_scope": 2629
+  },
+  "europe/belgium": {
+   "ways": 520042,
+   "in_scope": 6286
+  },
+  "europe/italy/nord-est": {
+   "ways": 540400,
+   "in_scope": 29372
+  }
+ },
+ "columns": [
+  "q",
+  "r",
+  "streets",
+  "strasse",
+  "gasse",
+  "weg",
+  "platz",
+  "allee",
+  "ring",
+  "steig",
+  "pfad",
+  "berg",
+  "damm",
+  "hof",
+  "ufer",
+  "zeile",
+  "markt",
+  "graben",
+  "bruecke",
+  "winkel"
+ ],
+ "note": "q,r are axial pointy-top hexagon coordinates in the region CRS (km grid); circumradius = width/sqrt(3)."
+}

@@ -1,0 +1,63 @@
+{
+ "Marrakech": {
+  "shari": "شارع المدارس",
+  "tariq": "Triq Bab Aylan",
+  "zanqa": "Zankat Sidi Soussane",
+  "derb": "Derb Sidi Massoud",
+  "midan": "Sahat Bab Taghzout",
+  "rue": "Rue Oqba Ben Nafaa",
+  "avenue": "Avenue Guemassa",
+  "boulevard": "Boulevard Mohammed VI شارع محمد السادس",
+  "route": "Route des Remparts",
+  "place": "Place El Harti",
+  "bare": "Jamaâ el-Fna ساحة جامع الفنا"
+ },
+ "Casablanca": {
+  "derb": "Derb Jilali El Gandaou",
+  "rue": "Rue de Goulmima",
+  "avenue": "Avenue des Forces Armées Royales شارع الجيش الملكي",
+  "boulevard": "Boulevard Mohamed Zerktouni شارع محمد الزرقطوني",
+  "route": "route hay dakhla",
+  "impasse": "Impasse Rue Mohamed Bahi",
+  "place": "Place Al Yassir",
+  "bare": "Trémie de Dakar"
+ },
+ "Tunis": {
+  "shari": "شارع محمد الخامس",
+  "tariq": "الطريق الوطنية تونس - رأس جدير",
+  "zanqa": "زنقة الشمس",
+  "nahj": "نهج المملكة العربية السعودية",
+  "mamar": "ممر محمد الخامس",
+  "midan": "ساحة القصبة",
+  "rue": "Rue Ali Dargouth",
+  "avenue": "Avenue Moncef Bey",
+  "impasse": "Impasse Sidi Chellouf",
+  "place": "Allee Jeanin",
+  "bare": "Intercommunale Sud"
+ },
+ "Cairo": {
+  "shari": "شارع كورنيش النيل",
+  "tariq": "طريق مشاه",
+  "derb": "درب مصطفي",
+  "hara": "حارة سليم",
+  "ziqaq": "زقاق العطار",
+  "atfa": "عطفه الجنبكيه",
+  "sikka": "سكة سوق مسكة",
+  "mamar": "ممر الريدي",
+  "midan": "ميدان الجمهوريه",
+  "bare": "امتداد شارع البتول"
+ },
+ "Beirut": {
+  "shari": "شارع بشارة الخوري",
+  "tariq": "طريق الشام",
+  "zanqa": "زنقة 89",
+  "ziqaq": "زقاق مروه",
+  "midan": "ساحة قصر العدل",
+  "jada": "جادة صائب سلام",
+  "rue": "Rue du Liban",
+  "avenue": "Avenue Fouad Chéhab",
+  "impasse": "Impasse B",
+  "place": "Place de l'Étoile",
+  "bare": "كرنيش بيروت"
+ }
+}

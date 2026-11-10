@@ -1,0 +1,338 @@
+{
+ "id": "uk_ie",
+ "crs": 3035,
+ "families": [
+  {
+   "key": "street",
+   "label": "Street"
+  },
+  {
+   "key": "road",
+   "label": "Road"
+  },
+  {
+   "key": "lane",
+   "label": "Lane"
+  },
+  {
+   "key": "avenue",
+   "label": "Avenue"
+  },
+  {
+   "key": "drive",
+   "label": "Drive"
+  },
+  {
+   "key": "close",
+   "label": "Close"
+  },
+  {
+   "key": "way",
+   "label": "Way"
+  },
+  {
+   "key": "court",
+   "label": "Court"
+  },
+  {
+   "key": "crescent",
+   "label": "Crescent"
+  },
+  {
+   "key": "gardens",
+   "label": "Gardens"
+  },
+  {
+   "key": "grove",
+   "label": "Grove"
+  },
+  {
+   "key": "place",
+   "label": "Place"
+  },
+  {
+   "key": "terrace",
+   "label": "Terrace"
+  },
+  {
+   "key": "walk",
+   "label": "Walk"
+  },
+  {
+   "key": "hill",
+   "label": "Hill"
+  },
+  {
+   "key": "park",
+   "label": "Park"
+  },
+  {
+   "key": "row",
+   "label": "Row"
+  },
+  {
+   "key": "square",
+   "label": "Square"
+  },
+  {
+   "key": "green",
+   "label": "Green"
+  },
+  {
+   "key": "mews",
+   "label": "Mews"
+  },
+  {
+   "key": "rise",
+   "label": "Rise"
+  },
+  {
+   "key": "view",
+   "label": "View"
+  },
+  {
+   "key": "heights",
+   "label": "Heights"
+  },
+  {
+   "key": "lawn",
+   "label": "Lawn(s)"
+  },
+  {
+   "key": "manor",
+   "label": "Manor"
+  },
+  {
+   "key": "glen",
+   "label": "Glen"
+  },
+  {
+   "key": "wood",
+   "label": "Wood(s)"
+  },
+  {
+   "key": "meadow",
+   "label": "Meadow(s)"
+  },
+  {
+   "key": "cottages",
+   "label": "Cottages"
+  },
+  {
+   "key": "gate",
+   "label": "-gate"
+  },
+  {
+   "key": "wynd",
+   "label": "Wynd"
+  },
+  {
+   "key": "vennel",
+   "label": "Vennel"
+  },
+  {
+   "key": "pend",
+   "label": "Pend"
+  },
+  {
+   "key": "loan",
+   "label": "Loan"
+  },
+  {
+   "key": "brae",
+   "label": "Brae"
+  },
+  {
+   "key": "ginnel",
+   "label": "Ginnel / snicket / jitty"
+  },
+  {
+   "key": "path",
+   "label": "Path"
+  },
+  {
+   "key": "bank",
+   "label": "Bank"
+  },
+  {
+   "key": "croft",
+   "label": "Croft"
+  },
+  {
+   "key": "fields",
+   "label": "Fields"
+  },
+  {
+   "key": "mount",
+   "label": "Mount"
+  },
+  {
+   "key": "parade",
+   "label": "Parade"
+  },
+  {
+   "key": "vale",
+   "label": "Vale"
+  },
+  {
+   "key": "end",
+   "label": "End"
+  },
+  {
+   "key": "cross",
+   "label": "Cross"
+  },
+  {
+   "key": "broadway",
+   "label": "Broadway"
+  },
+  {
+   "key": "quay",
+   "label": "Quay"
+  },
+  {
+   "key": "chase",
+   "label": "Chase"
+  },
+  {
+   "key": "circus",
+   "label": "Circus"
+  },
+  {
+   "key": "lea",
+   "label": "Lea"
+  },
+  {
+   "key": "yard",
+   "label": "Yard"
+  },
+  {
+   "key": "orchard",
+   "label": "Orchard(s)"
+  },
+  {
+   "key": "link",
+   "label": "Link"
+  },
+  {
+   "key": "walkway",
+   "label": "Passage / alley"
+  },
+  {
+   "key": "welsh",
+   "label": "Welsh (Heol, Ffordd, Stryd…)"
+  },
+  {
+   "key": "irish",
+   "label": "Irish (Bóthar, Sráid, Plás…)"
+  },
+  {
+   "key": "gaelic",
+   "label": "Scottish Gaelic (Rathad, Sràid…)"
+  }
+ ],
+ "sizes": {
+  "20": {
+   "hexes": 1124,
+   "streets": 994497
+  },
+  "10": {
+   "hexes": 3761,
+   "streets": 1001539
+  },
+  "5": {
+   "hexes": 11732,
+   "streets": 1022884
+  }
+ },
+ "sources": [
+  {
+   "country": "GB",
+   "region": "europe/great-britain",
+   "url": "https://download.geofabrik.de/europe/great-britain-latest.osm.pbf",
+   "modified": "Sun, 08 Nov 2026 01:09:05 GMT",
+   "file": "europe_great-britain.roads.zip",
+   "rows": 2057714
+  },
+  {
+   "country": "IE",
+   "region": "europe/ireland-and-northern-ireland",
+   "url": "https://download.geofabrik.de/europe/ireland-and-northern-ireland-261108-free.shp.zip",
+   "modified": "Mon, 09 Nov 2026 00:38:33 GMT",
+   "file": "europe_ireland-and-northern-ireland.roads.zip"
+  }
+ ],
+ "report": {
+  "europe/great-britain": {
+   "ways": 2057714,
+   "in_scope": 2015355
+  },
+  "europe/ireland-and-northern-ireland": {
+   "ways": 198920,
+   "in_scope": 185398
+  }
+ },
+ "columns": [
+  "q",
+  "r",
+  "streets",
+  "street",
+  "road",
+  "lane",
+  "avenue",
+  "drive",
+  "close",
+  "way",
+  "court",
+  "crescent",
+  "gardens",
+  "grove",
+  "place",
+  "terrace",
+  "walk",
+  "hill",
+  "park",
+  "row",
+  "square",
+  "green",
+  "mews",
+  "rise",
+  "view",
+  "heights",
+  "lawn",
+  "manor",
+  "glen",
+  "wood",
+  "meadow",
+  "cottages",
+  "gate",
+  "wynd",
+  "vennel",
+  "pend",
+  "loan",
+  "brae",
+  "ginnel",
+  "path",
+  "bank",
+  "croft",
+  "fields",
+  "mount",
+  "parade",
+  "vale",
+  "end",
+  "cross",
+  "broadway",
+  "quay",
+  "chase",
+  "circus",
+  "lea",
+  "yard",
+  "orchard",
+  "link",
+  "walkway",
+  "welsh",
+  "irish",
+  "gaelic"
+ ],
+ "note": "q,r are axial pointy-top hexagon coordinates in the region CRS (km grid); circumradius = width/sqrt(3)."
+}

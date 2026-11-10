@@ -1,0 +1,293 @@
+{
+ "id": "arabic",
+ "crs": "+proj=laea +lat_0=26 +lon_0=22 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs",
+ "families": [
+  {
+   "key": "shari",
+   "label": "Shari‘ شارع"
+  },
+  {
+   "key": "tariq",
+   "label": "Tariq طريق"
+  },
+  {
+   "key": "zanqa",
+   "label": "Zanqa زنقة"
+  },
+  {
+   "key": "derb",
+   "label": "Derb درب"
+  },
+  {
+   "key": "nahj",
+   "label": "Nahj نهج"
+  },
+  {
+   "key": "hara",
+   "label": "Hara حارة"
+  },
+  {
+   "key": "ziqaq",
+   "label": "Ziqaq زقاق"
+  },
+  {
+   "key": "atfa",
+   "label": "Atfa عطفة"
+  },
+  {
+   "key": "sikka",
+   "label": "Sikka سكة"
+  },
+  {
+   "key": "mamar",
+   "label": "Mamarr ممر"
+  },
+  {
+   "key": "midan",
+   "label": "Midan ميدان"
+  },
+  {
+   "key": "jada",
+   "label": "Jada جادة"
+  },
+  {
+   "key": "rue",
+   "label": "Rue"
+  },
+  {
+   "key": "avenue",
+   "label": "Avenue"
+  },
+  {
+   "key": "boulevard",
+   "label": "Boulevard"
+  },
+  {
+   "key": "route",
+   "label": "Route"
+  },
+  {
+   "key": "chemin",
+   "label": "Chemin"
+  },
+  {
+   "key": "impasse",
+   "label": "Impasse"
+  },
+  {
+   "key": "place",
+   "label": "Place"
+  },
+  {
+   "key": "calle",
+   "label": "Calle (Spanish)"
+  },
+  {
+   "key": "street",
+   "label": "Street"
+  },
+  {
+   "key": "road",
+   "label": "Road"
+  },
+  {
+   "key": "alley",
+   "label": "Alley (English)"
+  },
+  {
+   "key": "bare",
+   "label": "Name only (no street word)"
+  }
+ ],
+ "sizes": {
+  "40": {
+   "hexes": 2572,
+   "streets": 392160
+  },
+  "20": {
+   "hexes": 5389,
+   "streets": 394428
+  },
+  "10": {
+   "hexes": 10195,
+   "streets": 398390
+  }
+ },
+ "sources": [
+  {
+   "country": "MA",
+   "region": "africa/morocco",
+   "url": "https://download.geofabrik.de/africa/morocco-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 01:34:14 GMT",
+   "file": "africa_morocco.roads.zip"
+  },
+  {
+   "country": "DZ",
+   "region": "africa/algeria",
+   "url": "https://download.geofabrik.de/africa/algeria-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 00:45:01 GMT",
+   "file": "africa_algeria.roads.zip"
+  },
+  {
+   "country": "TN",
+   "region": "africa/tunisia",
+   "url": "https://download.geofabrik.de/africa/tunisia-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 00:56:04 GMT",
+   "file": "africa_tunisia.roads.zip"
+  },
+  {
+   "country": "LY",
+   "region": "africa/libya",
+   "url": "https://download.geofabrik.de/africa/libya-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 03:05:05 GMT",
+   "file": "africa_libya.roads.zip"
+  },
+  {
+   "country": "MR",
+   "region": "africa/mauritania",
+   "url": "https://download.geofabrik.de/africa/mauritania-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 03:24:46 GMT",
+   "file": "africa_mauritania.roads.zip"
+  },
+  {
+   "country": "EG",
+   "region": "africa/egypt",
+   "url": "https://download.geofabrik.de/africa/egypt-261108-free.shp.zip",
+   "modified": "Mon, 09 Nov 2026 00:55:56 GMT",
+   "file": "africa_egypt.roads.zip"
+  },
+  {
+   "country": "SY",
+   "region": "asia/syria",
+   "url": "https://download.geofabrik.de/asia/syria-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 01:50:59 GMT",
+   "file": "asia_syria.roads.zip"
+  },
+  {
+   "country": "LB",
+   "region": "asia/lebanon",
+   "url": "https://download.geofabrik.de/asia/lebanon-261108-free.shp.zip",
+   "modified": "Mon, 09 Nov 2026 00:48:54 GMT",
+   "file": "asia_lebanon.roads.zip"
+  },
+  {
+   "country": "JO",
+   "region": "asia/jordan",
+   "url": "https://download.geofabrik.de/asia/jordan-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 00:57:01 GMT",
+   "file": "asia_jordan.roads.zip"
+  },
+  {
+   "country": "IQ",
+   "region": "asia/iraq",
+   "url": "https://download.geofabrik.de/asia/iraq-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 01:30:41 GMT",
+   "file": "asia_iraq.roads.zip"
+  },
+  {
+   "country": "GCC",
+   "region": "asia/gcc-states",
+   "url": "https://download.geofabrik.de/asia/gcc-states-261108-free.shp.zip",
+   "modified": "Mon, 09 Nov 2026 00:23:41 GMT",
+   "file": "asia_gcc-states.roads.zip"
+  },
+  {
+   "country": "YE",
+   "region": "asia/yemen",
+   "url": "https://download.geofabrik.de/asia/yemen-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 01:23:17 GMT",
+   "file": "asia_yemen.roads.zip"
+  },
+  {
+   "country": "PS",
+   "region": "asia/israel-and-palestine",
+   "url": "https://download.geofabrik.de/asia/israel-and-palestine-261107-free.shp.zip",
+   "modified": "Sun, 08 Nov 2026 01:23:25 GMT",
+   "file": "asia_israel-and-palestine.roads.zip"
+  }
+ ],
+ "report": {
+  "africa/morocco": {
+   "ways": 49508,
+   "in_scope": 47703
+  },
+  "africa/algeria": {
+   "ways": 30265,
+   "in_scope": 28441
+  },
+  "africa/tunisia": {
+   "ways": 27413,
+   "in_scope": 27270
+  },
+  "africa/libya": {
+   "ways": 7542,
+   "in_scope": 7345
+  },
+  "africa/mauritania": {
+   "ways": 1749,
+   "in_scope": 1643
+  },
+  "africa/egypt": {
+   "ways": 243325,
+   "in_scope": 240839
+  },
+  "asia/syria": {
+   "ways": 6111,
+   "in_scope": 5725
+  },
+  "asia/lebanon": {
+   "ways": 9254,
+   "in_scope": 9097
+  },
+  "asia/jordan": {
+   "ways": 18031,
+   "in_scope": 17929
+  },
+  "asia/iraq": {
+   "ways": 49114,
+   "in_scope": 46132
+  },
+  "asia/gcc-states": {
+   "ways": 267940,
+   "in_scope": 257633
+  },
+  "asia/yemen": {
+   "ways": 4339,
+   "in_scope": 3993
+  },
+  "asia/israel-and-palestine": {
+   "ways": 109199,
+   "in_scope": 6547
+  }
+ },
+ "columns": [
+  "q",
+  "r",
+  "streets",
+  "shari",
+  "tariq",
+  "zanqa",
+  "derb",
+  "nahj",
+  "hara",
+  "ziqaq",
+  "atfa",
+  "sikka",
+  "mamar",
+  "midan",
+  "jada",
+  "rue",
+  "avenue",
+  "boulevard",
+  "route",
+  "chemin",
+  "impasse",
+  "place",
+  "calle",
+  "street",
+  "road",
+  "alley",
+  "bare"
+ ],
+ "note": "q,r are axial pointy-top hexagon coordinates in the region CRS (km grid); circumradius = width/sqrt(3)."
+}
