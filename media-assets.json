@@ -41,6 +41,16 @@
   },
   {
     "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-kladno-senat/preview-2026-10-v1.svg",
+    "key": "databites-dtcz/2026-kladno-senat/preview-2026-10-v1.svg",
+    "sha256": "e08e838af25fb3fb22a839674f64e03af5d3426401253eea404d4f9231164a31",
+    "bytes": 7974,
+    "content_type": "image/svg+xml",
+    "verified_at_edge": true,
+    "original_source": "2026-kladno-senat/preview.svg"
+  },
+  {
+    "status": "success",
     "url": "https://media.datatimes.org/databites-dtcz/site/datatimes-logo-2026-10-v1.webp",
     "key": "databites-dtcz/site/datatimes-logo-2026-10-v1.webp",
     "sha256": "d21476a4f4fd6ac8edf99430594a42adeb5239b8a09a91a5a604466978866a3d",

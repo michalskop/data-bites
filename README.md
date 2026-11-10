@@ -29,6 +29,9 @@ Hosting: GitHub Pages, `main`, repository root.
   * `index.html` — Interaktivní bublinová mapa anomálií a detailní panely
   * Náhledový obrázek je uložen na `media.datatimes.org` (viz `media-assets.json`)
   * `data.js` — Datový soubor detekovaných nesrovnalostí a revizí protokolů
+* `2026-kladno-senat/` — Model chování voličů a kontaktní kampaně ve 2. kole senátních voleb 2026 (obvod č. 30 Kladno)
+  * `index.html` — Interaktivní mapa obcí a okrsků s plánovačem kampaně (chození po domech, dosah v obcích)
+  * `model.js`, `buildings.js`, `streets.js`, `data.js` — Modely přechodu voličů a geometrie okrsků ČÚZK RÚIAN
 * Odkazované živé aplikace v katalogu:
   * [volby2026.datatimes.cz](https://volby2026.datatimes.cz/) — Predikce vs. sčítání (zastupitelstva a 1. kolo Senátu)
   * [volby2026-2.datatimes.cz](https://volby2026-2.datatimes.cz/) — Predikce výsledků 2. kola Senátu

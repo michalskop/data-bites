@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kladno – možní voliči ve 2. kole</title>
+<link rel="stylesheet" href="lib/leaflet.css">
+<style>
+:root{--bg:#f3f6f8;--card:#fff;--fg:#203443;--mut:#596e7b;--line:#dce5eb;--s:#1f9e89;--p:#e3722f;--inp:#edf4f7;--acc:#286984}
+@media(prefers-color-scheme:dark){:root{--bg:#14171f;--card:#1d2230;--fg:#e8eaf0;--mut:#9aa6b2;--line:#2b3040;--s:#3cc4ac;--p:#f28a4b;--inp:#262c3c;--acc:#7fb8d6}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 system-ui,sans-serif}
+main{max-width:none;margin:0 auto;padding:14px 20px}h1{font-size:21px;margin:0 0 2px}.mut{color:var(--mut)}.small{font-size:12px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px;margin:10px 0}
+.ctl{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end}.ctl label{display:block;font-size:11px;font-weight:600;color:var(--mut);margin-bottom:3px}
+button,select,input{font:inherit;color:var(--fg);background:var(--inp);border:1px solid var(--line);border-radius:5px;padding:6px 10px}
+button{cursor:pointer}button.on{border-color:var(--acc);font-weight:600}button.s.on{border-color:var(--s)}button.p.on{border-color:var(--p)}
+.grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;align-items:start}@media(max-width:1000px){.grid{grid-template-columns:1fr}}.grid .panel{margin:0}
+#map{height:80vh;min-height:640px;border-radius:8px;background:var(--inp)}
+.legend{position:absolute;right:10px;bottom:22px;z-index:500;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:6px 8px;font-size:11px;min-width:150px}
+.legend i{display:block;height:9px;border-radius:2px;margin:3px 0}.legend div{display:flex;justify-content:space-between}
+.tw{max-height:calc(80vh - 36px);overflow-y:auto;overflow-x:hidden}table{border-collapse:collapse;font-size:11px;width:100%;table-layout:fixed}
+th,td{border-bottom:1px solid var(--line);padding:3px 3px;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}th{white-space:normal;line-height:1.15;vertical-align:bottom}th:first-child,td:first-child{text-align:left}#tbl th:nth-child(1){width:16%}#tbl th:nth-child(2){width:8%}#tbl th:nth-child(13){width:8.5%}
+th{position:sticky;top:0;background:var(--card);cursor:pointer}thead tr.g th{cursor:default;text-align:center}
+tr.sel td{background:rgba(40,105,132,.22)}tbody tr{cursor:pointer}tbody tr:hover td{background:rgba(128,128,128,.12)}
+.tot td{position:sticky;bottom:0;background:var(--card);border-top:2px solid var(--line);font-weight:600}.cs{color:var(--s);font-weight:600}.cp{color:var(--p);font-weight:600}
+.kp{display:flex;flex-wrap:wrap;gap:8px}.kp div{background:var(--inp);border-radius:8px;padding:6px 10px;font-size:12px;color:var(--mut)}.kp b{display:block;font-size:18px;color:var(--fg)}
+.leaflet-container{font:inherit}#c_dd td.str{white-space:normal;max-width:240px;font-size:10.5px;color:var(--mut)}#c_dd tbody tr{cursor:pointer}#c_dd tbody tr:hover td{background:rgba(128,128,128,.14)}.camp input[type=number]{width:70px;padding:4px 6px}.camp label{font-size:12px;display:flex;flex-direction:column;gap:2px;color:var(--mut)}.camp .row{display:flex;flex-wrap:wrap;gap:10px 16px;margin:8px 0}
+.camp .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}@media(max-width:1000px){.camp .two{grid-template-columns:1fr}}
+.camp table{font-size:11px;table-layout:auto}.camp th{cursor:default}.in td{background:rgba(31,158,137,.12)}.camp svg{width:100%;height:220px;display:block}
+.camp .sum{background:var(--inp);border-radius:8px;padding:8px 10px;margin:8px 0;font-size:13px}
+</style></head><body><main>
+<div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:10px;">
+  <a href="../" style="text-decoration:none; color:var(--mut); font-size:12px; font-weight:600; padding:5px 10px; border-radius:6px; background:var(--card); border:1px solid var(--line); display:inline-flex; align-items:center; gap:5px; transition: all 0.2s;">
+    ← DataBites
+  </a>
+  <span class="small mut">Model chování voličů · Senátní obvod č. 30 (Kladno)</span>
+</div>
+<h1>Senátní obvod 30 Kladno – možní (nejistí) voliči ve 2. kole</h1>
+<p class="mut small" style="margin:0 0 8px">Výsledky 1. kola 2026 + jeden statistický model toho, kdo by mohl přijít ve 2. kole. Počty jsou očekávaní voliči (odhad modelu, ne seznam lidí). Model počítá i s tím, že v okrscích s nižší zvyklostní účastí (volby do Sněmovny) se lidé do 2. kola vracejí méně.</p>
+<div class="panel" id="kp"></div>
+<div class="panel"><div class="ctl">
+ <div><label>Kandidát</label><span id="cand"><button class="s on" data-c="S">Šípová</button> <button class="p" data-c="P">Paták</button> <button data-c="D">Šípová − Paták</button></span></div>
+ <div><label>Možní voliči z</label><select id="src"><option value="all">Všichni možní (nejistí) voliči</option><option value="sure">Jistí voliči (vlastní, kteří podle modelu přijdou)</option><option value="own">Vlastní voliči, kteří mohou zůstat doma</option><option value="G">Voliči Gerlocha</option><option value="O">Voliči ostatních kandidátů (Machalová, Pelc, Klas)</option></select></div>
+ <div><label>Ukazatel</label><select id="meas"><option value="n">Počet voličů</option><option value="s">Podíl z všech možných voličů v obvodu (%)</option></select></div>
+ <div><label>Mapa</label><span id="views"><button data-v="mb" class="on">Obce</button> <button data-v="sp">Okrsky</button> <button data-v="sb">Okrsky – kruhy</button></span></div>
+ <div><label>&nbsp;</label><button id="kl">Město Kladno</button> <button id="all">Celý obvod</button></div>
+ <div><label>Krytí barev mapou (%)</label><input type="range" id="fo" min="15" max="100" value="55" style="width:120px;padding:0"></div>
+ <div><label>Hledat</label><input type="search" id="q" placeholder="název místa"></div>
+</div>
+<p class="small" id="mnote" style="margin:8px 0 0"></p>
+<p class="small mut" style="margin:8px 0 0"><b>Jistý volič</b> = vlastní volič z 1. kola, který podle modelu přijde (asi 60 %; pořád jde o pravděpodobnost, ne jistotu). <b>Možný volič</b> = volič z 1. kola, na kterého model nepočítá, ale který by mohl kandidáta volit: <b>vlastní</b> = jeho vlastní voliči z 1. kola, kteří podle modelu zůstanou doma; <b>Gerlochovi / ostatních</b> = voliči vyřazených kandidátů, kteří podle modelu zůstanou doma, ale kdyby přišli, přikláněli by se k tomuto kandidátovi (podle modelového rozdělení vracejících se voličů).</p></div>
+<div class="grid">
+ <div class="panel" style="position:relative"><div id="map"></div><div class="legend" id="legend"></div></div>
+ <div class="panel"><p class="small mut" style="margin:0 0 6px"><b>jistí</b> = vlastní voliči, kteří podle modelu přijdou · <b>vl.</b> = vlastní, kteří mohou zůstat doma · <b>Gerl.</b> / <b>ost.</b> = možní z řad voličů Gerlocha / ostatních kandidátů · <b>Σ</b> = celkem možní · <b>Rozd.</b> = Šípová − Paták v 1. kole (hlasy) · <b>tučně</b> = nejpočetnější zdroj možných voličů v daném místě (podle počtu)</p><div class="tw"><table id="tbl"><thead></thead><tbody></tbody><tfoot></tfoot></table></div></div>
+</div>
+<div class="panel camp" id="camp">
+<h2 style="font-size:16px;margin:0 0 4px">Kampaň: kolik možných voličů Šípové zasáhneme za daný počet hodin (každá forma zvlášť)</h2>
+<p class="small mut" style="margin:0 0 6px">Počty jsou <b>zasažení možní voliči</b>, ne přidané hlasy. <b>Chození po domech</b>: dobrovolníci obejdou okrsky; každá domácnost dostane materiál, část navíc rozhovor (25 % zastižených – pravidlo z kanvasingových experimentů Gerbera a Greena: 48 dveří ≈ 12 rozhovorů). <b>Viditelnost</b>: kandidátka v obci (stánek, materiály, Facebook) zasáhne obec jako celek.
+Váha účinku: rozhovor u dveří = 1; materiál / viditelnost = 0,1 (jedna extra volba na zhruba 14 rozhovorů, na 66–200 letáků – hrubé číslo ze studií, ne z našich dat). Časy a dosah viditelnosti jsou <b>odhady z praxe</b>, nejméně podložené jsou u viditelnosti.</p>
+<div class="row"><label>Voličů na domácnost<input type="number" id="c_hh" value="1.9" step="0.1" min="1"></label><label>Váha materiálu / viditelnosti (rozhovor = 1)<input type="number" id="c_vw" value="0.1" step="0.05" min="0.01" max="1"></label></div>
+<div class="two">
+<div><h3 style="font-size:14px;margin:6px 0">Chození po domech</h3>
+<div class="row"><label>Rozpočet (hodin)<input type="number" id="c_h" value="200" min="1"></label><label>Min. na dům (zazvonit/vhodit)<input type="number" id="c_ta" value="0.6" step="0.1" min="0.1"></label><label>Min. na byt v bytovém domě<input type="number" id="c_tf" value="0.4" step="0.1" min="0.1"></label><label>Min. na rozhovor<input type="number" id="c_tt" value="3.5" step="0.5" min="0"></label><label>Min. na vstup do bytového domu<input type="number" id="c_tb" value="2" step="0.5" min="0"></label><label>Zastižení (%)<input type="number" id="c_ch" value="25" min="1" max="100"></label><label>Chůze (km/h)<input type="number" id="c_sp" value="4" step="0.5" min="1"></label></div>
+<div class="sum" id="c_sum_d"></div><svg id="c_svg_d" viewBox="0 0 600 200" preserveAspectRatio="none"></svg>
+<div class="tw" style="max-height:620px"><table id="c_dd"></table></div></div>
+<div><h3 style="font-size:14px;margin:6px 0">Viditelnost v obci</h3>
+<div class="row"><label>Rozpočet (hodin)<input type="number" id="c_vb" value="20" min="1"></label><label>Hodin na jednu obec (focení ~20 min + cesta + příspěvek)<input type="number" id="c_vh" value="1.5" step="0.5" min="0.5"></label><label>Dosah FB skupin/stránek obce – malé obce do 5 000 voličů (%)<input type="number" id="c_vs1" value="25" min="1" max="100"></label><label>– obce do 20 000 (%)<input type="number" id="c_vs2" value="20" min="1" max="100"></label><label>– větší (Kladno) (%)<input type="number" id="c_vs3" value="10" min="1" max="100"></label></div>
+<p class="small mut" style="margin:0 0 4px">Viditelnost = krátká akce v obci (fotka s lidmi, materiály) + příspěvek ve <b>místních Facebookových skupinách / stránkách / zpravodaji</b>; cena je zhruba stejná pro malou i velkou obec, proto vyhrávají obce s nejvíc možnými voliči. Dosah (% voličů obce) je <b>odhad bez dat</b>; skutečné počty členů místních skupin lze doplnit do souboru <code>fb_reach.csv</code> (viz níže) – použijí se místo odhadu.</p><p class="small" id="c_fbnote" style="margin:0 0 4px"></p>
+<div class="sum" id="c_sum_v"></div><svg id="c_svg_v" viewBox="0 0 600 200" preserveAspectRatio="none"></svg>
+<div class="tw" style="max-height:420px"><table id="c_vis"></table></div></div></div>
+<p class="small mut" style="margin:6px 0 0">Pracnost chození po domech: čas u dveří (pokus o zazvonění / vhození materiálu u každé domácnosti + rozhovor u zastižených + vstupy do bytových domů) + chůze mezi domy (délka trasy ≈ 0,71·√(počet zastavení × plocha okrsku) × 1,3). Domy a byty z RÚIAN (adresy přiřazené k volebním okrskům); počet bytů v bytových domech v RÚIAN často chybí, proto se bere větší z hodnoty z RÚIAN a odhadu z počtu voličů. Předpoklad: možní voliči jsou v okrsku rozloženi rovnoměrně. Zdroje čísel o účinnosti: Gerber &amp; Green (kanvasing, letáky); časy na dveře a dosah viditelnosti jsou odhady.</p></div>
+<div class="panel" id="detail"><span class="mut">Klikněte na místo na mapě nebo v tabulce.</span></div>
+<p class="small mut" id="src2"></p>
+</main>
+<script src="lib/leaflet.js"></script><script src="data.js"></script><script src="model.js"></script><script src="buildings.js"></script><script src="streets.js"></script>
+<script>
+const D=window.DATA,MODEL=window.MODEL,$=id=>document.getElementById(id);
+const fmt=n=>n==null||isNaN(n)?'–':Math.round(n).toLocaleString('cs-CZ');const pc=(x,d=1)=>(100*x).toFixed(d).replace('.',',')+' %';
+const sg=n=>(n>0?'+':n<0?'−':'')+Math.abs(Math.round(n)).toLocaleString('cs-CZ');
+const mById={};D.munis.forEach(m=>mById[m.id]=m);
+// possible voters: [own, Gerloch, others] for Šípová and Paták
+function derive(p){
+  const c=p.c;p.turn=p.ret/p.reg;const u=MODEL.units[p.id];
+  p.S={sure:u[3],own:u[4],G:u[5],O:u[6]};p.P={sure:u[7],own:u[8],G:u[9],O:u[10]};
+  p.expS=u[0];p.expP=u[1];p.H=u[11];p.Hsrc=u[12];p.shift=u[13];p.marg=c[1]-c[4];
+}
+D.munis.forEach(derive);D.stations.forEach(derive);
+let cand='S',src='all',view='mb',sel=null,refs={};
+let meas='n';const FO=()=>parseFloat(document.getElementById('fo').value)/100;
+const tot=(o,s)=>s==='all'?o.own+o.G+o.O:o[s];
+// district totals of each quantity (the base of the % measure = all possible voters in the whole district)
+const TOT={S:{sure:0,own:0,G:0,O:0,all:0},P:{sure:0,own:0,G:0,O:0,all:0}};
+D.munis.forEach(m=>{for(const k of ['sure','own','G','O']){TOT.S[k]+=m.S[k];TOT.P[k]+=m.P[k]}TOT.S.all+=tot(m.S,'all');TOT.P.all+=tot(m.P,'all')});
+const sh=(x,C,k)=>meas==='n'?x:100*x/TOT[C][k];                  // value of one quantity in the chosen measure
+const pcf=x=>(x<0?'−':'')+Math.abs(x).toFixed(1).replace('.',',')+' %';
+const fm=x=>meas==='n'?fmt(x):pcf(x);
+const vS=p=>sh(tot(p.S,src),'S',src),vP=p=>sh(tot(p.P,src),'P',src);
+const val=p=>cand==='S'?vS(p):cand==='P'?vP(p):vS(p)-vP(p);
+// ---------- map ----------
+const map=L.map('map',{preferCanvas:true,zoomSnap:.25});
+const tiles=L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png',{subdomains:'abc',attribution:'© přispěvatelé OpenStreetMap; hranice © ČÚZK RÚIAN',maxZoom:18,opacity:.5}).addTo(map);
+const bAll=L.geoJSON({type:'FeatureCollection',features:D.boundary});const bounds=bAll.getBounds();map.fitBounds(bounds);
+L.geoJSON({type:'FeatureCollection',features:D.boundary},{style:{color:'#667',weight:1,fill:false,opacity:.7},interactive:false}).addTo(map);
+const kladnoB=L.geoJSON(D.boundary.filter(f=>f.properties.obec===532053)).getBounds();let layer=L.layerGroup().addTo(map);
+const mix=(a,b,t)=>a.map((x,i)=>Math.round(x+(b[i]-x)*t));const WH=[250,250,245],TE=[16,120,104],OR=[214,90,20];
+function places(){return view==='mb'?D.munis:D.stations}
+function scaleMax(P){ // fixed per map view and measure: comparable across candidate and source
+  const f=(C,p,k)=>sh(C==='S'?(k==='all'?tot(p.S,'all'):p.S[k]):(k==='all'?tot(p.P,'all'):p.P[k]),C,k);
+  return cand==='D'?Math.max(...P.map(p=>Math.max(Math.abs(f('S',p,'all')-f('P',p,'all')),Math.abs(f('S',p,'sure')-f('P',p,'sure')))),meas==='n'?1:.1):Math.max(...P.map(p=>Math.max(f('S',p,'all'),f('P',p,'all'),f('S',p,'sure'),f('P',p,'sure'))),meas==='n'?1:.1)}
+function draw(){
+  tiles.setOpacity(view==='sp'?1:.5);$('fo').parentElement.style.display=view==='sp'?'':'none';
+  layer.clearLayers();refs={};const P=places(),v=P.map(val),mx=scaleMax(P);
+  const col=x=>cand==='D'?'rgb('+mix(WH,x>=0?TE:OR,Math.min(1,Math.abs(x)/mx)).join(',')+')':'rgb('+mix(WH,cand==='S'?TE:OR,Math.min(1,.12+.88*x/mx)).join(',')+')';
+  P.forEach((p,i)=>{let h;const fc=col(v[i]);
+    if(view==='sp')h=L.geoJSON({type:'Feature',geometry:p.geom},{style:{color:p.flag?'#d4a017':'#334',weight:p.flag?2.5:.8,fillColor:fc,fillOpacity:FO()}});
+    else h=L.circleMarker(p.pos,{radius:Math.max(2,(view==='mb'?36:22)*Math.sqrt(Math.abs(v[i])/mx)),color:'#223',weight:.8,fillColor:fc,fillOpacity:.8});
+    h.bindTooltip(`<b>${p.name}${p.st!=null?' – okrsek '+p.st:''}</b>${(window.STR&&p.st!=null&&STR[p.id])?'<br><span style="font-size:11px">'+STR[p.id].slice(0,90)+'</span>':''}<br>Šípová ${src==='sure'?'jistí':'možní'} ${fm(vS(p))} · Paták ${src==='sure'?'jistí':'možní'} ${fm(vP(p))}`,{sticky:true});h.on('click',()=>select(p,false));h.addTo(layer);refs[p.id]=h});
+  const name=cand==='S'?'Šípová':cand==='P'?'Paták':'Šípová − Paták';
+  $('legend').innerHTML=`<b>${src==='sure'?'Jistí voliči':'Možní voliči'}: ${name}</b><i style="background:linear-gradient(90deg,${cand==='D'?'rgb(214,90,20),rgb(250,250,245),rgb(16,120,104)':'rgb(250,250,245),'+(cand==='S'?'rgb(16,120,104)':'rgb(214,90,20)')})"></i><div><span>${cand==='D'?(meas==='n'?sg(-mx):pcf(-mx)):(meas==='n'?0:'0 %')}</span><span>${cand==='D'?(meas==='n'?sg(mx):pcf(mx)):fm(mx)}</span></div><div class="mut"><span>pevná stupnice ve všech výběrech</span></div>${view!=='sp'?'<div class="mut"><span>velikost kruhu = hodnota</span></div>':''}`;
+  table();kpi();if(sel)hl()}
+function hl(){const r=refs[sel.id];if(r&&r.setStyle)r.setStyle({weight:3.5,color:'#000'});if(r&&r.bringToFront)r.bringToFront()}
+// ---------- table ----------
+let sortK='val',sortD=-1;
+const COLS=[['name','Místo','Obec / okrsek'],['reg','Voličů','Zapsaní voliči'],['S_sure','jistí','Šípová: vlastní voliči, kteří podle modelu přijdou'],['S_own','vl.','Šípová: vlastní voliči, kteří mohou zůstat doma'],['S_G','Gerl.','Šípová: možní voliči z řad voličů Gerlocha'],['S_O','ost.','Šípová: možní voliči z řad voličů ostatních kandidátů'],['S_t','Σ','Šípová: celkem možní voliči'],['P_sure','jistí','Paták: vlastní voliči, kteří podle modelu přijdou'],['P_own','vl.','Paták: vlastní voliči, kteří mohou zůstat doma'],['P_G','Gerl.','Paták: možní voliči z řad voličů Gerlocha'],['P_O','ost.','Paták: možní voliči z řad voličů ostatních kandidátů'],['P_t','Σ','Paták: celkem možní voliči'],['marg','Rozd.','Rozdíl Šípová − Paták v 1. kole (hlasy)']];
+const cv=(p,k)=>k==='name'?p.name+String(1000+(p.st||0)):k==='val'?val(p):k==='reg'?p.reg:k==='marg'?p.marg:(k[0]==='S'?sh(k.slice(2)==='t'?tot(p.S,'all'):p.S[k.slice(2)],'S',k.slice(2)==='t'?'all':k.slice(2)):sh(k.slice(2)==='t'?tot(p.P,'all'):p.P[k.slice(2)],'P',k.slice(2)==='t'?'all':k.slice(2)));
+const pre=(o,C)=>{const m=Math.max(o.own,o.G,o.O),f=(x,k)=>sh(x,C,k)===undefined?'':fm(sh(x,C,k));return k=>o[k]===m?'<b>'+f(o[k],k)+'</b>':f(o[k],k)};
+function rowHTML(label,reg,S,P,marg){const fs=pre(S,'S'),fp=pre(P,'P'),a=(x,C,k)=>fm(sh(x,C,k));return `<td>${label}</td><td>${fmt(reg)}</td><td>${a(S.sure,'S','sure')}</td><td>${fs('own')}</td><td>${fs('G')}</td><td>${fs('O')}</td><td class="cs">${a(tot(S,'all'),'S','all')}</td><td>${a(P.sure,'P','sure')}</td><td>${fp('own')}</td><td>${fp('G')}</td><td>${fp('O')}</td><td class="cp">${a(tot(P,'all'),'P','all')}</td><td>${sg(marg)}</td>`}
+function table(){
+  const q=$('q').value.toLowerCase();const P=places().filter(p=>!q||(p.name+(p.st||'')).toLowerCase().includes(q));
+  P.sort((a,b)=>{const x=cv(a,sortK),y=cv(b,sortK);return (x>y?1:x<y?-1:0)*sortD});
+  $('tbl').querySelector('thead').innerHTML=`<tr class="g"><th></th><th></th><th colspan="5" class="cs">Šípová</th><th colspan="5" class="cp">Paták</th><th></th></tr><tr>`+COLS.map(c=>`<th data-k="${c[0]}" title="${c[2]}">${c[1]}${c[0]===sortK?(sortD>0?' ▲':' ▼'):''}</th>`).join('')+'</tr>';
+  $('tbl').querySelector('tbody').innerHTML=P.map(p=>`<tr data-id="${p.id}" class="${sel&&sel.id===p.id?'sel':''}">${rowHTML(p.name+(p.st!=null?' '+p.st:'')+(p.flag?' ⚑':''),p.reg,p.S,p.P,p.marg)}</tr>`).join('');
+  const z=()=>({sure:0,own:0,G:0,O:0}),SS=z(),PP=z();let reg=0,mg=0;P.forEach(p=>{for(const k in SS){SS[k]+=p.S[k];PP[k]+=p.P[k]}reg+=p.reg;mg+=p.marg});
+  $('tbl').querySelector('tfoot').innerHTML=`<tr class="tot">${rowHTML('Celkem ('+P.length+')',reg,SS,PP,mg)}</tr>`}
+$('tbl').addEventListener('click',e=>{const th=e.target.closest('th[data-k]');if(th){const k=th.dataset.k;if(sortK===k)sortD*=-1;else{sortK=k;sortD=k==='name'?1:-1}table();return}
+ const tr=e.target.closest('tr[data-id]');if(tr){const p=places().find(x=>String(x.id)===tr.dataset.id);select(p,true)}});
+// ---------- detail ----------
+function select(p,zoom){
+  const old=sel;sel=p;if(old&&refs[old.id]&&refs[old.id].setStyle)refs[old.id].setStyle({weight:old.flag?2.5:.8,color:view==='sp'?(old.flag?'#d4a017':'#334'):'#223'});hl();
+  if(zoom){const r=refs[p.id];if(r&&r.getBounds)map.fitBounds(r.getBounds().pad(2),{maxZoom:14});else map.setView(p.pos,Math.max(map.getZoom(),12))}
+  const m=mById[p.obec||p.id],c=p.c;
+  $('detail').innerHTML=`<b>${p.name}${p.st!=null?' – okrsek '+p.st:''}</b> <span class="mut small">${fmt(p.reg)} zapsaných voličů · účast v 1. kole ${pc(p.turn)}${p.flag?' · ⚑ '+p.flag:''}</span>
+  <p class="small mut" style="margin:2px 0">Ulice v okrsku: ${(window.STR||{})[p.id]||(p.st==null?'(viz okrsky obce)':'–')}${p.st!=null?` · <a href="https://www.openstreetmap.org/?mlat=${p.pos[0]}&mlon=${p.pos[1]}#map=17/${p.pos[0]}/${p.pos[1]}" target="_blank" rel="noopener">OpenStreetMap</a>`:''}</p><p class="small" style="margin:4px 0">1. kolo: Šípová <b>${fmt(c[1])}</b> · Paták <b>${fmt(c[4])}</b> · Gerloch <b>${fmt(c[5])}</b> · Machalová ${fmt(c[3])} · Klas ${fmt(c[0])} · Pelc ${fmt(c[2])}. Model 2. kola: Šípová <b>${fmt(p.expS)}</b>, Paták <b>${fmt(p.expP)}</b>.</p>
+  <table style="max-width:560px;table-layout:auto"><thead><tr><th></th><th>jistí (vlastní, přijdou)</th><th>vlastní, mohou zůstat doma</th><th>Gerlochovi</th><th>ostatních</th><th>celkem možní</th></tr></thead><tbody>
+  <tr><td class="cs">Šípová</td><td>${fmt(p.S.sure)}</td><td>${fmt(p.S.own)}</td><td>${fmt(p.S.G)}</td><td>${fmt(p.S.O)}</td><td class="cs">${fmt(tot(p.S,'all'))}</td></tr>
+  <tr><td class="cp">Paták</td><td>${fmt(p.P.sure)}</td><td>${fmt(p.P.own)}</td><td>${fmt(p.P.G)}</td><td>${fmt(p.P.O)}</td><td class="cp">${fmt(tot(p.P,'all'))}</td></tr></tbody></table>
+  <p class="small" style="margin:6px 0 0"><b>Podíl místa na všech možných voličích v obvodu:</b> Šípová <b>${pcf(100*tot(p.S,'all')/TOT.S.all)}</b>, Paták <b>${pcf(100*tot(p.P,'all')/TOT.P.all)}</b> (z ${fmt(TOT.S.all)} a ${fmt(TOT.P.all)} možných voličů).</p><p class="small mut" style="margin:6px 0 0">Zvyklostní účast (volby do Sněmovny 2021 a 2025${p.Hsrc===0?'':', za celou obec'}): ${pc(p.H)} – vliv na návrat voličů do 2. kola ${(p.shift>=0?'+':'−')+Math.abs(Math.round(100*0.24*p.shift*10)/10).toLocaleString('cs-CZ')} b. oproti průměru obvodu.</p><p class="small mut" style="margin:2px 0 0">2020 ${p.st!=null?'(obec '+m.name+') ':''}Šípová proti Bendlovi: 1. kolo ${fmt(m.r1.c[5])} → 2. kolo ${fmt(m.r2.s)} (${sg(m.r2.s-m.r1.c[5])}); účast ve 2. kole ${pc(m.r2.ret/m.r2.reg)}.</p>`;
+  table()}
+function kpi(){const b=MODEL.best,s=D.munis.reduce((a,m)=>a+m.c[1],0),pk=D.munis.reduce((a,m)=>a+m.c[4],0),r=x=>Math.round(x/100)*100,q=b.margin_q;
+  const k=Math.round(10*b.p_win);
+  $('kp').innerHTML=`<div>1. kolo: Šípová <b>${fmt(s)}</b> · Paták <b>${fmt(pk)}</b> (rozdíl ${sg(s-pk)} hlasů)</div>
+  <div class="mut small" style="margin-top:4px"><b>Výchozí pozice pro 2. kolo</b> (model, ne předpověď): těsný souboj. Při očekávané nižší účasti (kolem ${pc(b.turnout,0)}) vychází zhruba ${fmt(r(b.S))} : ${fmt(r(b.P))} hlasů, tedy Šípová o něco lépe – šance asi ${k} z 10. Výsledek je ale zcela otevřený: rozdíl by se běžně mohl pohybovat od ${sg(r(q['0.05']))} do ${sg(r(q['0.95']))} hlasů pro Šípovou a rozhodne hlavně to, kolik lidí přijde.</div>`}
+// ---------- events ----------
+document.querySelectorAll('#cand button').forEach(b=>b.onclick=()=>{cand=b.dataset.c;document.querySelectorAll('#cand button').forEach(x=>x.classList.toggle('on',x===b));draw()});
+const MNOTE={n:'<b>Ukazatel: počet voličů.</b>',s:'<b>Podíl z všech možných voličů v obvodu:</b> každé číslo je v % z celkového počtu možných voličů daného kandidáta v celém obvodu (ve stejném sloupci / zdroji), takže součet přes všechna místa je 100 %. Ukazuje, kde je soustředěn největší díl možných voličů – ať už pro viditelnost (stánky, plakáty, akce), nebo pro chození po domech.'};
+function setMeas(){$('mnote').innerHTML=MNOTE[meas]}
+$('meas').onchange=e=>{meas=e.target.value;setMeas();draw()};
+$('src').onchange=e=>{src=e.target.value;draw()};
+$('views').addEventListener('click',e=>{const v=e.target.dataset.v;if(!v)return;view=v;sel=null;document.querySelectorAll('#views button').forEach(b=>b.classList.toggle('on',b===e.target));
+  if(v!=='mb'&&map.getZoom()<11)map.fitBounds(kladnoB);if(v==='mb')map.fitBounds(bounds);draw()});
+$('fo').oninput=draw;$('q').oninput=table;$('kl').onclick=()=>map.fitBounds(kladnoB);$('all').onclick=()=>map.fitBounds(bounds);
+$('src2').textContent=D.src+'. Model: bloková přechodová analýza 376 senátních druhých kol 1998–2024 (novější volby mají větší váhu) + vliv zvyklostní účasti okrsku (odhad z 14 630 okrsků ve druhých kolech 2018–2024); rozdělení voličů vyřazených kandidátů je určeno slabě. Počty možných voličů jsou očekávané hodnoty, ne konkrétní lidé.';
+
+// ---------- campaign planner (each tactic planned independently) ----------
+const CI=id=>parseFloat($(id).value);
+function ddItems(){
+  const ta=CI('c_ta'),tf=CI('c_tf'),tt=CI('c_tt'),tb=CI('c_tb'),ch=CI('c_ch')/100,sp=CI('c_sp'),hhs=CI('c_hh');
+  return D.stations.map(p=>{const [res,houses,blocks,bf0,fl,area]=BLD[p.id],pos=tot(p.S,'all'),units=Math.max(houses+bf0,p.reg/hhs),bf=Math.max(bf0,units-houses),pts=houses+blocks,hh=houses+bf;
+    const door=(houses*(ta+ch*tt)+bf*(tf+ch*tt)+blocks*tb)/60,walk=1.3*0.7124*Math.sqrt(Math.max(pts,1)*area)/sp,hrs=door+walk;
+    return {id:p.id,pos2:p.pos,street:(window.STR||{})[p.id]||'',name:p.name+' '+p.st,reg:p.reg,houses,bf:Math.round(bf),hh,vpb:p.reg/Math.max(res,1),pos,hrs,reach:pos,talk:pos*ch,y:pos/hrs,talks:hh*ch}})}
+let FB={};   // optional overrides from fb_reach.csv: obec_id -> members
+function fbShare(m){const o=FB[m.id];if(o>0)return Math.min(0.8,o/m.reg);return (m.reg<=5000?CI('c_vs1'):m.reg<=20000?CI('c_vs2'):CI('c_vs3'))/100}
+function visItems(){
+  const hrs=CI('c_vh');
+  return D.munis.map(m=>{const pos=tot(m.S,'all'),sh=fbShare(m);return {id:m.id,name:m.name,reg:m.reg,pos,hrs,sh,own:FB[m.id]>0,reach:sh*pos,y:sh*pos/hrs}})}
+function plan(items,budget,keys){const out={h:0,sum:{},n:0,full:0};keys.forEach(k=>out.sum[k]=0);for(const it of items.slice().sort((a,b)=>b.y-a.y)){if(out.h>=budget)break;const f=Math.min(1,(budget-out.h)/it.hrs);out.h+=it.hrs*f;keys.forEach(k=>out.sum[k]+=(it[k]||0)*f);out.n++;if(f>=1)out.full++}return out}
+function curveSVG(id,items,H,series,labels){
+  const s=items.slice().sort((a,b)=>b.y-a.y),steps=60,ser=series.map(()=>[[0,0]]);let h=0,acc=series.map(()=>0),k=0;
+  for(let i=1;i<=steps;i++){const T=H*i/steps;while(k<s.length&&h+s[k].hrs<=T){h+=s[k].hrs;series.forEach((f,j)=>acc[j]+=f(s[k]));k++}series.forEach((f,j)=>ser[j].push([T,acc[j]+(k<s.length?f(s[k])*(T-h)/s[k].hrs:0)]))}
+  const mx=Math.max(...ser.flat().map(p=>p[1]),1),X=x=>36+550*x/H,Y=y=>180-155*y/mx,path=a=>a.map((p,i)=>(i?'L':'M')+X(p[0]).toFixed(1)+','+Y(p[1]).toFixed(1)).join(' '),cols=['var(--s)','var(--p)'];
+  $(id).innerHTML=`<path d="M36,15 V180 H586" stroke="var(--line)" fill="none"/>`+ser.map((a,j)=>`<path d="${path(a)}" fill="none" stroke="${cols[j]}" stroke-width="2.3"/><text x="44" y="${28+14*j}" fill="${cols[j]}" font-size="11">${labels[j]}</text>`).join('')+`<line x1="${X(Math.min(H,CI(id==='c_svg_d'?'c_h':'c_vb')))}" x2="${X(Math.min(H,CI(id==='c_svg_d'?'c_h':'c_vb')))}" y1="15" y2="180" stroke="var(--mut)" stroke-dasharray="3 3"/><text x="586" y="196" text-anchor="end" fill="var(--mut)" font-size="10">hodiny (0 – ${fmt(H)}) · osa y: zasažení možní voliči (max ${fmt(mx)})</text>`}
+function campaign(){
+  const w=CI('c_vw'),TS=TOT.S.all,pP=x=>pcf(100*x/TS),f=fmt;
+  // door-to-door
+  const dd=ddItems(),Bd=CI('c_h'),pd=plan(dd,Bd,['reach','talk','hh','talks']),totV=dd.reduce((a,x)=>a+x.reg,0);
+  $('c_sum_d').innerHTML=`<b>${f(Bd)} hodin chození po domech</b> = ${pd.full} okrsků${pd.n>pd.full?' + část dalšího':''}, ${f(pd.sum.hh)} domácností (${f(pd.sum.hh/Math.max(pd.h,1))} za hodinu), z toho ${f(pd.sum.talks)} rozhovorů.<br>Možných voličů s materiálem: <b>${f(pd.sum.reach)}</b> (${pP(pd.sum.reach)} všech možných); s osobním rozhovorem: <b>${f(pd.sum.talk)}</b> (${pP(pd.sum.talk)}).<br>Vážený účinek: <b>${f(pd.sum.talk+w*(pd.sum.reach-pd.sum.talk))}</b> „ekvivalentů rozhovoru“.`;
+  curveSVG('c_svg_d',dd,Math.max(Bd*3,Bd+100),[x=>x.reach,x=>x.talk],['s materiálem','s rozhovorem']);
+  let c=0,cr=0;$('c_dd').innerHTML=`<thead><tr><th>Okrsek</th><th>Ulice (klikněte na řádek = ukázat na mapě)</th><th>Voličů</th><th>domů / bytů* / voličů na dům</th><th>možní (% všech možných)</th><th>hodin na celý okrsek</th><th>možných /hod</th><th>kum. hodin</th><th>kum. možných</th><th>odkaz</th></tr></thead><tbody>`+dd.slice().sort((a,b)=>b.y-a.y).map(x=>{c+=x.hrs;cr+=x.reach;return `<tr data-st="${x.id}" class="${c<=Bd?'in':''}"><td>${x.name}</td><td class="str" title="${x.street.replace(/"/g,'')}">${x.street||'–'}</td><td>${f(x.reg)}</td><td>${f(x.houses)} / ${f(x.bf)} / ${x.vpb.toFixed(1).replace('.',',')}</td><td>${f(x.pos)} <span class="mut">(${pP(x.pos)})</span></td><td>${x.hrs.toFixed(1).replace('.',',')}</td><td>${x.y.toFixed(1).replace('.',',')}</td><td>${f(c)}</td><td>${f(cr)}</td><td><a href="https://www.openstreetmap.org/?mlat=${x.pos2[0]}&mlon=${x.pos2[1]}#map=17/${x.pos2[0]}/${x.pos2[1]}" target="_blank" rel="noopener" title="otevřít v OpenStreetMap" onclick="event.stopPropagation()">OpenStreetMap</a></td></tr>`}).join('')+'</tbody>';
+  // visibility
+  const vs=visItems(),Bv=CI('c_vb'),pv=plan(vs,Bv,['reach']);
+  $('c_sum_v').innerHTML=`<b>${f(Bv)} hodin viditelnosti</b> = ${pv.full} obcí${pv.n>pv.full?' + část další':''} .<br>Možných voličů zasaženo: <b>${f(pv.sum.reach)}</b> (${pP(pv.sum.reach)} všech možných).<br>Vážený účinek (váha ${w.toLocaleString('cs-CZ')}): <b>${f(w*pv.sum.reach)}</b> „ekvivalentů rozhovoru“.`;
+  curveSVG('c_svg_v',vs,Math.max(Bv*3,Bv+100),[x=>x.reach],['zasažení možní voliči']);
+  c=0;cr=0;$('c_vis').innerHTML=`<thead><tr><th>Obec</th><th>Voličů</th><th>možní (% všech možných)</th><th>dosah (% voličů)</th><th>hodin na obec</th><th>zasažených možných /hod</th><th>kum. hodin</th><th>kum. zasažených</th></tr></thead><tbody>`+vs.slice().sort((a,b)=>b.y-a.y).slice(0,40).map(x=>{c+=x.hrs;cr+=x.reach;return `<tr class="${c<=Bv?'in':''}"><td>${x.name}</td><td>${f(x.reg)}</td><td>${f(x.pos)} <span class="mut">(${pP(x.pos)})</span></td><td>${pcf(100*x.sh)}${x.own?' <span class="mut">(FB)</span>':''}</td><td>${x.hrs.toFixed(1).replace('.',',')}</td><td>${x.y.toFixed(1).replace('.',',')}</td><td>${f(c)}</td><td>${f(cr)}</td></tr>`}).join('')+'</tbody>';
+}
+document.querySelectorAll('#camp input').forEach(i=>i.addEventListener('input',campaign));
+$('c_dd').addEventListener('click',e=>{const tr=e.target.closest('tr[data-st]');if(!tr)return;const p=D.stations.find(x=>x.id===tr.dataset.st);if(!p)return;
+  if(view!=='sp'){document.querySelector('#views button[data-v=sp]').click()}
+  select(p,true);$('map').scrollIntoView({behavior:'smooth',block:'center'})});
+fetch('fb_reach.csv').then(r=>r.ok?r.text():'').then(txt=>{const lines=txt.trim().split(/\r?\n/).slice(1);let n=0;lines.forEach(l=>{const c=l.split(',');const id=parseInt(c[0]),mem=parseFloat((c[5]||'').replace(/\s/g,''));if(id&&mem>0){FB[id]=mem;n++}});$('c_fbnote').innerHTML=n?`Z <code>fb_reach.csv</code> použity počty členů/sledujících u <b>${n}</b> obcí.`:'Soubor <code>fb_reach.csv</code> zatím neobsahuje žádné počty členů – používají se odhady dosahu.';campaign()}).catch(()=>{$('c_fbnote').textContent='Soubor fb_reach.csv nelze načíst – používají se odhady.'});
+setMeas();draw();campaign();
+</script></body></html>
