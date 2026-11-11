@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="cs"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Metodika · Kde vznikla nahrávka? · Data Bites</title>
+<style>body{max-width:760px;margin:40px auto;padding:0 24px;font:17px/1.65 system-ui;color:#20303c;background:#fdfbf7}a{color:#186b69}h1{line-height:1.15}table{border-collapse:collapse;width:100%}td,th{text-align:left;padding:9px;border-bottom:1px solid #ddd}</style>
+<a href="./">← Interaktivní mapa</a>
+<h1>Lze odhadnout místo nahrávky podle letadel?</h1>
+<p>Experiment hledá shodu mezi předpovězeným Dopplerovým posunem zvuku letadel a spektrogramem večerní nahrávky z 5. listopadu 2026. Prověřuje 785 421 bodů v síti po 200 m v okruhu 100 km od trojmezí Česka, Rakouska a Slovenska. Střed kruhu je přibližně 48,61667° N, 16,94028° E.</p>
+<h2>Výsledek</h2>
+<p>Nejvyšší skóre původní nahrávky, 2,312, má bod 48,210831° N, 16,370585° E ve Vídni, 61,77 km od středu kruhu. Následné porovnání s dříve sděleným místem nahrávání ukázalo vzdálenost přibližně 912 m. Souřadnice skutečného místa nebyly vstupem hledání; protože už ale byly známé, nejde o předem zaslepený experiment.</p>
+<table><thead><tr><th>Varianta</th><th>Maximum v celém kruhu</th></tr></thead><tbody><tr><td>Původní nahrávka</td><td>2,312</td></tr><tr><td>Obrácená nahrávka</td><td>1,288</td></tr><tr><td>Čtvrtinový časový posun</td><td>2,015</td></tr><tr><td>Poloviční časový posun</td><td>1,639</td></tr></tbody></table>
+<p>Každá varianta hledá vlastní maximum v celém kruhu se stejnými nastaveními. Vyšší skóre původní nahrávky je zajímavé, ale tři kontroly nepostačují k odhadu četnosti falešných nálezů. Skóre není pravděpodobnost ani interval přesnosti.</p>
+<h2>Výpočet</h2>
+<p>Pro každý bod se vyhodnocují 80sekundová okna po dvou sekundách a zdrojové tóny od 40 do 900,5 Hz. Výpočet používá trojrozměrné letové trasy, zpoždění šíření zvuku a radiální rychlost letadla v okamžiku vyzáření. Nejvyšší společné skóre vzniká kombinací nejvýše tří časově se nepřekrývajících událostí; kde tři nejsou dostupné, vyhodnocuje se dvojice.</p>
+<p>Výběr letů omezuje nejmenší šikmá vzdálenost 20 km. Letadlo může být mimo hledaný kruh. Všude platí stejná elipsoidická výška přijímače 295 m a rychlost zvuku 343 m/s; terén ani vítr se nekorigují. Čas začátku 20:48:23 ve Vídni (19:48:23 UTC) je odvozen z metadat souboru a jeho délky 64:38,5.</p>
+<p>Vstupní data obsahují 117 použitelných úseků letových tras. Do skórování vstoupilo 61 letadel v 63 úsecích a 4 826 601 oken pro kombinace letů a bodů. Letadla byla vyhledána pomocí tří uložených regionálních snímků, takže pokrytí nemusí být úplné. Žádné letadlo nebylo ručně vybráno pro maximum.</p>
+<h2>Jak číst mapu</h2>
+<p>Kliknutím vyberete nejbližší hodnocený bod; mapa ukáže jeho modelované lety, tóny a skóre. Tyrkysová vrstva zahrnuje hodnocené úseky vyzařování, se započtením doby šíření zvuku. Lze ji omezit na vybraný bod nebo jednotlivý let. Zařazení letu do výpočtu nepotvrzuje přítomnost jeho zvuku na nahrávce.</p>
+<p>Časová osa ukazuje polohy letadel podle hodin nahrávky. Spojnice při modelovaných událostech používají polohu zdroje v dřívějším čase vyzáření. Spektrogram je předpočítán pro maximum původní nahrávky; pro ostatní body jsou dostupné modelované lety a jejich skóre.</p>
+<h2>Omezení</h2>
+<p>Model předpokládá nehybný mikrofon, stálý zdrojový tón a klidný vzduch. Neřeší odrazy, zakrytí terénem, meteorologii ani drift hodin mikrofonu. Náhodná shoda, chybějící letová data či proměnlivý zvuk motoru mohou výsledek ovlivnit. Z tohoto jednoho příkladu nelze vyvozovat spolehlivost lokalizace libovolné nahrávky.</p>
+<h2>Zdroje a licence</h2>
+<p>Letová data: <a href="https://www.adsb.lol/docs/open-data/">přispěvatelé adsb.lol</a>, ODbL 1.0. Mapový podklad: © <a href="https://www.openstreetmap.org/copyright">přispěvatelé OpenStreetMap</a>. Řeky, hranice a města: <a href="https://www.naturalearthdata.com/about/terms-of-use/">Natural Earth</a>, volné dílo. Střed kruhu: <a href="https://www.wikidata.org/wiki/Q27404568">Wikidata</a>. Mapová knihovna Leaflet 1.9.4, BSD 2-Clause.</p>
+<p>Strojově čitelné podklady: <a href="data/results.json">výsledky</a>, <a href="data/frozen-protocol.json">protokol</a>, <a href="data/grid-validation.json">kontrola sítě</a> a <a href="data/map-manifest.json">manifest mapy</a>. Binární tabulky zachovávají všechny bodové výsledky a hodnocená okna archivované mapy.</p>
+</html>

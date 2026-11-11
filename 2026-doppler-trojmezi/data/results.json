@@ -1,0 +1,269 @@
+{
+  "status": "tripoint_circle_multi_flight_triangulation",
+  "config": {
+    "spectrum": "<research-root>/outputs/evening-audio/spectrum-4s.npz",
+    "tracks": "<research-root>/outputs/tripoint-100km/tracks.csv",
+    "recording_start_utc": 1793908103.472,
+    "recording_start_note": "Provisional end creation tag minus duration",
+    "bounds": [
+      15.584458548009675,
+      47.71747972054953,
+      18.29607857434491,
+      49.5145049439982
+    ],
+    "grid_m": 200,
+    "elevation_m": 250,
+    "geoid_offset_m": 45,
+    "sound_speed_mps": 343,
+    "f0_hz": [
+      40,
+      901
+    ],
+    "f0_step_hz": 0.5,
+    "event_half_window_s": 40,
+    "sample_step_s": 2,
+    "max_slant_m": 20000,
+    "max_track_gap_s": 30,
+    "scoring_backend": "native",
+    "scoring_threads": 4,
+    "batch_size": 128,
+    "save_event_cache": false,
+    "plot_candidates": false,
+    "circle": {
+      "center_lon": 16.94028,
+      "center_lat": 48.61667,
+      "radius_m": 100000,
+      "reference": "CZ-AT-SK tripoint at the Dyje-Morava confluence (approximate center)",
+      "source": "https://www.wikidata.org/wiki/Q27404568"
+    },
+    "grid_projection_center": {
+      "center_lon": 16.56972222222222,
+      "center_lat": 48.11027777777778
+    },
+    "grid_lattice": {
+      "min_ix": -363,
+      "max_ix": 636,
+      "min_iy": -218,
+      "max_iy": 781
+    }
+  },
+  "stats": {
+    "grid_points": 785421,
+    "track_segments": 117,
+    "tiles": 100,
+    "supported_flight_locations": 4826601
+  },
+  "optimized_control_winners": {
+    "observed": {
+      "lon": 16.370585359489635,
+      "lat": 48.210830860086425,
+      "elevation_ellipsoid_m": 295.0,
+      "score": 2.3120080629984536,
+      "events": [
+        {
+          "flight": "4c0176:1793828161:0#0",
+          "score": 3.8949694633483887,
+          "source_tone_hz": 99.0,
+          "heard_cpa_s": 2494.526839494705,
+          "window_s": [
+            2454.526839494705,
+            2534.526839494705
+          ],
+          "frequency_span_hz": 63.21783871767863
+        },
+        {
+          "flight": "44065c:1793821809:0#0",
+          "score": 1.6144424676895142,
+          "source_tone_hz": 82.5,
+          "heard_cpa_s": 431.23958802223206,
+          "window_s": [
+            391.23958802223206,
+            471.23958802223206
+          ],
+          "frequency_span_hz": 26.194435417227695
+        },
+        {
+          "flight": "4d00d9:1793822148:1#0",
+          "score": 1.4266122579574585,
+          "source_tone_hz": 90.5,
+          "heard_cpa_s": 1056.6783375740051,
+          "window_s": [
+            1016.6783375740051,
+            1096.6783375740051
+          ],
+          "frequency_span_hz": 24.047468584657167
+        }
+      ]
+    },
+    "reversed": {
+      "lon": 16.585869055343686,
+      "lat": 48.21280065680832,
+      "elevation_ellipsoid_m": 295.0,
+      "score": 1.28791348139445,
+      "events": [
+        {
+          "flight": "300557:1793822253:0#0",
+          "score": 1.5096442699432373,
+          "source_tone_hz": 226.5,
+          "heard_cpa_s": 3835.0070831775665,
+          "window_s": [
+            3795.0070831775665,
+            3875.0070831775665
+          ],
+          "frequency_span_hz": 73.15109721955915
+        },
+        {
+          "flight": "300782:1793869372:0#0",
+          "score": 1.2881560325622559,
+          "source_tone_hz": 40.0,
+          "heard_cpa_s": 353.217613697052,
+          "window_s": [
+            313.217613697052,
+            393.217613697052
+          ],
+          "frequency_span_hz": 4.505029264117688
+        },
+        {
+          "flight": "440666:1793862934:0#0",
+          "score": 1.0659401416778564,
+          "source_tone_hz": 78.0,
+          "heard_cpa_s": 3280.9600331783295,
+          "window_s": [
+            3240.9600331783295,
+            3320.9600331783295
+          ],
+          "frequency_span_hz": 26.357433382498485
+        }
+      ]
+    },
+    "shift_quarter": {
+      "lon": 16.397555903170957,
+      "lat": 48.192887790979874,
+      "elevation_ellipsoid_m": 295.0,
+      "score": 2.014776905377706,
+      "events": [
+        {
+          "flight": "4c0176:1793828161:0#0",
+          "score": 3.356720447540283,
+          "source_tone_hz": 98.5,
+          "heard_cpa_s": 2514.9592232704163,
+          "window_s": [
+            2474.9592232704163,
+            2554.9592232704163
+          ],
+          "frequency_span_hz": 62.072579073924956
+        },
+        {
+          "flight": "300557:1793822253:0#0",
+          "score": 1.4240052700042725,
+          "source_tone_hz": 207.5,
+          "heard_cpa_s": 3836.3956665992737,
+          "window_s": [
+            3796.3956665992737,
+            3876.3956665992737
+          ],
+          "frequency_span_hz": 29.13833372293314
+        },
+        {
+          "flight": "440666:1793862934:0#0",
+          "score": 1.263604998588562,
+          "source_tone_hz": 75.0,
+          "heard_cpa_s": 3280.2832288742065,
+          "window_s": [
+            3240.2832288742065,
+            3320.2832288742065
+          ],
+          "frequency_span_hz": 10.847713350408839
+        }
+      ]
+    },
+    "shift_half": {
+      "lon": 16.349373247326987,
+      "lat": 48.13704679950386,
+      "elevation_ellipsoid_m": 295.0,
+      "score": 1.6394023497899373,
+      "events": [
+        {
+          "flight": "4c0176:1793828161:0#0",
+          "score": 2.2067854404449463,
+          "source_tone_hz": 98.0,
+          "heard_cpa_s": 2534.1232709884644,
+          "window_s": [
+            2494.1232709884644,
+            2574.1232709884644
+          ],
+          "frequency_span_hz": 59.50569699208293
+        },
+        {
+          "flight": "440666:1793862934:0#0",
+          "score": 1.3912663459777832,
+          "source_tone_hz": 245.0,
+          "heard_cpa_s": 3365.2774679660797,
+          "window_s": [
+            3325.2774679660797,
+            3405.2774679660797
+          ],
+          "frequency_span_hz": 15.470265116918597
+        },
+        {
+          "flight": "3c6475:1793822545:0#0",
+          "score": 1.3201552629470825,
+          "source_tone_hz": 207.5,
+          "heard_cpa_s": 3826.3990700244904,
+          "window_s": [
+            3786.3990700244904,
+            3866.3990700244904
+          ],
+          "frequency_span_hz": 14.289555676420406
+        }
+      ]
+    }
+  },
+  "best": {
+    "lon": 16.370585359489635,
+    "lat": 48.210830860086425,
+    "elevation_ellipsoid_m": 295.0,
+    "score": 2.3120080629984536,
+    "events": [
+      {
+        "flight": "4c0176:1793828161:0#0",
+        "score": 3.8949694633483887,
+        "source_tone_hz": 99.0,
+        "heard_cpa_s": 2494.526839494705,
+        "window_s": [
+          2454.526839494705,
+          2534.526839494705
+        ],
+        "frequency_span_hz": 63.21783871767863
+      },
+      {
+        "flight": "44065c:1793821809:0#0",
+        "score": 1.6144424676895142,
+        "source_tone_hz": 82.5,
+        "heard_cpa_s": 431.23958802223206,
+        "window_s": [
+          391.23958802223206,
+          471.23958802223206
+        ],
+        "frequency_span_hz": 26.194435417227695
+      },
+      {
+        "flight": "4d00d9:1793822148:1#0",
+        "score": 1.4266122579574585,
+        "source_tone_hz": 90.5,
+        "heard_cpa_s": 1056.6783375740051,
+        "window_s": [
+          1016.6783375740051,
+          1096.6783375740051
+        ],
+        "frequency_span_hz": 24.047468584657167
+      }
+    ]
+  },
+  "limitations": [
+    "Discovery uses cached regional aircraft snapshots and may be incomplete.",
+    "Fixed height, inferred recording start, constant still-air sound speed.",
+    "Multi-flight triangulation combines up to 3 disjoint aircraft arrivals per cell.",
+    "No calibrated probabilities."
+  ]
+}

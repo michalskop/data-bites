@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "method": "Node VM with DOM/Leaflet doubles; browser launch blocked by sandbox",
+  "checks": [
+    "static fetch and gzip decoding",
+    "lazy controls",
+    "all four scores",
+    "correct support index for selected cell",
+    "spectrogram only for observed winner",
+    "clear and reselect",
+    "basemap switching",
+    "play/pause"
+  ],
+  "selectedCell": 174542,
+  "selectedSupportedFlights": 15
+}

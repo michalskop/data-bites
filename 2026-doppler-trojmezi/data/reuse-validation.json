@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "sampled_points": 100,
+  "reused_points": 14,
+  "all_four_ranking_tables_bit_identical": true,
+  "scoring_windows_bit_identical": true,
+  "support_count": 616,
+  "reused_scored_points_by_control": {
+    "observed": 6,
+    "reversed": 6,
+    "shift_quarter": 6,
+    "shift_half": 6
+  }
+}

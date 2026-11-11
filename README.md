@@ -29,6 +29,10 @@ Hosting: GitHub Pages, `main`, repository root.
   * `index.html` — Interaktivní bublinová mapa anomálií a detailní panely
   * Náhledový obrázek je uložen na `media.datatimes.org` (viz `media-assets.json`)
   * `data.js` — Datový soubor detekovaných nesrovnalostí a revizí protokolů
+* `2026-doppler-trojmezi/` — Experiment s akustickou lokalizací: 785 421 bodů do 100 km od trojmezí Česka, Rakouska a Slovenska, letové trasy a Dopplerův jev
+  * `index.html` — Interaktivní mapa; `methodology.html` — metodika; `map-data.json` a `data/` — výsledky, protokol a validace
+  * `*.bin.gz` datasety se načítají na vyžádání a musí být servírovány jako gzip bez hlavičky `Content-Encoding: gzip`
+  * Náhledový obrázek, spektrogram a mapové vrstvy jsou na `media.datatimes.org` (viz `media-assets.json`)
 * `2026-kladno-senat/` — Model chování voličů a kontaktní kampaně ve 2. kole senátních voleb 2026 (obvod č. 30 Kladno)
   * `index.html` — Interaktivní mapa obcí a okrsků s plánovačem kampaně (chození po domech, dosah v obcích)
   * `model.js`, `buildings.js`, `streets.js`, `data.js` — Modely přechodu voličů a geometrie okrsků ČÚZK RÚIAN

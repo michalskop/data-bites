@@ -1,0 +1,37 @@
+{
+  "map": "tripoint-circle-map.html",
+  "grid_points": 785421,
+  "radius_m": 100000,
+  "grid_m": 200,
+  "score_counts": {
+    "observed": 715940,
+    "reversed": 715940,
+    "shift_quarter": 715940,
+    "shift_half": 715940
+  },
+  "aircraft_segments": 117,
+  "scored_track_segments": 63,
+  "scored_aircraft": 61,
+  "reused_grid_points": 0,
+  "recomputed_grid_points": 785421,
+  "scoring_windows": 4826601,
+  "display_time_rounding_s": 0.001,
+  "circle": {
+    "center_lon": 16.94028,
+    "center_lat": 48.61667,
+    "radius_m": 100000,
+    "reference": "CZ-AT-SK tripoint at the Dyje-Morava confluence (approximate center)",
+    "source": "https://www.wikidata.org/wiki/Q27404568"
+  },
+  "offline": true,
+  "frozen_hashes_verified": true,
+  "html_mb": 250.750479,
+  "basemap_source": "<research-root>/outputs/vienna-map/osm-basemap-source.json",
+  "regional_basemap": "Natural Earth, public domain",
+  "controls": {
+    "observed": 2.3120080629984536,
+    "reversed": 1.28791348139445,
+    "shift_quarter": 2.014776905377706,
+    "shift_half": 1.6394023497899373
+  }
+}

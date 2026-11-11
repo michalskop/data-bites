@@ -2327,5 +2327,86 @@
     "content_type": "image/png",
     "verified_at_edge": true,
     "original_source": "dist/data/us/terrain.png"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-doppler-letadla/preview-v1.webp",
+    "key": "databites-dtcz/2026-doppler-letadla/preview-v1.webp",
+    "sha256": "5b5eb18cd3ee13688524eaf319668c2ca62fb6a3798dc9402811ed1acfed841b",
+    "bytes": 93346,
+    "content_type": "image/webp",
+    "verified_at_edge": true
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-doppler-letadla/candidate-spectrum-v1.webp",
+    "key": "databites-dtcz/2026-doppler-letadla/candidate-spectrum-v1.webp",
+    "sha256": "22482a6fb5b8907cc50cefc9a9bbb1b659dfe68dbbde3f6aba3ea35400201daf",
+    "bytes": 269574,
+    "content_type": "image/webp",
+    "verified_at_edge": true
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-doppler-letadla/evidence-observed-v1.png",
+    "key": "databites-dtcz/2026-doppler-letadla/evidence-observed-v1.png",
+    "sha256": "4a4f470b08b88f7f244ef4eeb824e6d6cb343897a3d84fd645e1df06dd7fc4d9",
+    "bytes": 1299423,
+    "content_type": "image/png",
+    "verified_at_edge": true
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-doppler-trojmezi/preview-v1.webp",
+    "key": "databites-dtcz/2026-doppler-trojmezi/preview-v1.webp",
+    "sha256": "5b5eb18cd3ee13688524eaf319668c2ca62fb6a3798dc9402811ed1acfed841b",
+    "bytes": 93346,
+    "content_type": "image/webp",
+    "verified_at_edge": true
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-doppler-trojmezi/candidate-spectrum-v1.webp",
+    "key": "databites-dtcz/2026-doppler-trojmezi/candidate-spectrum-v1.webp",
+    "sha256": "22482a6fb5b8907cc50cefc9a9bbb1b659dfe68dbbde3f6aba3ea35400201daf",
+    "bytes": 269574,
+    "content_type": "image/webp",
+    "verified_at_edge": true
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-doppler-trojmezi/evidence-observed-v1.png",
+    "key": "databites-dtcz/2026-doppler-trojmezi/evidence-observed-v1.png",
+    "sha256": "4a4f470b08b88f7f244ef4eeb824e6d6cb343897a3d84fd645e1df06dd7fc4d9",
+    "bytes": 1299423,
+    "content_type": "image/png",
+    "verified_at_edge": true
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-doppler-trojmezi/evidence-reversed-v1.png",
+    "key": "databites-dtcz/2026-doppler-trojmezi/evidence-reversed-v1.png",
+    "sha256": "a5deb7cc9f0b8b03652b5477284ac0676f465c6d68243a697147d639e12a8c2b",
+    "bytes": 1300802,
+    "content_type": "image/png",
+    "verified_at_edge": true
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-doppler-trojmezi/evidence-shift_half-v1.png",
+    "key": "databites-dtcz/2026-doppler-trojmezi/evidence-shift_half-v1.png",
+    "sha256": "2928ef3a0c38920c8640221d3854244354c49c786a4dd5126990a3712d6e4a74",
+    "bytes": 1303445,
+    "content_type": "image/png",
+    "verified_at_edge": true
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-doppler-trojmezi/evidence-shift_quarter-v1.png",
+    "key": "databites-dtcz/2026-doppler-trojmezi/evidence-shift_quarter-v1.png",
+    "sha256": "de8553defe1a602e3ffa7b0a9c7c89c6bb1d23027e69bbba267b6f889d103c3f",
+    "bytes": 1302740,
+    "content_type": "image/png",
+    "verified_at_edge": true
   }
 ]

@@ -1,0 +1,8 @@
+{
+  "grid_points": 785421,
+  "max_geodesic_distance_m": 99999.99859234956,
+  "all_within_radius": true,
+  "spacing_m": 200,
+  "alignment": "Same airport-centered lattice as previous run",
+  "shared_coordinates_preserved": 477343
+}
