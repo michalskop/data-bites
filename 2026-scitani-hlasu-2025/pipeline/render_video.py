@@ -1,6 +1,6 @@
 """Render a ~60 s video: python3 render_video.py speed|size|ano [seconds] [--frames N]   (1920x1080, 30 fps, H.264)"""
 import sys, subprocess, time, os, numpy as np
-from config import OUT, RENDERER, CHROMIUM, free_port, wait_for_port
+from config import OUT, RENDERER, launch_browser, free_port, wait_for_port
 from playwright.sync_api import sync_playwright
 mode = sys.argv[1]; secs = float(sys.argv[2]) if len(sys.argv) > 2 and not sys.argv[2].startswith('--') else 60.0
 limit = int(sys.argv[sys.argv.index('--frames') + 1]) if '--frames' in sys.argv else None
@@ -19,7 +19,7 @@ ff = subprocess.Popen(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'image2pipe',
                        '-c:v', 'libx264', '-preset', 'medium', '-crf', '18', '-profile:v', 'high', '-color_range', 'tv', '-movflags', '+faststart', out if not limit else out.replace('.mp4', '_test.mp4')], stdin=subprocess.PIPE)
 try:
     with sync_playwright() as p:
-        b = p.chromium.launch(executable_path=CHROMIUM, args=['--no-sandbox']); pg = b.new_page(viewport={'width': 1920, 'height': 1080})
+        b = launch_browser(p); pg = b.new_page(viewport={'width': 1920, 'height': 1080})
         pg.on('pageerror', lambda e: print('ERR', e)); pg.goto(f'http://localhost:{port}/?mode={mode}&t=20'); pg.wait_for_function('window.READY===true', timeout=60000)
         t0 = time.time()
         for i in range(limit or n):

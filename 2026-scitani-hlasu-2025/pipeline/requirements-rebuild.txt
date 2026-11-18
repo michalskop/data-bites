@@ -1,0 +1,7 @@
+# only to regenerate the CSVs from raw data or the base map (see ../README.md, "Rebuilding inputs")
+-r requirements.txt
+shapely
+geopandas
+rasterio
+scipy
+Pillow

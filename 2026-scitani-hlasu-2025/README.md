@@ -23,23 +23,31 @@ moving window of the most recently counted ones, at least 10 minutes and about 8
 Positions come from the RÚIAN voting-district layer of ČÚZK (current state, fetched with `pipeline/fetch_ruian.py`) with the 2022 export as fallback.
 A 2025-dated RÚIAN snapshot is not available for download, so a precinct changed after the election could be placed slightly off. Precincts abroad are not mapped.
 
-## Reproduce
+## Quick start (nothing else needed)
+Requirements: Python 3.10+, `ffmpeg` on the PATH and a browser for Playwright.
 ```bash
 cd 2026-scitani-hlasu-2025/pipeline
-python3 -m pip install -r requirements.txt            # pandas, pyarrow, numpy, pyproj, shapely, geopandas, rasterio, scipy, Pillow, playwright
-python3 build.py                                       # data/*.csv -> cache/merged.parquet
-python3 export_web.py                                  # base map, fonts and dot positions -> renderer/ (git-ignored)
-python3 shoot.py size 5                                # still at 5 % of votes counted -> out/size_5pct_landscape.png
-python3 render_video.py speed 60                       # out/speed_video.mp4 (also: size, ano); ~5 min, 1800 frames
+python3 -m pip install -r requirements.txt
+python3 -m playwright install chromium        # skip if Chrome/Chromium is installed (or set CHROMIUM=/path/to/chrome)
+python3 make.py setup                          # downloads the base map + fonts (checksummed bundle from the DataTimes CDN)
+python3 make.py build                          # data/*.csv -> renderer/data.json
+python3 make.py still speed 50                 # a still -> out/speed_50pct_landscape.png   (modes: speed | size | ano; % of votes counted)
+python3 make.py video speed                    # a ~60 s video -> out/speed_video.mp4        (also size, ano; about 5 min, 1800 frames)
+python3 make.py all                            # everything used on the web page
 ```
-`shoot.py` accepts `size|ano|speed` and a percentage of counted votes; the renderer page also takes `?t=<minutes after 14:00>`.
-`render_video.py` needs `ffmpeg`; the pace is set by the time-warp knots at the top of the file (slower early, faster late, 6 s hold at the end).
+`make.py` only wraps the scripts in `pipeline/`, which can also be run directly. The renderer page (`renderer/`) takes `?mode=speed|size|ano&pct=5` or `&t=<minutes after 14:00>`.
+`render_video.py` sets the pace with the time-warp knots at the top of the file (slower early, faster late, 6 s hold at the end); all layout is in `renderer/app.js`.
 
-External inputs (see `pipeline/config.py`, all overridable with environment variables):
-- `TRAINS_REPO` (default `~/dev/ai/data-at/trains`): DataTimes base-map code, the DEM caches it references (`/home/michal/dev/ms/milos`) and the web fonts.
-  `base.png`, `data.json` and the fonts are generated into `pipeline/renderer/` and are git-ignored, because media and fonts must not be committed.
-- `CHROMIUM` (default `/snap/bin/chromium`): Playwright is driven with this browser.
-- Only to regenerate the CSVs: `BATCH_XML_DIR` (raw batch XMLs; not in Git, about 500 MB), `RUIAN_GEOJSON` and `GEO_2022` for positions.
+The base map and the web fonts (IBM Plex, Roboto Condensed, SIL OFL) are media, so they are not in Git: `setup` fetches them from the CDN into `renderer/` (git-ignored) and verifies a SHA-256.
+Nothing from the DataTimes `trains` project is needed any more.
+
+## Rebuilding inputs (optional, maintainers)
+Everything above runs from the committed CSVs. To regenerate them (`python3 -m pip install -r requirements-rebuild.txt`; paths and overrides in `pipeline/config.py`):
+- `parse.py` → `data/precincts_2025.csv` from the raw ČSÚ batch XMLs recorded on election night (`BATCH_XML_DIR`; about 500 MB, not in Git).
+- `fetch_ruian.py` then `build.py --positions` → `data/precinct_positions_2025.csv` (RÚIAN layer from ČÚZK, 2022 export in `GEO_2022` as fallback).
+- `batches_csv.py` → `data/counting_batches_2025.csv`.
+- `build_basemap.py` → base map, fonts, `data/map_view.json` and `out/renderer-assets.zip` (needs the `trains` project, `TRAINS_REPO`). Upload the zip as a new `renderer-assets-vN.zip`
+  revision (see below) and update `ASSETS_URL` and `ASSETS_SHA256` in `config.py`.
 
 ## Publishing new renders
 Do not commit videos or images. Upload with `scripts/upload_media.py` to `databites-dtcz/2026-scitani-hlasu-2025/<name>-vN.<ext>` (never overwrite: use a new

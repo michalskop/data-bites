@@ -2468,5 +2468,15 @@
     "content_type": "video/mp4",
     "verified_at_edge": true,
     "original_source": "2026-scitani-hlasu-2025/pipeline/out/speed_video.mp4"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-scitani-hlasu-2025/renderer-assets-v1.zip",
+    "key": "databites-dtcz/2026-scitani-hlasu-2025/renderer-assets-v1.zip",
+    "sha256": "edcfc735926275308a7f64db5f4066889f7afefe7623044402f50ba1b30765f4",
+    "bytes": 2616306,
+    "content_type": "application/zip",
+    "verified_at_edge": true,
+    "original_source": "2026-scitani-hlasu-2025/pipeline/out/renderer-assets.zip (build_basemap.py)"
   }
 ]

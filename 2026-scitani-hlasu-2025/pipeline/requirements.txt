@@ -1,10 +1,6 @@
+# runtime (rendering the videos); also: ffmpeg on PATH, and a browser: python3 -m playwright install chromium
 numpy
 pandas
 pyarrow
 pyproj
-shapely
-geopandas
-rasterio
-scipy
-Pillow
 playwright
