@@ -2408,5 +2408,65 @@
     "bytes": 1302740,
     "content_type": "image/png",
     "verified_at_edge": true
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-scitani-hlasu-2025/scitani-male-obce-praha-15-16-v1.png",
+    "key": "databites-dtcz/2026-scitani-hlasu-2025/scitani-male-obce-praha-15-16-v1.png",
+    "sha256": "ea20c716eaf7db5a5156d983a3916e065cc09b3998a0063dbaa28b02d153c364",
+    "bytes": 1184378,
+    "content_type": "image/png",
+    "verified_at_edge": true,
+    "original_source": "2026-scitani-hlasu-2025/pipeline/out/size_5pct_landscape.png"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-scitani-hlasu-2025/scitani-okrsky-ano-15-16-v1.png",
+    "key": "databites-dtcz/2026-scitani-hlasu-2025/scitani-okrsky-ano-15-16-v1.png",
+    "sha256": "79daf388157b2c72559e92690ce5dfa7f4197e318df9237f103662e94061e08e",
+    "bytes": 1196681,
+    "content_type": "image/png",
+    "verified_at_edge": true,
+    "original_source": "2026-scitani-hlasu-2025/pipeline/out/ano_5pct_landscape.png"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-scitani-hlasu-2025/scitani-rychlost-16-20-v1.png",
+    "key": "databites-dtcz/2026-scitani-hlasu-2025/scitani-rychlost-16-20-v1.png",
+    "sha256": "2df746578ae5944f9f73b6ab4209050cf1ecc5e6ff3f19e3bbbc2c316543a663",
+    "bytes": 1180488,
+    "content_type": "image/png",
+    "verified_at_edge": true,
+    "original_source": "2026-scitani-hlasu-2025/pipeline/out/speed_50pct_landscape.png"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-scitani-hlasu-2025/scitani-male-obce-praha-v1.mp4",
+    "key": "databites-dtcz/2026-scitani-hlasu-2025/scitani-male-obce-praha-v1.mp4",
+    "sha256": "a8c870c7865ef5229840bd4a45bf06548d066c9d704d4b8b8b1cc144286735dd",
+    "bytes": 35828743,
+    "content_type": "video/mp4",
+    "verified_at_edge": true,
+    "original_source": "2026-scitani-hlasu-2025/pipeline/out/size_video.mp4"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-scitani-hlasu-2025/scitani-okrsky-ano-v1.mp4",
+    "key": "databites-dtcz/2026-scitani-hlasu-2025/scitani-okrsky-ano-v1.mp4",
+    "sha256": "45fa3cd451b51e8bfed1a3d5681aadfbaecbbf9d905f786dcc8d7906fd6eec12",
+    "bytes": 39402364,
+    "content_type": "video/mp4",
+    "verified_at_edge": true,
+    "original_source": "2026-scitani-hlasu-2025/pipeline/out/ano_video.mp4"
+  },
+  {
+    "status": "success",
+    "url": "https://media.datatimes.org/databites-dtcz/2026-scitani-hlasu-2025/scitani-rychlost-v1.mp4",
+    "key": "databites-dtcz/2026-scitani-hlasu-2025/scitani-rychlost-v1.mp4",
+    "sha256": "f211389579bc597ef514cf73a4c0db7ea7cc001a2f67afffb739944b895b7b60",
+    "bytes": 42700807,
+    "content_type": "video/mp4",
+    "verified_at_edge": true,
+    "original_source": "2026-scitani-hlasu-2025/pipeline/out/speed_video.mp4"
   }
 ]

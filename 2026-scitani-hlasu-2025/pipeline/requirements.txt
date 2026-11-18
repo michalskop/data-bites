@@ -1,0 +1,10 @@
+numpy
+pandas
+pyarrow
+pyproj
+shapely
+geopandas
+rasterio
+scipy
+Pillow
+playwright

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jak se sčítaly hlasy ve volbách 2025 | Data Bites</title>
+  <link rel="icon" href="https://media.datatimes.org/databites-dtcz/site/favicon-bites-2026-11-v1.ico" type="image/x-icon" sizes="16x16 32x32 48x48 64x64">
+  <link rel="icon" href="https://media.datatimes.org/databites-dtcz/site/favicon-bites-2026-11-v1.svg" type="image/svg+xml" sizes="any">
+  <link rel="apple-touch-icon" href="https://media.datatimes.org/databites-dtcz/site/apple-touch-icon-bites-2026-11-v1.png" sizes="180x180">
+  <meta name="description" content="Jak se po zavření volebních místností 4. října 2025 sčítalo všech 14 710 okrsků: kdy a kde, malé obce proti Praze a okrsky s nejvyšším a nejnižším ziskem ANO.">
+  <link rel="canonical" href="https://databites.datatimes.cz/2026-scitani-hlasu-2025/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="videos.js" defer></script>
+  <script src="gallery.js" defer></script>
+  <script src="../assets/media-download.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="wordmark" href="../" aria-label="Data Bites — úvodní stránka">DataBites<span>.</span><strong>DataTimes</strong><span>.</span>cz</a>
+      <a class="back-link" href="../">← Všechny vizualizace</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <header class="intro">
+      <div>
+        <p class="eyebrow">Volby · Poslanecká sněmovna · 4. října 2025</p>
+        <h1>Jak se sčítaly<br><em>hlasy.</em></h1>
+        <p class="lead">Ve 14:00 se zavřely volební místnosti a okrsky začaly hlásit výsledky. Každá tečka je jeden volební okrsek a každé video ukazuje, kdy a kde se sečetl. Kde se sčítalo první, kde poslední a co to dělalo s průběžným výsledkem.</p>
+      </div>
+      <div class="intro-facts" aria-label="O vizualizaci">
+        <p><strong>14 710</strong><span>okrsků v České republice</span></p>
+        <p><strong>20:41</strong><span>sečten poslední okrsek</span></p>
+        <p><strong>3</strong><span>videa pro prezentace a web</span></p>
+      </div>
+    </header>
+
+    <section class="formats-section" aria-labelledby="formats-heading">
+      <div class="section-heading">
+        <h2 id="formats-heading">Tři pohledy na stejné sčítání.</h2>
+        <p>Všechna videa trvají minutu a mají formát 16:9.</p>
+      </div>
+      <div id="format-list" class="format-list" role="group" aria-label="Videa"></div>
+    </section>
+
+    <section class="viewer" aria-labelledby="selected-title">
+      <div class="player-column">
+        <div class="player-topline"><span><i class="status-dot"></i> Sčítání hlasů</span><span>4. 10. 2025 · 14:20–20:41</span></div>
+        <div class="video-stage">
+          <video id="preview-video" controls playsinline preload="none" aria-label="Jak se sčítaly hlasy ve volbách 2025"></video>
+        </div>
+        <div class="player-caption"><span>Čas ve videu je zrychlený a proměnlivý: na začátku pomalejší, večer rychlejší.</span><span>Každá tečka je jeden okrsek.</span></div>
+        <p id="video-error" class="video-error" role="status" hidden>Video se nepodařilo načíst. Zkuste přímý odkaz „Otevřít video“ nebo soubor stáhněte.</p>
+      </div>
+      <aside class="format-detail">
+        <p id="selected-kicker" class="eyebrow"></p>
+        <h2 id="selected-title"></h2>
+        <p id="selected-description" class="format-description"></p>
+        <p id="selected-platforms" class="platform-label"></p>
+        <dl class="specs">
+          <div><dt>Rozlišení</dt><dd id="selected-resolution"></dd></div>
+          <div><dt>Poměr stran</dt><dd id="selected-ratio"></dd></div>
+          <div><dt>Délka</dt><dd>60 sekund</dd></div>
+          <div><dt>Soubor</dt><dd id="selected-file"></dd></div>
+          <div><dt>Zvuk</dt><dd>Bez zvuku</dd></div>
+        </dl>
+        <a id="download-video" class="button-primary" href="#" download>Stáhnout video <span aria-hidden="true">↓</span></a>
+        <a id="download-poster" class="button-secondary" href="#" download>Stáhnout náhled PNG <span aria-hidden="true">↓</span></a>
+        <p id="download-status" class="download-status" role="status" hidden></p>
+        <a id="open-video" class="open-video" href="#" target="_blank" rel="noopener">Otevřít video v nové kartě ↗</a>
+        <p id="poster-note" class="poster-note"></p>
+      </aside>
+    </section>
+
+    <section class="context" aria-labelledby="context-heading">
+      <div class="context-title"><p class="eyebrow">Jak číst vizualizaci</p><h2 id="context-heading">Okrsek po okrsku</h2></div>
+      <div><h3>Čas je čas zpracování okrsku</h3><p>Hodiny ukazují okamžik, kdy Český statistický úřad okrsek zpracoval. Pomocný graf pod mapou ukazuje, jak se s postupem sčítání měnila podpora ANO. Oranžová čára je výsledek už sečtených okrsků, tmavá čára nejnověji sečtené okrsky. V 15:16, když bylo sečteno 5 % hlasů, mělo ANO 39,3 %. Konečný výsledek byl 34,7 %.</p></div>
+      <div><h3>Velikost okrsku rozhoduje</h3><p>Malé okrsky se sčítají rychleji, proto malé obce předstihly velká města. Okrsky s vysokým ziskem ANO bývají menší, takže rozdíl mezi nimi je částečně jen důsledkem velikosti. V obcích stejné velikosti (kromě nejmenších, do 300 voličů) ale okrsky s nejvyšším ziskem ANO hlásily přesto dříve než ostatní.</p></div>
+      <div><h3>Data a metoda</h3><p>Časy a hlasy okrsků pocházejí z průběžných výsledků ČSÚ (<a href="https://www.volby.cz/" target="_blank" rel="noopener">volby.cz ↗</a>), zaznamenaných během volební noci. Polohy okrsků podle hranic volebních okrsků <a href="https://www.cuzk.gov.cz/" target="_blank" rel="noopener">RÚIAN (ČÚZK) ↗</a>. Okrsky v zahraničí nejsou na mapě. Zdrojové datové soubory a skripty, které videa vytvářejí, jsou ke stažení: <a href="data/precincts_2025.csv">okrsky</a>, <a href="data/counting_batches_2025.csv">dávky sčítání</a>, <a href="https://github.com/michalskop/data-bites/tree/main/2026-scitani-hlasu-2025" target="_blank" rel="noopener">skripty na GitHubu ↗</a>.</p></div>
+    </section>
+
+    <noscript><p class="no-script">Pro přepínání videí zapněte JavaScript.</p></noscript>
+  </main>
+
+  <footer class="site-footer"><div><a class="wordmark" href="../">DataBites<span>.</span><strong>DataTimes</strong><span>.</span>cz</a><p>Kateřina Mahdalová &amp; Michal Škop · <a href="https://datatimes.cz" target="_blank" rel="noopener">DataTimes.cz ↗</a></p></div></footer>
+</body>
+</html>

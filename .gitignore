@@ -15,3 +15,8 @@ __pycache__/
 /2026-usa-volebni-kartogram/media-local/
 /2026-gasse-strasse/media-local/
 /2026-jak-rikame-ulici/media-local/
+/2026-scitani-hlasu-2025/pipeline/cache/
+/2026-scitani-hlasu-2025/pipeline/out/
+/2026-scitani-hlasu-2025/pipeline/renderer/base.png
+/2026-scitani-hlasu-2025/pipeline/renderer/data.json
+/2026-scitani-hlasu-2025/pipeline/renderer/fonts/
