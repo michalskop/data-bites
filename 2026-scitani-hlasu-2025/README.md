@@ -23,6 +23,8 @@ moving window of the most recently counted ones, at least 10 minutes and about 8
 Positions come from the RÚIAN voting-district layer of ČÚZK (current state, fetched with `pipeline/fetch_ruian.py`) with the 2022 export as fallback.
 A 2025-dated RÚIAN snapshot is not available for download, so a precinct changed after the election could be placed slightly off. Precincts abroad are not mapped.
 
+Agents on Windows: see [AGENT_SETUP_WINDOWS.md](AGENT_SETUP_WINDOWS.md) for step-by-step setup, verification and troubleshooting.
+
 ## Windows: one line
 Once per machine, install the tools in PowerShell (then open a new terminal): `winget install -e Git.Git; winget install -e Python.Python.3.12; winget install -e Gyan.FFmpeg`
 
