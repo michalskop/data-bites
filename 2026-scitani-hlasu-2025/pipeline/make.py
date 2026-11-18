@@ -16,7 +16,8 @@ def setup():
         print('renderer assets already present')
     else:
         print('downloading', ASSETS_URL)
-        data = urllib.request.urlopen(ASSETS_URL, timeout=120).read()
+        req = urllib.request.Request(ASSETS_URL, headers={'User-Agent': 'databites-pipeline/1.0'})      # the CDN rejects Python's default User-Agent
+        data = urllib.request.urlopen(req, timeout=120).read()
         if hashlib.sha256(data).hexdigest() != ASSETS_SHA256: sys.exit('checksum mismatch for the asset bundle; not extracting')
         zipfile.ZipFile(io.BytesIO(data)).extractall(RENDERER); print('extracted to', RENDERER)
     if not shutil.which('ffmpeg'): print('WARNING: ffmpeg not found (needed for videos): install it with your package manager')
