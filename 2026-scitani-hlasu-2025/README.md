@@ -23,6 +23,15 @@ moving window of the most recently counted ones, at least 10 minutes and about 8
 Positions come from the RÚIAN voting-district layer of ČÚZK (current state, fetched with `pipeline/fetch_ruian.py`) with the 2022 export as fallback.
 A 2025-dated RÚIAN snapshot is not available for download, so a precinct changed after the election could be placed slightly off. Precincts abroad are not mapped.
 
+## Windows: one line
+Once per machine, install the tools in PowerShell (then open a new terminal): `winget install -e Git.Git; winget install -e Python.Python.3.12; winget install -e Gyan.FFmpeg`
+
+Then everything else in one line (clones, creates a virtual environment, installs the requirements and a browser, downloads the base map, builds the data):
+```powershell
+git clone --depth 1 https://github.com/michalskop/data-bites.git; cd data-bites\2026-scitani-hlasu-2025\pipeline; py -m venv .venv; .\.venv\Scripts\python -m pip install -r requirements.txt; .\.venv\Scripts\python -m playwright install chromium; .\.venv\Scripts\python make.py setup; .\.venv\Scripts\python make.py build
+```
+Render a video afterwards with `.\.venv\Scripts\python make.py video speed` (or `size`, `ano`).
+
 ## Quick start (nothing else needed)
 Requirements: Python 3.10+, `ffmpeg` on the PATH and a browser for Playwright.
 ```bash

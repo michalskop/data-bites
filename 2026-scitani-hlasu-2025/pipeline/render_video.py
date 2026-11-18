@@ -14,7 +14,7 @@ k = int(2.0 / (fine[1] - fine[0])); vel = np.convolve(np.pad(vel, k, mode='edge'
 tt = 20 + np.concatenate([[0], np.cumsum((vel[1:] + vel[:-1]) / 2 * np.diff(fine))]); tt = 20 + (tt - 20) * (401.4 - 20) / (tt[-1] - 20)
 n = int(secs * FPS); sec = np.arange(n) / FPS
 T = np.where(sec < run, np.interp(sec, fine, tt), 401.4); V = np.interp(np.minimum(sec, run), fine, vel)       # minutes shown, minutes per second
-srv = subprocess.Popen(['python3', '-m', 'http.server', str(port), '-d', str(RENDERER)], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL); wait_for_port(port)
+srv = subprocess.Popen([sys.executable, '-m', 'http.server', str(port), '-d', str(RENDERER)], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL); wait_for_port(port)
 ff = subprocess.Popen(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'image2pipe', '-framerate', str(FPS), '-c:v', 'mjpeg', '-i', '-', '-vf', 'scale=in_range=full:out_range=limited,format=yuv420p',      # JPEG frames are full range; players expect limited-range yuv420p
                        '-c:v', 'libx264', '-preset', 'medium', '-crf', '18', '-profile:v', 'high', '-color_range', 'tv', '-movflags', '+faststart', out if not limit else out.replace('.mp4', '_test.mp4')], stdin=subprocess.PIPE)
 try:

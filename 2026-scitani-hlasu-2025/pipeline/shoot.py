@@ -4,7 +4,7 @@ PORT = free_port()
 import sys, subprocess, time, os
 from playwright.sync_api import sync_playwright
 mode = sys.argv[1]; pct = sys.argv[2] if len(sys.argv) > 2 else '5'; fmt = 'landscape'
-srv = subprocess.Popen(['python3', '-m', 'http.server', str(PORT), '-d', str(RENDERER)], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL); wait_for_port(PORT)
+srv = subprocess.Popen([sys.executable, '-m', 'http.server', str(PORT), '-d', str(RENDERER)], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL); wait_for_port(PORT)
 try:
     with sync_playwright() as p:
         b = launch_browser(p); pg = b.new_page(viewport={'width': 1920, 'height': 1080})
